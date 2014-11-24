@@ -1,0 +1,26 @@
+{
+  "name": "News-Summarization",
+  "version": "1.0.0",
+  "description": "IR Project Phase-3",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mimanshujain/News-Summarization.git"
+  },
+  "keywords": [
+    "news",
+    "summarization",
+    "solr",
+    "node",
+    "express"
+  ],
+  "author": "Mimanshu,Himanshu,Avinav and Aayush",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mimanshujain/News-Summarization/issues"
+  },
+  "homepage": "https://github.com/mimanshujain/News-Summarization"
+}
