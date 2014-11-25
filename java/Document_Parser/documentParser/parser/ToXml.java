@@ -14,14 +14,20 @@ import documentParser.document.FieldNames;
 import documentParser.document.NewsDocument;
 
 public class ToXml {
+	private static Long id = (long) 0;
 	/**
 	 * Takes input NewsDocument object and convert to dom.document object 
 	 * @param nd NewsDocument
 	 * @return XML document
 	 */
 	public static Document createDocument(NewsDocument nd) {
+		id ++;
 		Document document = DocumentHelper.createDocument();
-		Element root = document.addElement("root");
+		Element root = document.addElement("add");
+		Element doc = root.addElement("doc");
+		doc.addElement("field")
+		.addAttribute("name", "id")
+		.addText(id.toString());
 		FieldNames[] fn = {FieldNames.FILEID, FieldNames.CATEGORY, FieldNames.AUTHOR,
 				FieldNames.AUTHORORG, FieldNames.NEWSDATE, FieldNames.PLACE,   
 				FieldNames.TITLE, FieldNames.CONTENT};
@@ -31,13 +37,13 @@ public class ToXml {
 				if (fn[i].equals(FieldNames.AUTHOR)) {
 					for (String author: str[0].split(",")) {
 						if(author != null && !author.trim().isEmpty()) {
-							root.addElement(fn[i].toString())
+							doc.addElement("field").addAttribute("name", fn[i].toString())
 							.addText(author.trim());
 						}
 					}
 				}
 				else {
-					root.addElement(fn[i].toString())
+				doc.addElement("field").addAttribute("name", fn[i].toString())
 					.addText(str[0]);	
 				}
 			}
