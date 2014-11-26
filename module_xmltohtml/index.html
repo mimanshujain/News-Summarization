@@ -1,0 +1,35 @@
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" media="all" href="style.css" />
+	<script type="text/javascript" src="jquery.js"></script>
+	<title>News summary</title>
+     <script>
+     	$(document).ready(function(){
+			$.ajax({
+				type: "GET",
+				url: "news.xml",
+				dataType: "xml",
+				success: function(xml) {
+					$(xml).find('news').each(function(){
+						var id = $(this).attr('id');
+						var title = $(this).find('title').text();
+						var url = $(this).find('url').text();
+						$('<div class="items" id="link_'+id+'"></div>').html('<a href="'+url+'">'+title+'</a>').appendTo('#page-wrap');
+						$(this).find('desc').each(function(){
+							var brief = $(this).find('brief').text();
+							var long = $(this).find('long').text();
+							$('<div class="brief"></div>').html(brief).appendTo('#link_'+id);
+							$('<div class="long"></div>').html(long).appendTo('#link_'+id);
+						});
+					});
+				}
+			});
+		});
+     </script>
+</head>
+<body>
+	<div id="page-wrap">
+     	<h1>Top news results</h1>
+     </div>
+</body>
+</html>
