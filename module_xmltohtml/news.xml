@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+ <newss>
+   <news id="1">
+     <title>News 1</title>
+	<url>http://www.google.com</url>
+     <desc>
+       <brief>this is the brief description.</brief>
+       <long>...and this is the long description.......................</long>
+     </desc>
+   </news>
+   <news id="2">
+     <title>News 2</title>
+	<url>http://www.bing.com</url>
+     <desc>
+       <brief>this is the brief description.</brief>
+       <long>...and this is the long description.......................</long>
+     </desc>
+   </news>
+   <news id="3">
+     <title>News 3</title>
+	<url>http://www.yahoo.com</url>
+     <desc>
+       <brief>this is the brief description.</brief>
+       <long>...and this is the long description.......................</long>
+     </desc>
+   </news>
+ </newss>
