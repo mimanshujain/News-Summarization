@@ -1,16 +1,16 @@
 /**
  * 
  */
-package documentParser;
+package org.kb.documentParser;
 
 import java.io.File;
 
 import org.dom4j.Document;
 
-import documentParser.document.NewsDocument;
-import documentParser.document.ParserException;
-import documentParser.parser.ReutersParser;
-import documentParser.parser.ToXml;
+import org.kb.documentParser.document.NewsDocument;
+import org.kb.documentParser.document.ParserException;
+import org.kb.documentParser.parser.ReutersParser;
+import org.kb.documentParser.parser.ToXml;
 
 /**
  * 

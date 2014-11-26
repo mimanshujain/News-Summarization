@@ -1,4 +1,4 @@
-package documentParser.document;
+package org.kb.documentParser.document;
 
 public class ParserException extends Exception{
 

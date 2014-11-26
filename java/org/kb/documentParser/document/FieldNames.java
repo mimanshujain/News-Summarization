@@ -1,7 +1,7 @@
 /**
  * 
  */
-package documentParser.document;
+package org.kb.documentParser.document;
 
 
 /**

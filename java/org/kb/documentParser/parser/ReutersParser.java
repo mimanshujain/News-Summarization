@@ -1,4 +1,4 @@
-package documentParser.parser;
+package org.kb.documentParser.parser;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -9,9 +9,9 @@ import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import documentParser.document.FieldNames;
-import documentParser.document.NewsDocument;
-import documentParser.document.ParserException;
+import org.kb.documentParser.document.FieldNames;
+import org.kb.documentParser.document.NewsDocument;
+import org.kb.documentParser.document.ParserException;
 
 public class ReutersParser {
 	private static Matcher matMonth;

@@ -1,4 +1,4 @@
-package documentParser.parser;
+package org.kb.documentParser.parser;
 
 import java.io.File;
 import java.io.FileWriter;
@@ -10,8 +10,8 @@ import org.dom4j.Element;
 import org.dom4j.io.OutputFormat;
 import org.dom4j.io.XMLWriter;
 
-import documentParser.document.FieldNames;
-import documentParser.document.NewsDocument;
+import org.kb.documentParser.document.FieldNames;
+import org.kb.documentParser.document.NewsDocument;
 
 public class ToXml {
 	private static Long id = (long) 0;
