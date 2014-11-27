@@ -3,15 +3,17 @@ package org.kb.documentParser.parser;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.Hashtable;
+import java.util.List;
 
 import org.dom4j.Document;
 import org.dom4j.DocumentHelper;
 import org.dom4j.Element;
 import org.dom4j.io.OutputFormat;
 import org.dom4j.io.XMLWriter;
-
 import org.kb.documentParser.document.FieldNames;
 import org.kb.documentParser.document.NewsDocument;
+import org.kb.documentParser.document.XMLTags;
 
 public class ToXml {
 	private static Long id = (long) 0;
@@ -72,6 +74,30 @@ public class ToXml {
 		*/
 		
 	}
+	
+	public static Document createDocument(Hashtable<String, List<XMLTags>> tagTable) {
+		id ++;
+		Document document = DocumentHelper.createDocument();
+		Element root = document.addElement("add");
+		Element doc = root.addElement("doc");
+		doc.addElement("field")
+		.addAttribute("name", "id")
+		.addText(id.toString());
+		String[] fn =  tagTable.keySet().toArray(new String[0]);
+		for (int i = 0; i < fn.length; i++) {
+			List<XMLTags> tagList = tagTable.get(fn[i]);
+			Element e = doc.addElement(fn[i].split(":")[0]);
+			for (XMLTags tag : tagList) {
+				Hashtable<String, String> atts = tag.getAttributes();
+				for(String att: atts.keySet()) {
+					e.addAttribute(att,atts.get(att));
+				}
+				e.addText(tag.getText().toString());
+			}
+		}
+		return document;
+	}
+	
 	/**
 	 * 
 	 * @param fOut

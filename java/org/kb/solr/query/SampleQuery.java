@@ -3,7 +3,6 @@
  */
 package org.kb.solr.query;
 
-
 import java.util.Iterator;
 import java.util.Set;
 
