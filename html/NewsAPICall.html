@@ -11,6 +11,7 @@
 <script src="../js/jquery.tagcanvas.min.js" type="text/javascript"></script>
 <script type="text/javascript" src="../js/stopwords.js"></script>
 <script type="text/javascript" src="../js/lda.js"></script>
+
 <script type="text/javascript">
 function topicise() {
 	//console.log("analysing "+sentences.length+" sentences...");
@@ -26,7 +27,7 @@ function topicise() {
 		for(var wc=0;wc<words.length;wc++) {
 			var w=words[wc].toLowerCase().replace(/[^a-z\'A-Z0-9 ]+/g, '');
 			//TODO: Add stemming
-			if (w=="" || w.length==1 || stopwords[words[wc]] || w.indexOf("http")==0) continue;
+			if (w=="" || w.length==1 || stopwords[w] || w.indexOf("http")==0) continue;
 			if (f[w]) { 
 				f[w]=f[w]+1;			
 			} 
@@ -44,7 +45,7 @@ function topicise() {
 	var V = vocab.length;
 	var M = documents.length;
 	var K = 1;//parseInt($( "#topics" ).val());
-	K = 2;
+	K = 1;
 	var alpha = 0.1;  // per-document distributions over topics
 	var beta = .01;  // per-topic distributions over words
 
@@ -67,15 +68,14 @@ function topicise() {
 		}
 		tuples.sort().reverse();
 		if(topTerms>vocab.length) topTerms=vocab.length;
-		//topicText[k]='';
+		topicText[k]='';
 		for (var t = 0; t < topTerms; t++) {
 			var topicTerm=tuples[t].split("_")[1];
 			var prob=parseInt(tuples[t].split("_")[0]*100);
 			if (prob<0.0001) continue;
 			text+=( '<li><a href="javascript:void(0);" data-weight="'+(prob)+'" title="'+prob+'%">'+topicTerm +'</a></li>' );			
 			console.log("topic "+k+": "+ topicTerm+" = " + prob  + "%");
-		//	topicText[k] += ( topicTerm +" ");
-			topicText.push(topicTerm);
+			topicText[k] += ( topicTerm +" ");
 		}
 		text+='</ul></canvas>';
 	}
@@ -111,7 +111,6 @@ function topicise() {
 			//TagCanvas.Start('topic'+k);
 		}
 	} 
-	return topicText;
 }
 
 $(document).ready(function(){
@@ -128,6 +127,15 @@ $(document).ready(function(){
 	$( "#topics" ).change(function() {
 		slider.slider( "value", this.selectedIndex + 2 );
 	}); */
+	
+	
+$("#search_field").keyup(function(event){
+    if(event.keyCode == 13){
+        crawlGuardian();
+    }
+});
+
+
 });
 
 function btnTopiciseClicked() {
@@ -148,8 +156,8 @@ var sentences = [""];
 <body>
 	<div id="search_back" class="center_nm">
 	<div id="search_div" class="center">
-	<input type="text" style="height:30px; width:300px; top:6px; position:relative;"id="query"></input>
-	<button type="submit" style="height:30px; top:6px; position:relative;" onclick=callSolr()>Search</button>
+	<input id="search_field" type="text" style="height:30px; width:300px; top:6px; position:relative;"id="query"></input>
+	<button type="submit" style="height:30px; top:6px; position:relative;" onclick=crawlGuardian()>Search</button>
 	</div>
 	</div>
 	
