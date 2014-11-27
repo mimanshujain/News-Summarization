@@ -6,26 +6,17 @@
     "start": "node ./bin/www"
   },
   "dependencies": {
+    "JSONStream": "^0.10.0",
     "body-parser": "~1.8.1",
     "cookie-parser": "~1.3.3",
     "debug": "~2.0.0",
     "ejs": "~0.8.5",
     "express": "~4.9.0",
     "express-error-handler": "^1.0.0",
+    "fs": "0.0.2",
+    "jquery": "^2.1.1",
     "morgan": "~1.3.0",
     "serve-favicon": "~2.1.3",
     "solr-client": "^0.4.0"
-  },
-  "keywords": [
-    "news",
-    "summarization",
-    "solr",
-    "node",
-    "express"
-  ],
-  "author": "Mimanshu, Himanshu, Avinav and Aayush",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/mimanshujain/News-Summarization/issues"
   }
 }

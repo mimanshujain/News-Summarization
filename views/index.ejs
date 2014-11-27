@@ -1,11 +1,15 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
+	<title><%= title %></title>
   </head>
   <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
+	<h1><%= title %></h1>
+	<p>Welcome to <%= title %></p>
+	<section>
+		<input id="txtQuery" type="text" />
+		<input id="btnSubmit" type="submit" value="Shoot" />
+	</section>
+	<% include partials/template/defaultjs.ejs %>
   </body>
 </html>
