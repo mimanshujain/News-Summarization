@@ -19,19 +19,41 @@ router.get('/', function (req, res) {
 });
 
 router.post('/', function (req, res) {
-    console.log(req.method);   
+    console.log('Method: '+req.method);   
     if (typeof req.body.query != 'undefined') {
         //console.log('Query: ' + req.body.query.toString());
         queryVal = req.body.query.toString();
-        var resultSet;
-        result = processQuery(resultSet, callback(queryVal))
-        {
-            return resultSet;
-        };
+        var resultSet = {};
+        
+        //Designing Query
+        var query = client.createQuery()
+				   .q(queryVal)
+				   .start(0)
+				   .rows(10);
+
+        //Search in Solr
+        client.search(query, function (err, obj) {
+            if (err) {
+                console.log(err);
+            } else {
+                console.log('Saving Result Set');
+                //console.log(obj);
+                result = obj;
+                fs.writeFile('./message.json', JSON.stringify(resultSet), function (err) {
+                    if (err)
+                        console.log(err);
+                    else {
+                        console.log(result);
+                        console.log('message.json saved!');
+                        if (typeof req.body.query != 'undefined')
+                            //res.render('index', { title: 'Shisodia Mimanshu', query: 'Random Query', text: 'Success ' + req.body.query });
+                            res.send(result);
+                    }
+                       
+                });
+            }
+        });
     }
-    console.log(result);
-    if (typeof req.body.query != 'undefined')
-        res.render('index', { title: 'Shisodia Mimanshu', query: 'Random Query', text: 'Success ' + req.body.query });
 });
 
 var callback = function (queryVal) {
