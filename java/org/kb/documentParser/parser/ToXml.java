@@ -16,7 +16,7 @@ import org.kb.documentParser.document.NewsDocument;
 import org.kb.documentParser.document.XMLTags;
 
 public class ToXml {
-	private static Long id = (long) 0;
+	private static Long id = (long) 52000;
 	/**
 	 * Takes input NewsDocument object and convert to dom.document object 
 	 * @param nd NewsDocument
@@ -76,7 +76,7 @@ public class ToXml {
 	}
 	
 	public static Document createDocument(Hashtable<String, List<XMLTags>> tagTable) {
-		id ++;
+	 	id ++;
 		Document document = DocumentHelper.createDocument();
 		Element root = document.addElement("add");
 		Element doc = root.addElement("doc");
@@ -94,6 +94,22 @@ public class ToXml {
 				}
 				e.addText(tag.getText().toString());
 			}
+		}
+		return document;
+	}
+	
+	public static Document createDocument(List<XMLTags> tagList) {
+		id ++;
+		Document document = DocumentHelper.createDocument();
+		Element root = document.addElement("add");
+		Element doc = root.addElement("doc");
+		doc.addElement("field")
+		.addAttribute("name", "id")
+		.addText(id.toString());
+		for (XMLTags tag : tagList) {
+			Element e = doc.addElement("field");
+			e.addAttribute("name",tag.getTagName());
+			e.addText(tag.getText().toString());
 		}
 		return document;
 	}

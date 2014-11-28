@@ -15,15 +15,13 @@ import javax.xml.parsers.SAXParser;
 import javax.xml.parsers.SAXParserFactory;
 
 import org.kb.documentParser.document.ParserException;
+import org.kb.documentParser.document.SAXNYTimesHandler;
 import org.kb.documentParser.document.XMLTags;
 import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
+import org.xml.sax.XMLReader;
 import org.xml.sax.helpers.DefaultHandler;
 
-/**
- * 
- *
- */
 
 /**
  * Generic Handler for all tags
@@ -60,6 +58,7 @@ public class NYTimesParser {
 				tagList.add(this.tag);
 				this.tagTable.put(key, tagList);
 			}
+			
 			//			System.out.println(key + " name:" + this.name);
 		}
 
@@ -107,7 +106,7 @@ public class NYTimesParser {
 		 * @throws ParserException
 		 */
 
-		public Hashtable<String, List<XMLTags>> parseNYCorpus (String filename) throws ParserException {
+		public Hashtable<String, List<XMLTags>> parseNY (String filename) throws ParserException {
 			if (filename == null || filename.isEmpty()) {
 				throw new ParserException();
 			}
@@ -148,5 +147,23 @@ public class NYTimesParser {
 			//			// TODO Auto-generated catch block
 			//			System.out.println(e.getMessage());
 			//			}
+		}
+		
+		public List<XMLTags> parseNYCorpus (File file) throws ParserException{
+			List<XMLTags> tagList = null;
+			SAXNYTimesHandler dh = new SAXNYTimesHandler();
+			SAXParserFactory factory = SAXParserFactory.newInstance();
+			try {
+				SAXParser saxParser = factory.newSAXParser();
+				XMLReader xmlParser = saxParser.getXMLReader();
+				xmlParser.setFeature("http://apache.org/xml/features/nonvalidating/load-external-dtd", false);
+				xmlParser.setFeature("http://xml.org/sax/features/validation", false);
+				saxParser.parse(file, dh);
+				tagList = dh.getList();
+			} catch (ParserConfigurationException | SAXException | IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			return tagList;
 		}
 	}
