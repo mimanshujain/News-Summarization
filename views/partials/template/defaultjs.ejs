@@ -1,25 +1,41 @@
 <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
 
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.js"></script>
+
   <script type="text/javascript">
-    $(document).ready(function () {
+    $(document).ready(function (){
+    
     <% if(typeof text != 'undefined')
        {%>
         $('#txtQuery').val('<%= text %>');
-      <%} 
-      else%>
-        alert('None');
-            
-      $('#btnSubmit').click(function(){
+    <% } %>
+      
+    $('#btnSubmit').click(function(){
       var data = {};
       data.query = $('#txtQuery').val();
-        $.ajax({
+      $.ajax({
         type: 'POST',
         data: JSON.stringify(data),
         contentType: 'application/json',
-        url: 'http://localhost:3000'
+        url: 'http://localhost:3000',
+        success: function( data ) {
+          //data = JSON.stringify(data);
+          $('#lblMessage').text('Successful execution');
+          $('#txtQuery').val('');
+          
+          var output="<ul>";
+          for (var i in data.response.docs)
+          {
+            output+="<li>File Id: " + data.response.docs[i].FILEID + " Category: " +data.response.docs[i].CATEGORY +"</li>";
+          }
+            //$.each( data.response.docs, function(item ){
+            //output+="<li>File Id: " + item.FILEID + " Category: " +item.CATEGORY +"</li>";
+            //});
+            output+="</ul>";
+            alert(output);
+          $("#placeholder").html(output);
+          }
+        });
       });
-      });
-
     });
   </script>
