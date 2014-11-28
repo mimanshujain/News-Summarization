@@ -70,3 +70,24 @@ function crawlNYTimes() {
 			topicise();
 		});
 }
+
+function crawlGuardian() {
+	var GApi = "http://content.guardianapis.com/search?q=";
+	GApi = GApi + $("input").val() + "&sort=newest&api-key=neukrcw8u9xm4ks5zejvx3uj";
+	sentences[0] = "";
+	$.getJSON( GApi, function( data ) {
+			$("#results").empty();
+			$.each(data.response.results, function(){
+				var html = '<li> Date: ' + this.webPublicationDate + '</br>';
+				html += ' abstract: '+ this.sectionName + '</br>';;
+				html += ' <b>headlines: ' + this.webTitle + '</b>'+ '</br>';
+				html += ' leadparagraph: ' + this.sectionName + '</br>';
+				html += ' <a href=\"' + this.webUrl + '\">Click here</a></li></br></br>';
+				$("#results").append(html);
+				sentences[0] = sentences[0].concat(this.webTitle, " ");
+				sentences[0] = sentences[0].concat(this.sectionName, " ");
+				
+			});
+			topicise();
+		});
+}

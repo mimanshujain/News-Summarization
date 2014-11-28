@@ -11,6 +11,7 @@
 <script src="../js/jquery.tagcanvas.min.js" type="text/javascript"></script>
 <script type="text/javascript" src="../js/stopwords.js"></script>
 <script type="text/javascript" src="../js/lda.js"></script>
+
 <script type="text/javascript">
 function topicise() {
 	//console.log("analysing "+sentences.length+" sentences...");
@@ -126,6 +127,15 @@ $(document).ready(function(){
 	$( "#topics" ).change(function() {
 		slider.slider( "value", this.selectedIndex + 2 );
 	}); */
+	
+	
+$("#search_field").keyup(function(event){
+    if(event.keyCode == 13){
+        crawlGuardian();
+    }
+});
+
+
 });
 
 function btnTopiciseClicked() {
@@ -146,8 +156,8 @@ var sentences = [""];
 <body>
 	<div id="search_back" class="center_nm">
 	<div id="search_div" class="center">
-	<input type="text" style="height:30px; width:300px; top:6px; position:relative;"id="query"></input>
-	<button type="submit" style="height:30px; top:6px; position:relative;" onclick=callSolr()>Search</button>
+	<input id="search_field" type="text" style="height:30px; width:300px; top:6px; position:relative;"id="query"></input>
+	<button type="submit" style="height:30px; top:6px; position:relative;" onclick=crawlGuardian()>Search</button>
 	</div>
 	</div>
 	
