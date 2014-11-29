@@ -24,7 +24,7 @@
         
         success: function( nodeData ) 
         {
-          var data = nodeData.data1;
+          var data = nodeData.solrData;
           $('#lblMessage').text('Total '+ Object.keys(data.response.docs).length+' result found.');
           $('#txtQuery').val('');
           
@@ -32,26 +32,28 @@
           var output="<ul>";
           var count = 0;
           
-          for (var i in data.response.docs)
+         /* for (var i in data.response.docs)
           {
             output+="<li>File Id: " + data.response.docs[i].FILEID + " Category: " + data.response.docs[i].CATEGORY +"</li>";
             count+=1;
             if(count == 10) break;
-          }
+          }*/
             //$.each( data.response.docs, function(item ){
             //output+="<li>File Id: " + item.FILEID + " Category: " +item.CATEGORY +"</li>";
             //});
-            output+="</ul>";
-          $("#placeholder").html(output);
+          //  output+="</ul>";
+         // $("#placeholder").html(output);
           $("#my-timeline").html('');
+          if(Object.keys(data.response.docs).length > 0){
+
           createStoryJS({
               type: 'timeline',
               width: '800',
               height: '600',
-              source: nodeData.data2,
+              source: nodeData.timeLineData,
               embed_id: 'my-timeline'
-          });//TimeLine.js          
-                     
+            });//TimeLine.js          
+           }         
           }
         });//Ajax Call
       });//Button Click

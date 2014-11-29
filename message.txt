@@ -1,61 +1,232 @@
+var express = require('express');
+var router = express.Router();
+var http = require('http');
+var https = require('https');
+    var requestify = require('requestify');
+var solr = require('solr-client');
+var querystring = require('querystring');
+var JSONStream = require('JSONStream');
+var fs = require('fs');
 
-//function processQuery(result) {
+//Api call parameters
+var requestify = require('requestify');
+var host = 'www.theguardian.com';
+var key = 'neukrcw8u9xm4ks5zejvx3uj';
+var querystring = require('querystring');
 
-//    // DixMax query
-//    //var query = client.createQuery()
-//				//  .q(queryVal)
-//				//  .dismax()
-//				//  .mm(2)
-//				//  .start(0)
-//				//  .rows(10)
-//    fs.writeFile('./message.txt', JSON.stringify(result), function (err) {
-//        if (err)
-//            console.log(err);
-//        else
-//            console.log('It\'s saved!');
-//    });
-//}
+// Create a client 
+//Signature :: function createClient(host, port, core, path, agent, secure, bigint)
+var client = solr.createClient('98.118.151.224', 8983, 'newscollection', '/solr', false, false);
+var queryVal = '';
+var result = {};
+/* GET home page. */
+router.get('/', function (req, res) {
+    if (req.method == 'GET')
+        console.log('GET');
+    res.render('index', { title: 'Mimanshu Shisodia', query: 'Random Query' });
+});
+
+router.post('/', function (req, res) {
+    console.log('Method: ' + req.method);
+    if (typeof req.body.query != 'undefined') {
+        console.log('Query: ' + req.body.query.toString());
+        queryVal = req.body.query.toString();
+        //var resultSet = {};
+
+        //Designing Query
+        var query = client.createQuery()
+				   .q(queryVal)
+				   .start(0)
+				   .rows(10);
+        
+        //Search in Solr
+        client.search(query, function (err, obj) {
+            if (err) {
+                console.log(err);
+            } else {
+                console.log('Saving Result Set');
+                //console.log(obj);
+                result.solrData = obj;
+                result.gaurdianData = crawlGuardian(queryVal);
+                result.timeLineData = createTimelineJSON(result.solrData);
+                if (typeof req.body.query != 'undefined')
+                    res.send(result);
+                //
+                //console.log("Guardian : " +result.data3);
+                //fs.writeFile('./message.json', JSON.stringify(result), function (err) {
+                //    if (err)
+                //        console.log(err);
+                //    else {
+                //        result.data2 = createTimelineJSON(obj);
+                //        console.log('message.json saved!');
+                //        if (typeof req.body.query != 'undefined')                            
+                //            res.send(result);
+                //    }            
+                //});
+            }
+        });
+    }
+});
+
+//o create TimeLine Json Object
+function createTimelineJSON(result) {
+    var output = "{\x22timeline\x22:{\x22headline\x22:\x22";
+    var data = result.response.docs;
+    if (Object.keys(data).length == 0) {
+        //output += "No Data Found" + "\x22,\x22type\x22:\x22default\x22,\x22text\x22:\x22<p>";
+        //output += "No Data Found" + "</p>\x22,\x22startDate\x22:\x22" + getDate() + "\x22,";
+        return;
+    }
+    var title = replaceAllDouble(data[0].TITLE, "title");
+    var content = replaceAllDouble(data[0].CONTENT,"content");
+    
+
+    output += title + "\x22,\x22type\x22:\x22default\x22,\x22text\x22:\x22<p>";
+    output += content + "</p>\x22,\x22startDate\x22:\x22" + getDate() + "\x22,";
+    output += "\x22date\x22:[";
+    
+    for (var i = 1; i < Object.keys(data).length; i++) {
+       
+        //output += "{ \x22startDate\x22:\x22" + getDate() + " \x22,\x22endDate\x22:\x22" + getDate() + "\x22,\x22headline\x22:\x22";
+        output += "{ \x22startDate\x22:\x22" + getDate() + " \x22,\x22headline\x22:\x22";
+        output += replaceAllDouble(data[i].TITLE, "title") + "\x22,\x22text\x22:\x22<p>" + replaceAllDouble(data[i].CONTENT, "content") + "</p>\x22,";
+        
+        if (i == Object.keys(data).length - 1) {
+            output += "\x22asset\x22:{\x22media\x22:\x22\x22,\x22credit\x22:\x22\x22,\x22caption\x22:\x22\x22}}]}}";
+        }
+        else
+            output += "\x22asset\x22:{\x22media\x22:\x22\x22,\x22credit\x22:\x22\x22,\x22caption\x22:\x22\x22}},";
+
+    //},";
+    }
+    
+    //fs.writeFile('./timeLine.json', output, function (err) {
+    //    if (err)
+    //        console.log(err);
+    //    else {
+    //        console.log('timeLine.json saved!');
+    //    }
+    //});
+
+    return JSON.parse(output);
+}
+
+var day = 1, mon = 1, year = 2000, count = 0;
+function getDate() {
+    var dateOut = '';
+    if (day > 30)
+        day = 1;
+    if (mon > 12)
+        mon = 1;
+    if (year > 2014)
+        year = 2000;
+    dateOut += year + "," + mon + "," + day;
+    day += 1;
+    mon += 1;
+    count += 1;
+    if (count > 5) {
+        year += 1;
+        count = 0;
+    }
+    
+    return dateOut.trim();
+}
+
+function replaceAllDouble(msg, type)
+{
+    if (typeof msg == 'undefined') {
+        if (type == "title") {
+            msg = "No Title Present";
+        }
+        else {
+            msg = "No Content Present";
+        }
+    }
+        
+    else {
+        var re = new RegExp('\"', 'g');
+        msg = msg.replace(re, '');      
+    }
+    return msg;
+}
+
+function crawlGuardian(query) {
+    
+    return performRequest('http://content.guardianapis.com/search', 'GET', query)
+
+    //var GApi = "http://content.guardianapis.com/search?q=";
+    //GApi = GApi + query + "&sort=newest&api-key=neukrcw8u9xm4ks5zejvx3uj";
+    //exports.getJSON(GApi, function (data) {
+    //    $.each(data.response.results, function () {
+    //        var html = 'Date: ' + this.webPublicationDate;
+    //        html += ' abstract: ' + this.sectionName;
+    //        html += ' headlines: ' + this.webTitle;
+    //        html += ' leadparagraph: ' + this.sectionName;
+    //        html += this.webUrl;
+    //       return html				
+    //    });
+    //});
+}
+
+function performRequest(endpoint, method, query) {
+    var headers = {};
+    console.log('inside1');
+    if (method == 'GET') {
+        endpoint += '?q=' + query + "&api-key=" + key + "&sort=newest";        
+    }
+    else {
+        headers = {
+            'Content-Type': 'application/json',
+            'Content-Length': dataString.length
+        };
+    }
+    console.log('inside2');
+    var options = {
+        host: host,
+        path: endpoint,
+        method: method,
+        headers: headers
+    };
+    console.log('inside3');
 
 
-//$.getJSON('/timeLine.json', function (timeData) {
-//    timeJsonData = timeData
-//    createStoryJS({
-//        type: 'timeline',
-//        width: '800',
-//        height: '600',
-//        source: 'timeData',
-//        embed_id: 'my-timeline'
-//    });//TimeLine.js
-//});
+    requestify.get(endpoint).then(function (response) {
+        // Get the response body (JSON parsed - JSON response or jQuery object in case of XML response)
+        console.log(response.getBody());
+        
+        // Get the response raw body
+        //response.body;
+    });
 
-//var req = $.ajax({
-//    url : 'timeLine.json',
-//    dataType : "jsonp",
-//    timeout : 10000
-//});
+    //var req = http.get(options, function (res) {
+    //    console.log('STATUS: ' + res.statusCode);
+    //    console.log('HEADERS: ' + JSON.stringify(res.headers));
+        
+    //    // Buffer the body entirely for processing as a whole.
+    //    var bodyChunks = [];
+    //    res.on('data', function (chunk) {
+    //        // You can process streamed parts here...
+    //        bodyChunks.push(chunk);
+    //    }).on('end', function () {
+    //        var body = Buffer.concat(bodyChunks);
+    //        console.log('BODY: ' + body);
+    //// ...and/or process the entire body here.
+    //    })
+    //});
+    //req.on('error', function (e) {
+    //    console.log('ERROR: ' + e.message);
+    //});
+    //var req = http.request(options, function (res) {
+        
+        
+    //    var responseString = '';
+        
+    //    res.on('data', function (data) {
+    //        responseString += data;
+    //        return responseString;
+    //    });
+    //});
+    //req.write(dataString);
+}
 
-//req.success(function (data) {
-//    alert('load data');
-//    createStoryJS({
-//        type: 'timeline',
-//        width: '800',
-//        height: '600',
-//        source: 'data',
-//        embed_id: 'my-timeline'
-//    });//TimeLine.js
-//});   
-
-
-//var json = (function () {
-//    var json = null;
-//    $.ajax({
-//        'async': false,
-//        'global': false,
-//        'url': "/timeLine.json",
-//        'dataType': "json",
-//        'success': function (data) {
-//            json = data;
-//        }
-//    });
-//    return json;
-//})();
+module.exports = router;
