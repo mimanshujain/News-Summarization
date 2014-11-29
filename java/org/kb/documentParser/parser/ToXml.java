@@ -16,7 +16,7 @@ import org.kb.documentParser.document.NewsDocument;
 import org.kb.documentParser.document.XMLTags;
 
 public class ToXml {
-	private static Long id = (long) 52000;
+	private static Long id = (long) 0;
 	/**
 	 * Takes input NewsDocument object and convert to dom.document object 
 	 * @param nd NewsDocument
@@ -130,6 +130,10 @@ public class ToXml {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+	}
+	
+	public static Long getId() {
+		return id;
 	}
 
 }

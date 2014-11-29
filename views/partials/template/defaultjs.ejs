@@ -1,7 +1,9 @@
 <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
-
+<link rel="stylesheet" type="text/css" href="http://cdn.knightlab.com/libs/timeline/latest/css/timeline.css">
+  
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.js"></script>
-
+  <script type="text/javascript" src="http://cdn.knightlab.com/libs/timeline/latest/js/storyjs-embed.js"></script>
+  
   <script type="text/javascript">
     $(document).ready(function (){
     
@@ -12,30 +14,50 @@
       
     $('#btnSubmit').click(function(){
       var data = {};
+      $('#hdnMessage').val(1);
       data.query = $('#txtQuery').val();
       $.ajax({
         type: 'POST',
         data: JSON.stringify(data),
         contentType: 'application/json',
         url: 'http://localhost:3000',
-        success: function( data ) {
-          //data = JSON.stringify(data);
-          $('#lblMessage').text('Successful execution');
+        
+        success: function( nodeData ) 
+        {
+          var data = nodeData.data1;
+          $('#lblMessage').text('Total '+ Object.keys(data.response.docs).length+' result found.');
           $('#txtQuery').val('');
           
+          var timeJsonData = {};
           var output="<ul>";
+          var count = 0;
+          
           for (var i in data.response.docs)
           {
-            output+="<li>File Id: " + data.response.docs[i].FILEID + " Category: " +data.response.docs[i].CATEGORY +"</li>";
+            output+="<li>File Id: " + data.response.docs[i].FILEID + " Category: " + data.response.docs[i].CATEGORY +"</li>";
+            count+=1;
+            if(count == 10) break;
           }
             //$.each( data.response.docs, function(item ){
             //output+="<li>File Id: " + item.FILEID + " Category: " +item.CATEGORY +"</li>";
             //});
             output+="</ul>";
-            alert(output);
           $("#placeholder").html(output);
+          $("#my-timeline").html('');
+          createStoryJS({
+              type: 'timeline',
+              width: '800',
+              height: '600',
+              source: nodeData.data2,
+              embed_id: 'my-timeline'
+          });//TimeLine.js          
+                     
           }
-        });
-      });
-    });
+        });//Ajax Call
+      });//Button Click
+  
+    //  if($('#hdnMessage').val() == 1)
+
+      
+    });//Document Ready
   </script>

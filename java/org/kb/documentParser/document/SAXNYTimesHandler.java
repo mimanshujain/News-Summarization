@@ -20,7 +20,6 @@ import org.xml.sax.helpers.DefaultHandler;
 public class SAXNYTimesHandler extends DefaultHandler {
 	private String tagAtt = "";
 	private XMLTags tag;
-	private String date = "", month = "", year = "";
 	private List<XMLTags> tagList;
 	private boolean setValue = false;
 
@@ -31,23 +30,22 @@ public class SAXNYTimesHandler extends DefaultHandler {
 	public void startElement(String nameSpaceURI, String localName,
 			String qName, Attributes att) throws SAXException{
 		Hashtable<String, String> attr = new Hashtable<String,String>();
-		if (qName.equals("meta")) {
-			if(att.getValue("name").equals("publication_year")) {
-				this.year = att.getValue("content");
-			}
-			else if(att.getValue("name").equals("publication_month")) {
-				this.month = att.getValue("content");
-			}
-			else if(att.getValue("name").equals("publication_day_of_month")) {
-				this.date = att.getValue("content");
-			}
-			else if(att.getValue("name").equals("online_secton")) {
+		if (qName.equals("meta") && "online_sections".equals(att.getValue("name"))) {
 				attr.put("name", "NEWSCATEGORY");
 				String text = att.getValue("content");
-				if(text != null && !text.isEmpty()) {
-					tagList.add(new XMLTags("NEWSCATEGORY",new StringBuffer(text),attr));
-				}
+				tagList.add(new XMLTags("NEWSCATEGORY",new StringBuffer(text),attr));
+		}
+		else if ("pubdata".equals(qName) && att.getValue("date.publication") != null) {
+			StringBuffer date = new StringBuffer (att.getValue("date.publication"));
+			if (date.length() == 15) {
+				date.insert(4,'-'); date.insert(7, '-'); date.insert(13,":");
+				date.insert(16,  ":"); date.insert(19,"Z");
 			}
+			else {
+				date = new StringBuffer("2007-01-01T00:00:00Z");
+			}
+			attr.put("name", "NEWSDATE");
+			tagList.add(new XMLTags("NEWSDATE", date, attr));
 		}
 		else if(qName.equals("doc-id")) {
 			attr.put("name", "FILEID");
@@ -105,15 +103,22 @@ public class SAXNYTimesHandler extends DefaultHandler {
 	}
 	public void endDocument() throws SAXException {
 		//			System.out.println("END document");
-		Hashtable <String,String> attr = new Hashtable<String, String>();
-		attr.put("names", "NEWSDATE");
-		this.tag = new XMLTags();
-		this.tag.setTagName("NEWSDATE");
-		this.tag.setText(new StringBuffer(this.date + "-" + this.month + "-" + this.year));
-		this.tag.setAttributes(attr);
-//		List<XMLTags> tagList = new ArrayList<XMLTags>();
-		this.tagList.add(this.tag);
-//		this.tagTable.put("NEWSDATE",tagList);
+//		Hashtable <String,String> attr = new Hashtable<String, String>();
+//		attr.put("names", "NEWSDATE");
+//		this.tag = new XMLTags();
+//		this.tag.setTagName("NEWSDATE");
+//		if (this.date.length() == 1 ) {
+//			this.date = "0" + this.date;
+//		}
+//		if (this.month.length() == 1 ) {
+//			this.month = "0" + this.month;
+//		}
+//		this.tag.setText(new StringBuffer(this.year + "-" + this.month + "-" + this.date +
+//				"T:00:00:00Z"));
+//		this.tag.setAttributes(attr);
+////		List<XMLTags> tagList = new ArrayList<XMLTags>();
+//		this.tagList.add(this.tag);
+////		this.tagTable.put("NEWSDATE",tagList);
 	}
 
 	public List<XMLTags> getList() {
