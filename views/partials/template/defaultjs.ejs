@@ -21,8 +21,10 @@
         data: JSON.stringify(data),
         contentType: 'application/json',
         url: 'http://localhost:3000',
-        success: function( data ) {
-          //data = JSON.stringify(data);
+        
+        success: function( nodeData ) 
+        {
+          var data = nodeData.data1;
           $('#lblMessage').text('Total '+ Object.keys(data.response.docs).length+' result found.');
           $('#txtQuery').val('');
           
@@ -41,25 +43,12 @@
             //});
             output+="</ul>";
           $("#placeholder").html(output);
-          var json = (function () {
-              var json = null;
-              $.ajax({
-                  'async': false,
-                  'global': false,
-                  'url': "/timeLine.json",
-                  'dataType': "json",
-                  'success': function (data) {
-                      json = data;
-                  }
-              });
-              return json;
-          })();
-          
+          $("#my-timeline").html('');
           createStoryJS({
               type: 'timeline',
               width: '800',
               height: '600',
-              source: 'json',
+              source: nodeData.data2,
               embed_id: 'my-timeline'
           });//TimeLine.js          
                      

@@ -6,6 +6,8 @@ var querystring = require('querystring');
 var JSONStream = require('JSONStream');
 var fs = require('fs');
 
+var myData = require('../timeLine.json');
+
 // Create a client 
 //Signature :: function createClient(host, port, core, path, agent, secure, bigint)
 var client = solr.createClient('98.118.151.224', 8983, 'newscollection', '/solr', false, false);
@@ -23,8 +25,8 @@ router.post('/', function (req, res) {
     if (typeof req.body.query != 'undefined') {
         console.log('Query: ' + req.body.query.toString());
         queryVal = req.body.query.toString();
-        var resultSet = {};
-        
+        //var resultSet = {};
+
         //Designing Query
         var query = client.createQuery()
 				   .q(queryVal)
@@ -38,12 +40,14 @@ router.post('/', function (req, res) {
             } else {
                 console.log('Saving Result Set');
                 //console.log(obj);
-                result = obj;
+                result.data1 = obj;
+                
                 fs.writeFile('./message.json', JSON.stringify(result), function (err) {
                     if (err)
                         console.log(err);
                     else {
-                        //createTimelineJSON(result);
+                        //result.data2 = myData;
+                        result.data2 = createTimelineJSON(obj);
                         //console.log(result.response.docs[0].TITLE);
                         console.log('message.json saved!');
                         if (typeof req.body.query != 'undefined')
@@ -57,17 +61,24 @@ router.post('/', function (req, res) {
     }
 });
 
+//o create TimeLine Json Object
 function createTimelineJSON(result) {
     var output = "{\x22timeline\x22:{\x22headline\x22:\x22";
     var data = result.response.docs;
-    output += data[0].TITLE + "\x22,\x22type\x22:\x22default\x22,\x22text\x22:\x22";
-    output += data[0].CONTENT + "\x22,\x22startDate\x22:\x22" + getDate() + "\x22,";
+
+    var title = replaceAllDouble(data[0].TITLE, "title");
+    var content = replaceAllDouble(data[0].CONTENT,"content");
+    
+
+    output += title + "\x22,\x22type\x22:\x22default\x22,\x22text\x22:\x22<p>";
+    output += content + "</p>\x22,\x22startDate\x22:\x22" + getDate() + "\x22,";
     output += "\x22date\x22:[";
     
     for (var i = 1; i < Object.keys(data).length; i++) {
-        
-        output += "{ \x22startDate\x22:\x22" + getDate() + " \x22,\x22endDate\x22:\x22" + getDate() + "\x22,\x22headline\x22:\x22";
-        output += data[i].TITLE + "\x22,\x22text\x22:\x22" + data[i].CONTENT + "\x22,";
+       
+        //output += "{ \x22startDate\x22:\x22" + getDate() + " \x22,\x22endDate\x22:\x22" + getDate() + "\x22,\x22headline\x22:\x22";
+        output += "{ \x22startDate\x22:\x22" + getDate() + " \x22,\x22headline\x22:\x22";
+        output += replaceAllDouble(data[i].TITLE, "title") + "\x22,\x22text\x22:\x22<p>" + replaceAllDouble(data[i].CONTENT, "content") + "</p>\x22,";
         
         if (i == Object.keys(data).length - 1) {
             output += "\x22asset\x22:{\x22media\x22:\x22\x22,\x22credit\x22:\x22\x22,\x22caption\x22:\x22\x22}}]}}";
@@ -85,6 +96,8 @@ function createTimelineJSON(result) {
     //        console.log('timeLine.json saved!');
     //    }
     //});
+
+    return JSON.parse(output);
 }
 
 var day = 1, mon = 1, year = 2000, count = 0;
@@ -96,7 +109,7 @@ function getDate() {
         mon = 1;
     if (year > 2014)
         year = 2000;
-    dateOut += year + "," + day + "," + mon;
+    dateOut += year + "," + mon + "," + day;
     day += 1;
     mon += 1;
     count += 1;
@@ -107,53 +120,44 @@ function getDate() {
     
     return dateOut.trim();
 }
+
+function replaceAllDouble(msg, type)
+{
+    if (typeof msg == 'undefined') {
+        if (type == "title") {
+            msg = "No Title Present";
+        }
+        else {
+            msg = "No Content Present";
+        }
+    }
+        
+    else {
+        var re = new RegExp('\"', 'g');
+        msg = msg.replace(re, '');      
+    }
+    return msg;
+}
+
+function crawlGuardian() {
+    var GApi = "http://content.guardianapis.com/search?q=";
+    GApi = GApi + $("input").val() + "&sort=newest&api-key=neukrcw8u9xm4ks5zejvx3uj";
+    sentences[0] = "";
+    $.getJSON(GApi, function (data) {
+        $("#results").empty();
+        $.each(data.response.results, function () {
+            var html = '<li> Date: ' + this.webPublicationDate + '</br>';
+            html += ' abstract: ' + this.sectionName + '</br>';;
+            html += ' <b>headlines: ' + this.webTitle + '</b>' + '</br>';
+            html += ' leadparagraph: ' + this.sectionName + '</br>';
+            html += ' <a href=\"' + this.webUrl + '\">Click here</a></li></br></br>';
+            $("#results").append(html);
+            sentences[0] = sentences[0].concat(this.webTitle, " ");
+            sentences[0] = sentences[0].concat(this.sectionName, " ");
+				
+        });
+        topicise();
+    });
+}
+
 module.exports = router;
-
-
-//function processQuery(result) {
-
-//    // DixMax query
-//    //var query = client.createQuery()
-//				//  .q(queryVal)
-//				//  .dismax()
-//				//  .mm(2)
-//				//  .start(0)
-//				//  .rows(10)
-//    fs.writeFile('./message.txt', JSON.stringify(result), function (err) {
-//        if (err)
-//            console.log(err);
-//        else
-//            console.log('It\'s saved!');
-//    });
-//}
-
-
-//$.getJSON('/timeLine.json', function (timeData) {
-//    timeJsonData = timeData
-//    createStoryJS({
-//        type: 'timeline',
-//        width: '800',
-//        height: '600',
-//        source: 'timeData',
-//        embed_id: 'my-timeline'
-//    });//TimeLine.js
-//});
-
-//var req = $.ajax({
-//    url : 'timeLine.json',
-//    dataType : "jsonp",
-//    timeout : 10000
-//});
-
-//req.success(function (data) {
-//    alert('load data');
-//    createStoryJS({
-//        type: 'timeline',
-//        width: '800',
-//        height: '600',
-//        source: 'data',
-//        embed_id: 'my-timeline'
-//    });//TimeLine.js
-//});   
-
-
