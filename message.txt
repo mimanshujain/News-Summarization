@@ -1,1 +1,61 @@
-[object Object]
+
+//function processQuery(result) {
+
+//    // DixMax query
+//    //var query = client.createQuery()
+//				//  .q(queryVal)
+//				//  .dismax()
+//				//  .mm(2)
+//				//  .start(0)
+//				//  .rows(10)
+//    fs.writeFile('./message.txt', JSON.stringify(result), function (err) {
+//        if (err)
+//            console.log(err);
+//        else
+//            console.log('It\'s saved!');
+//    });
+//}
+
+
+//$.getJSON('/timeLine.json', function (timeData) {
+//    timeJsonData = timeData
+//    createStoryJS({
+//        type: 'timeline',
+//        width: '800',
+//        height: '600',
+//        source: 'timeData',
+//        embed_id: 'my-timeline'
+//    });//TimeLine.js
+//});
+
+//var req = $.ajax({
+//    url : 'timeLine.json',
+//    dataType : "jsonp",
+//    timeout : 10000
+//});
+
+//req.success(function (data) {
+//    alert('load data');
+//    createStoryJS({
+//        type: 'timeline',
+//        width: '800',
+//        height: '600',
+//        source: 'data',
+//        embed_id: 'my-timeline'
+//    });//TimeLine.js
+//});   
+
+
+//var json = (function () {
+//    var json = null;
+//    $.ajax({
+//        'async': false,
+//        'global': false,
+//        'url': "/timeLine.json",
+//        'dataType': "json",
+//        'success': function (data) {
+//            json = data;
+//        }
+//    });
+//    return json;
+//})();
