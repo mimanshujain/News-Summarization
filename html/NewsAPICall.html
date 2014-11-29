@@ -11,12 +11,14 @@
 <script src="../js/jquery.tagcanvas.min.js" type="text/javascript"></script>
 <script type="text/javascript" src="../js/stopwords.js"></script>
 <script type="text/javascript" src="../js/lda.js"></script>
+<script type="text/javascript" src="../js/PorterStemmer.js"></script>
 
 <script type="text/javascript">
 function topicise() {
 	//console.log("analysing "+sentences.length+" sentences...");
 	var documents = new Array();
 	var f = {};
+	var stem = {};
 	var vocab=new Array();
 	var docCount=0;
 	for(var i=0;i<sentences.length;i++) {
@@ -28,6 +30,13 @@ function topicise() {
 			var w=words[wc].toLowerCase().replace(/[^a-z\'A-Z0-9 ]+/g, '');
 			//TODO: Add stemming
 			if (w=="" || w.length==1 || stopwords[w] || w.indexOf("http")==0) continue;
+			var stemWord=stemmer(w);
+			if(stem[stemWord]) {
+				w = stem[stemWord];
+			}
+			else {
+				stem[stemWord] = w;
+			}
 			if (f[w]) { 
 				f[w]=f[w]+1;			
 			} 
