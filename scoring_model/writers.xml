@@ -1,0 +1,12 @@
+<?xml version="1.0" ?>
+<writers>
+   <EnglishLanguage>
+      <fiction>
+         <pen>
+            <name>Jane Austin</name>
+            <name>Rex Stout</name>
+            <name>Dashiell Hammett</name>
+         </pen>
+      </fiction>
+   </EnglishLanguage>
+</writers>

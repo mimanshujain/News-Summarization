@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+   <copyright>Copyright (c) 2013 The New York Times Company.  All Rights Reserved.</copyright>
+   <response>
+      <docs>
+         <element>
+            <_id>547977a638f0d86bf592f6a1</_id>
+            <abstract null="true" />
+            <blog />
+            <byline>
+               <organization>THE ASSOCIATED PRESS</organization>
+               <original>By THE ASSOCIATED PRESS</original>
+               <person />
+            </byline>
+            <document_type>article</document_type>
+            <headline>
+               <main>India: Pakistani Agencies Backing Terror Groups</main>
+               <print_headline>India: Pakistani Agencies Backing Terror Groups</print_headline>
+            </headline>
+            <keywords />
+            <lead_paragraph>India's home minister hit out at Pakistan on Saturday, accusing its state agencies of using terror to try to destabilize India, and rejecting Pakistan's assertion that non-state actors are involved in terrorism.</lead_paragraph>
+            <multimedia />
+            <news_desk>None</news_desk>
+            <print_page null="true" />
+            <pub_date>2014-11-29T02:34:00Z</pub_date>
+            <section_name>World</section_name>
+            <snippet>India's home minister hit out at Pakistan on Saturday, accusing its state agencies of using terror to try to destabilize India, and rejecting Pakistan's assertion that non-state actors are involved in terrorism.</snippet>
+            <source>AP</source>
+            <subsection_name>Asia Pacific</subsection_name>
+            <type_of_material>News</type_of_material>
+            <web_url>http://www.nytimes.com/aponline/2014/11/29/world/asia/ap-as-india-pakistan.html</web_url>
+            <word_count>298</word_count>
+         </element>
+         </docs>
+		 </response>
+		 </root>
+		 

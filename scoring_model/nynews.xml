@@ -1,0 +1,443 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+   <copyright>Copyright (c) 2013 The New York Times Company.  All Rights Reserved.</copyright>
+   <response>
+      <docs>
+         <element>
+            <_id>547977a638f0d86bf592f6a1</_id>
+            <abstract null="true" />
+            <blog />
+            <byline>
+               <organization>THE ASSOCIATED PRESS</organization>
+               <original>By THE ASSOCIATED PRESS</original>
+               <person />
+            </byline>
+            <document_type>article</document_type>
+            <headline>
+               <main>India: Pakistani Agencies Backing Terror Groups</main>
+               <print_headline>India: Pakistani Agencies Backing Terror Groups</print_headline>
+            </headline>
+            <keywords />
+            <lead_paragraph>India's home minister hit out at Pakistan on Saturday, accusing its state agencies of using terror to try to destabilize India, and rejecting Pakistan's assertion that non-state actors are involved in terrorism.</lead_paragraph>
+            <multimedia />
+            <news_desk>None</news_desk>
+            <print_page null="true" />
+            <pub_date>2014-11-29T02:34:00Z</pub_date>
+            <section_name>World</section_name>
+            <snippet>India's home minister hit out at Pakistan on Saturday, accusing its state agencies of using terror to try to destabilize India, and rejecting Pakistan's assertion that non-state actors are involved in terrorism.</snippet>
+            <source>AP</source>
+            <subsection_name>Asia Pacific</subsection_name>
+            <type_of_material>News</type_of_material>
+            <web_url>http://www.nytimes.com/aponline/2014/11/29/world/asia/ap-as-india-pakistan.html</web_url>
+            <word_count>298</word_count>
+         </element>
+         <element>
+            <_id>5478780038f0d854b20b328b</_id>
+            <abstract null="true" />
+            <blog />
+            <byline>
+               <contributor />
+               <original>By NEHA THIRANI BAGRI</original>
+               <person>
+                  <element>
+                     <firstname>Neha</firstname>
+                     <lastname>BAGRI</lastname>
+                     <middlename>Thirani</middlename>
+                     <organization />
+                     <rank>1</rank>
+                     <role>reported</role>
+                  </element>
+               </person>
+            </byline>
+            <document_type>article</document_type>
+            <headline>
+               <main>India’s Economic Growth Slows to 5.3%</main>
+               <print_headline>Economic Growth Slows in India</print_headline>
+            </headline>
+            <keywords>
+               <element>
+                  <is_major>N</is_major>
+                  <name>glocations</name>
+                  <rank>1</rank>
+                  <value>India</value>
+               </element>
+               <element>
+                  <is_major>N</is_major>
+                  <name>subject</name>
+                  <rank>2</rank>
+                  <value>Economic Conditions and Trends</value>
+               </element>
+               <element>
+                  <is_major>N</is_major>
+                  <name>persons</name>
+                  <rank>3</rank>
+                  <value>Modi, Narendra</value>
+               </element>
+               <element>
+                  <is_major>N</is_major>
+                  <name>persons</name>
+                  <rank>4</rank>
+                  <value>Rajan, Raghuram G</value>
+               </element>
+            </keywords>
+            <lead_paragraph>Manufacturing and agricultural output dragged on growth in the last quarter, raising pressure on Prime Minister Narendra Modi to expand his economic revival efforts.</lead_paragraph>
+            <multimedia />
+            <news_desk>Business</news_desk>
+            <print_page>2</print_page>
+            <pub_date>2014-11-29T00:00:00Z</pub_date>
+            <section_name>Business Day</section_name>
+            <snippet>Manufacturing and agricultural output dragged on growth in the last quarter, raising pressure on Prime Minister Narendra Modi to expand his economic revival efforts.</snippet>
+            <source>The New York Times</source>
+            <subsection_name>International Business</subsection_name>
+            <type_of_material>News</type_of_material>
+            <web_url>http://www.nytimes.com/2014/11/29/business/international/indias-economic-growth-slows-to-53.html</web_url>
+            <word_count>404</word_count>
+         </element>
+         <element>
+            <_id>54787bef38f0d854b20b32e9</_id>
+            <abstract null="true" />
+            <blog />
+            <byline>
+               <organization>REUTERS</organization>
+               <original>By REUTERS</original>
+               <person />
+            </byline>
+            <document_type>article</document_type>
+            <headline>
+               <main>Factbox-Modi's Reform Agenda to Revive Economic Growth in India</main>
+               <print_headline>Factbox-Modi's Reform Agenda to Revive Economic Growth in India</print_headline>
+            </headline>
+            <keywords />
+            <lead_paragraph>India's economy lost momentum in the first three months of Prime Minister Narendra Modi's government, amplifying industry calls for faster and deeper economic reform.</lead_paragraph>
+            <multimedia />
+            <news_desk>None</news_desk>
+            <print_page null="true" />
+            <pub_date>2014-11-28T08:39:49Z</pub_date>
+            <section_name>Business Day</section_name>
+            <snippet>India's economy lost momentum in the first three months of Prime Minister Narendra Modi's government, amplifying industry calls for faster and deeper economic reform.</snippet>
+            <source>Reuters</source>
+            <subsection_name null="true" />
+            <type_of_material>News</type_of_material>
+            <web_url>http://www.nytimes.com/reuters/2014/11/28/business/28reuters-india-economy-factbox.html</web_url>
+            <word_count>565</word_count>
+         </element>
+         <element>
+            <_id>5478764c38f0d854b20b3262</_id>
+            <abstract null="true" />
+            <blog />
+            <byline>
+               <organization>REUTERS</organization>
+               <original>By REUTERS</original>
+               <person />
+            </byline>
+            <document_type>article</document_type>
+            <headline>
+               <main>Indian Growth Slows Less Than Feared, Easing Pressure for Rate Cut</main>
+               <print_headline>Indian Growth Slows Less Than Feared, Easing Pressure for Rate Cut</print_headline>
+            </headline>
+            <keywords />
+            <lead_paragraph>A slowdown in India's economy in the last quarter will increase calls for Prime Minister Narendra Modi to step up reforms but was less severe than feared, giving the central bank ammunition to resist government pressure to cut interest rates.</lead_paragraph>
+            <multimedia />
+            <news_desk>None</news_desk>
+            <print_page null="true" />
+            <pub_date>2014-11-28T08:18:38Z</pub_date>
+            <section_name>Business Day</section_name>
+            <snippet>A slowdown in India's economy in the last quarter will increase calls for Prime Minister Narendra Modi to step up reforms but was less severe than feared, giving the central bank ammunition to resist government pressure to cut interest rates.</snippet>
+            <source>Reuters</source>
+            <subsection_name null="true" />
+            <type_of_material>News</type_of_material>
+            <web_url>http://www.nytimes.com/reuters/2014/11/28/business/28reuters-india-economy.html</web_url>
+            <word_count>692</word_count>
+         </element>
+         <element>
+            <_id>547866d038f0d854b20b30fb</_id>
+            <abstract null="true" />
+            <blog />
+            <byline>
+               <organization>REUTERS</organization>
+               <original>By REUTERS</original>
+               <person />
+            </byline>
+            <document_type>article</document_type>
+            <headline>
+               <main>India Says No Contact With 39 Men Held by Islamic State in Iraq</main>
+               <print_headline>India Says No Contact With 39 Men Held by Islamic State in Iraq</print_headline>
+            </headline>
+            <keywords />
+            <lead_paragraph>India has had no contact with 39 men missing in Iraq since June, but believes them to be alive, the foreign minister said on Friday, distancing herself from a report that suggested they had been killed by Islamic State militants.</lead_paragraph>
+            <multimedia />
+            <news_desk>None</news_desk>
+            <print_page null="true" />
+            <pub_date>2014-11-28T07:11:15Z</pub_date>
+            <section_name>World</section_name>
+            <snippet>India has had no contact with 39 men missing in Iraq since June, but believes them to be alive, the foreign minister said on Friday, distancing herself from a report that suggested they had been killed by Islamic State militants.</snippet>
+            <source>Reuters</source>
+            <subsection_name>Middle East</subsection_name>
+            <type_of_material>News</type_of_material>
+            <web_url>http://www.nytimes.com/reuters/2014/11/28/world/middleeast/28reuters-india-iraq-hostages.html</web_url>
+            <word_count>357</word_count>
+         </element>
+         <element>
+            <_id>54775fdf38f0d854b20b19eb</_id>
+            <abstract>Gunmen attack Indian army base near Kashmir border with Pakistan and at least 10 people are killed; militants kill three soldiers and three civilians before at least four of them are killed.</abstract>
+            <blog />
+            <byline>
+               <contributor />
+               <original>By GARDINER HARRIS</original>
+               <person>
+                  <element>
+                     <firstname>Gardiner</firstname>
+                     <lastname>HARRIS</lastname>
+                     <organization />
+                     <rank>1</rank>
+                     <role>reported</role>
+                  </element>
+               </person>
+            </byline>
+            <document_type>article</document_type>
+            <headline>
+               <main>Deadly Attack on Indian Base Near Pakistan as Leaders Meet in Nepal</main>
+               <print_headline>Kashmir: Gun Battle Kills at Least 10</print_headline>
+            </headline>
+            <keywords>
+               <element>
+                  <is_major>Y</is_major>
+                  <name>glocations</name>
+                  <rank>1</rank>
+                  <value>Kashmir and Jammu (India)</value>
+               </element>
+               <element>
+                  <is_major>Y</is_major>
+                  <name>glocations</name>
+                  <rank>2</rank>
+                  <value>India</value>
+               </element>
+               <element>
+                  <is_major>N</is_major>
+                  <name>glocations</name>
+                  <rank>3</rank>
+                  <value>Pakistan</value>
+               </element>
+               <element>
+                  <is_major>N</is_major>
+                  <name>organizations</name>
+                  <rank>4</rank>
+                  <value>South Asian Assn for Regional Cooperation</value>
+               </element>
+               <element>
+                  <is_major>N</is_major>
+                  <name>persons</name>
+                  <rank>5</rank>
+                  <value>Modi, Narendra</value>
+               </element>
+               <element>
+                  <is_major>N</is_major>
+                  <name>persons</name>
+                  <rank>6</rank>
+                  <value>Sharif, Nawaz</value>
+               </element>
+            </keywords>
+            <lead_paragraph>At least 10 people were killed in an attack in Kashmir, just as the leaders of India and Pakistan were exchanging pleasantries in Nepal.</lead_paragraph>
+            <multimedia>
+               <element>
+                  <height>126</height>
+                  <legacy>
+                     <wide>images/2014/11/28/world/28KASHMIR/28KASHMIR-thumbWide.jpg</wide>
+                     <wideheight>126</wideheight>
+                     <widewidth>190</widewidth>
+                  </legacy>
+                  <subtype>wide</subtype>
+                  <type>image</type>
+                  <url>images/2014/11/28/world/28KASHMIR/28KASHMIR-thumbWide.jpg</url>
+                  <width>190</width>
+               </element>
+               <element>
+                  <height>446</height>
+                  <legacy>
+                     <xlarge>images/2014/11/28/world/28KASHMIR/28KASHMIR-articleLarge.jpg</xlarge>
+                     <xlargeheight>446</xlargeheight>
+                     <xlargewidth>600</xlargewidth>
+                  </legacy>
+                  <subtype>xlarge</subtype>
+                  <type>image</type>
+                  <url>images/2014/11/28/world/28KASHMIR/28KASHMIR-articleLarge.jpg</url>
+                  <width>600</width>
+               </element>
+               <element>
+                  <height>75</height>
+                  <legacy>
+                     <thumbnail>images/2014/11/28/world/28KASHMIR/28KASHMIR-thumbStandard.jpg</thumbnail>
+                     <thumbnailheight>75</thumbnailheight>
+                     <thumbnailwidth>75</thumbnailwidth>
+                  </legacy>
+                  <subtype>thumbnail</subtype>
+                  <type>image</type>
+                  <url>images/2014/11/28/world/28KASHMIR/28KASHMIR-thumbStandard.jpg</url>
+                  <width>75</width>
+               </element>
+            </multimedia>
+            <news_desk>Foreign</news_desk>
+            <print_page>10</print_page>
+            <pub_date>2014-11-28T00:00:00Z</pub_date>
+            <section_name>World</section_name>
+            <snippet>At least 10 people were killed in an attack in Kashmir, just as the leaders of India and Pakistan were exchanging pleasantries in Nepal.</snippet>
+            <source>The New York Times</source>
+            <subsection_name>Asia Pacific</subsection_name>
+            <type_of_material>News</type_of_material>
+            <web_url>http://www.nytimes.com/2014/11/28/world/asia/deadly-attack-on-indian-base-near-pakistan-as-leaders-meet-in-nepal.html</web_url>
+            <word_count>348</word_count>
+         </element>
+         <element>
+            <_id>547769c938f0d854b20b1ace</_id>
+            <abstract null="true" />
+            <blog />
+            <byline null="true" />
+            <document_type>multimedia</document_type>
+            <headline>
+               <main>When Modi met Sharif</main>
+               <sub>When Modi met Sharif</sub>
+            </headline>
+            <keywords />
+            <lead_paragraph>India's prime minister and his Pakistani counterpart shake hands at the conclusion of a summit of South Asian leaders in Nepal, easing diplomatic tensions. Rough Cut (no reporter narration).</lead_paragraph>
+            <multimedia>
+               <element>
+                  <height>126</height>
+                  <legacy>
+                     <wide>images/2014/11/27/multimedia/video-summitmodi-sharif-handshake-rough-cut-o/video-summitmodi-sharif-handshake-rough-cut-o-thumbWide.jpg</wide>
+                     <wideheight>126</wideheight>
+                     <widewidth>190</widewidth>
+                  </legacy>
+                  <subtype>wide</subtype>
+                  <type>image</type>
+                  <url>images/2014/11/27/multimedia/video-summitmodi-sharif-handshake-rough-cut-o/video-summitmodi-sharif-handshake-rough-cut-o-thumbWide.jpg</url>
+                  <width>190</width>
+               </element>
+               <element>
+                  <height>338</height>
+                  <legacy>
+                     <xlarge>images/2014/11/27/multimedia/video-summitmodi-sharif-handshake-rough-cut-o/video-summitmodi-sharif-handshake-rough-cut-o-articleLarge.jpg</xlarge>
+                     <xlargeheight>338</xlargeheight>
+                     <xlargewidth>600</xlargewidth>
+                  </legacy>
+                  <subtype>xlarge</subtype>
+                  <type>image</type>
+                  <url>images/2014/11/27/multimedia/video-summitmodi-sharif-handshake-rough-cut-o/video-summitmodi-sharif-handshake-rough-cut-o-articleLarge.jpg</url>
+                  <width>600</width>
+               </element>
+               <element>
+                  <height>75</height>
+                  <legacy>
+                     <thumbnail>images/2014/11/27/multimedia/video-summitmodi-sharif-handshake-rough-cut-o/video-summitmodi-sharif-handshake-rough-cut-o-thumbStandard.jpg</thumbnail>
+                     <thumbnailheight>75</thumbnailheight>
+                     <thumbnailwidth>75</thumbnailwidth>
+                  </legacy>
+                  <subtype>thumbnail</subtype>
+                  <type>image</type>
+                  <url>images/2014/11/27/multimedia/video-summitmodi-sharif-handshake-rough-cut-o/video-summitmodi-sharif-handshake-rough-cut-o-thumbStandard.jpg</url>
+                  <width>75</width>
+               </element>
+            </multimedia>
+            <news_desk>Multimedia/Photos</news_desk>
+            <print_page null="true" />
+            <pub_date>2014-11-27T13:12:56Z</pub_date>
+            <section_name>Multimedia/Photos</section_name>
+            <snippet>India's prime minister and his Pakistani counterpart shake hands at the conclusion of a summit of South Asian leaders in Nepal, easing diplomatic tensions. Rough Cut (no reporter narration).</snippet>
+            <source>Reuters</source>
+            <subsection_name null="true" />
+            <type_of_material>Video</type_of_material>
+            <web_url>http://www.nytimes.com/video/multimedia/100000003259641/when-modi-met-sharif.html</web_url>
+            <word_count>29</word_count>
+         </element>
+         <element>
+            <_id>5477052538f0d83924902913</_id>
+            <abstract null="true" />
+            <blog />
+            <byline>
+               <organization>REUTERS</organization>
+               <original>By REUTERS</original>
+               <person />
+            </byline>
+            <document_type>article</document_type>
+            <headline>
+               <main>South Asia Summit Salvaged After Handshake by Leaders of India, Pakistan</main>
+               <print_headline>South Asia Summit Salvaged After Handshake by Leaders of India, Pakistan</print_headline>
+            </headline>
+            <keywords />
+            <lead_paragraph>A brief meeting between India's Prime Minister Narendra Modi and his Pakistani counterpart on Thursday salvaged a summit of South Asian leaders, with all eight countries clinching a last-minute deal to create a regional electricity grid.</lead_paragraph>
+            <multimedia />
+            <news_desk>None</news_desk>
+            <print_page null="true" />
+            <pub_date>2014-11-27T06:02:09Z</pub_date>
+            <section_name>World</section_name>
+            <snippet>A brief meeting between India's Prime Minister Narendra Modi and his Pakistani counterpart on Thursday salvaged a summit of South Asian leaders, with all eight countries clinching a last-minute deal to create a regional electricity grid.</snippet>
+            <source>Reuters</source>
+            <subsection_name>Asia Pacific</subsection_name>
+            <type_of_material>News</type_of_material>
+            <web_url>http://www.nytimes.com/reuters/2014/11/27/world/asia/27reuters-nepal-summit.html</web_url>
+            <word_count>416</word_count>
+         </element>
+         <element>
+            <_id>5476faa138f0d8392490282c</_id>
+            <abstract null="true" />
+            <blog />
+            <byline>
+               <organization>THE ASSOCIATED PRESS</organization>
+               <original>By THE ASSOCIATED PRESS</original>
+               <person />
+            </byline>
+            <document_type>article</document_type>
+            <headline>
+               <main>South Asian Leaders Reach Last-Minute Energy Deal</main>
+               <print_headline>South Asian Leaders Reach Last-Minute Energy Deal</print_headline>
+            </headline>
+            <keywords />
+            <lead_paragraph>South Asian heads of state attending their first summit in three years reached a deal on energy sharing Thursday, but failed on two other economic agreements during a retreat where Indian and Pakistan leaders shook hands.</lead_paragraph>
+            <multimedia />
+            <news_desk>None</news_desk>
+            <print_page null="true" />
+            <pub_date>2014-11-27T05:16:38Z</pub_date>
+            <section_name>World</section_name>
+            <snippet>South Asian heads of state attending their first summit in three years reached a deal on energy sharing Thursday, but failed on two other economic agreements during a retreat where Indian and Pakistan leaders shook hands.</snippet>
+            <source>AP</source>
+            <subsection_name>Asia Pacific</subsection_name>
+            <type_of_material>News</type_of_material>
+            <web_url>http://www.nytimes.com/aponline/2014/11/27/world/asia/ap-as-nepal-south-asia-summit.html</web_url>
+            <word_count>296</word_count>
+         </element>
+         <element>
+            <_id>5476cfb138f0d83924902444</_id>
+            <abstract null="true" />
+            <blog />
+            <byline>
+               <organization>REUTERS</organization>
+               <original>By REUTERS</original>
+               <person />
+            </byline>
+            <document_type>article</document_type>
+            <headline>
+               <main>Ten Dead in Disputed Kashmir's Worst Militant Attack in More Than a Year</main>
+               <print_headline>Ten Dead in Disputed Kashmir's Worst Militant Attack in More Than a Year</print_headline>
+            </headline>
+            <keywords />
+            <lead_paragraph>Gunmen wearing army uniforms on Thursday attacked an Indian army base near the border with Pakistan, leaving ten people dead in the worst militant violence in the disputed state of Kashmir in more than a year.</lead_paragraph>
+            <multimedia />
+            <news_desk>None</news_desk>
+            <print_page null="true" />
+            <pub_date>2014-11-27T02:14:35Z</pub_date>
+            <section_name>World</section_name>
+            <snippet>Gunmen wearing army uniforms on Thursday attacked an Indian army base near the border with Pakistan, leaving ten people dead in the worst militant violence in the disputed state of Kashmir in more than a year.</snippet>
+            <source>Reuters</source>
+            <subsection_name>Asia Pacific</subsection_name>
+            <type_of_material>News</type_of_material>
+            <web_url>http://www.nytimes.com/reuters/2014/11/27/world/asia/27reuters-india-kashmir-attacks.html</web_url>
+            <word_count>376</word_count>
+         </element>
+      </docs>
+      <meta>
+         <hits>3225</hits>
+         <offset>0</offset>
+         <time>10</time>
+      </meta>
+   </response>
+   <status>OK</status>
+</root>
