@@ -16,12 +16,14 @@ import org.kb.documentParser.document.ParserException;
 public class ReutersParser {
 	private static Matcher matMonth;
 	private static Matcher matAuthor;
+	private static Matcher matNum;
 	static {
 		String months = "(jan)|(feb)|(mar)|(apr)|(may)|(jun)|"
 				+ "(jul)|(aug)|(sep)|(oct)|(nov)|(dec)";
 		matMonth = Pattern.compile(months, Pattern.CASE_INSENSITIVE).matcher("");
 		String regex = " (by) | (and) |,|</author>";
 		matAuthor = Pattern.compile(regex, Pattern.CASE_INSENSITIVE).matcher("");
+		matNum = Pattern.compile("\\d+").matcher("");
 	}
 	/** Static method to parse the given file into the Document object.
 	 * @param filename : The fully qualified filename to be parsed
@@ -100,7 +102,8 @@ public class ReutersParser {
 						//To Implement: Parse line with place,date and content.
 						List<String> placeDate = extractPlaceAndDate(line);
 						d.setField(FieldNames.PLACE, placeDate.get(0));
-						d.setField(FieldNames.NEWSDATE, placeDate.get(1));
+						String formatDate = formatDate(placeDate.get(1));
+						d.setField(FieldNames.NEWSDATE, formatDate);
 						content.append(placeDate.get(2));
 						flag = 3;
 					}
@@ -116,6 +119,40 @@ public class ReutersParser {
 
 		}
 		return d;
+	}
+	
+	public static String formatDate(String date) {
+		Matcher mat = matMonth.reset(date);
+		String month , d = "01", newDate;
+		int group = 0;
+		if (mat.find()) {
+			for (int i = 0;i < 12; i ++) {
+				if (mat.group(i) != null) {
+					group = i;
+				}
+			}
+		}
+		if (group < 10) { 
+			month = "0" + group;
+		}
+		else {
+			month =  "" + group;
+		}
+		Matcher mat1 = matNum.reset(date);
+		if(mat1.find()) {
+			d = mat1.group();
+		}
+		if (d.length() == 1) {
+			d = "0" + d;
+		}
+		newDate = "2007";
+		if (month.length() == 2 && d.length() == 2) {
+			newDate = newDate + "-" + month + "-" + d + "T00:00:00Z";
+		}
+		else {
+			newDate = "2007-01-01T00:00:00Z";
+		}
+		return newDate;
 	}
 
 	/**
