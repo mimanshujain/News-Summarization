@@ -97,10 +97,16 @@ router.post('/', function (req, res) {
                             console.log('timeLine.json saved!');
                         }
                     });
-                    
-                    result.timeLineData = JSON.parse(output);
+                    try 
+                    {
+                    	result.timeLineData = JSON.parse(output);
+                    } catch (ex) {
+                    	//do nothing is JsON is not properly formatted;
+                    }
+                    //extracting summary from guardian data 
+                    //upto 6 top sentences......
                     var lex = new Lexrank(allContent);
-                    result.summary = lex.summarize(10);
+                    result.summary = lex.summarize(6);
                     console.log('saved Timeline');
                     //if (typeof req.body.query != 'undefined')
                     res.send(result);
@@ -265,6 +271,10 @@ function replaceAllDouble(msg, type, repl) {
         msg = msg.replace(re, repl);
         re = new RegExp("'", "g");
         msg = msg.replace(re, repl);
+        //re = new RegExp(/ {2,}/g, "g");
+        msg = msg.replace(/(\r\n|\n|\r)/gm, "");
+        msg = msg.replace(/ {2,}/g, " ");
+        
     }
     return msg;
 }

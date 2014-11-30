@@ -95,4 +95,6 @@ function crawlGuardian() {
 			});
 			topicise();
 		});
+	
+	return false;
 }
