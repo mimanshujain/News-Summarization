@@ -1,8 +1,70 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+.center{
+margin-left: auto;
+margin-right: auto;
+margin-top: 20px;
 }
 
-a {
-  color: #00B7FF;
+#search_div{
+width: 400px;
+height: 50px;
 }
+
+#search_back{
+background-image: url("http://fc07.deviantart.net/fs71/f/2011/167/4/8/almacon_2012_background_by_sakurirainne-d3j3s4i.png");
+}
+
+.center_nm{
+margin-left: auto;
+margin-right: auto;
+margin-top: -20px;
+}
+
+.center_back_red{
+margin-left: auto;
+margin-right: auto;
+margin-top: 20px;
+background:red;
+width: 400px;
+height: 200px;
+}
+
+
+.center_back_white{
+margin-left: auto;
+margin-right: auto;
+margin-top: 20px;
+width: 400px;
+height: 200px;
+}
+
+
+.lower_border{
+margin-top: 5px;
+border: 5px solid #a1a1a1;
+padding: 10px 40px;
+}
+
+#topiccloud {
+position: relative;
+float: right;
+}
+
+.topicbox{
+border:none;
+}
+
+
+#topicaldivback{
+background-image: url("http://fc07.deviantart.net/fs71/f/2011/167/4/8/almacon_2012_background_by_sakurirainne-d3j3s4i.png");
+}
+
+#topicaldiv{
+height: 50px;
+}
+
+.rotate180{
+transform: rotate(180deg);
+}
+
+ .css-input { border-style:solid; padding:4px; font-size:16px; border-width:3px; background-color:#c1bdd9; border-color:#0d020d; border-radius:0px; box-shadow: 0px 0px 16px 0px rgba(71,69,186,.75);  } 
+		 .css-input:focus { outline:none; } 

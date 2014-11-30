@@ -7,6 +7,7 @@ var solr = require('solr-client');
 var querystring = require('querystring');
 var JSONStream = require('JSONStream');
 var fs = require('fs');
+var webshot = require('webshot');
 
 //Api call parameters
 var requestify = require('requestify');
@@ -21,17 +22,17 @@ var queryVal = '';
 var result = {};
 
 //Initial Set up for Timeline Json
-var output = "{\x22timeline\x22:{\x22headline\x22:\x22\x22,\x22type\x22:\x22default\x22,\x22text\x22:\x22<p></p>\x22,\x22startDate\x22:\x22\"";
-
+var output = {};
 
 /* GET home page. */
 router.get('/', function (req, res) {
     if (req.method == 'GET')
         console.log('GET');
-    res.render('index', { title: 'Mimanshu Shisodia', query: 'Random Query' });
+    res.render('index', { title: 'News Summarization' });
 });
 
 router.post('/', function (req, res) {
+    output = "{\x22timeline\x22:{\x22headline\x22:\x22\x22,\x22type\x22:\x22default\x22,\x22text\x22:\x22<p></p>\x22,\x22startDate\x22:\x22\"";
     console.log('Method: ' + req.method);
     if (typeof req.body.query != 'undefined') {
         console.log('Query: ' + req.body.query.toString());
@@ -56,11 +57,8 @@ router.post('/', function (req, res) {
                 
                 console.log('inside1');
                 var endpoint = "http://content.guardianapis.com/search";
-                method = 'GET';
-                console.log('inside2');
-                if (method == 'GET') {
-                    endpoint += '?q=' + query + "&api-key=" + key + "&sort=newest";
-                }
+                http://content.guardianapis.com/search?api-key=test&show-fields=all&show-tags=all&show-elements=all
+                endpoint += '?q=' + query + "&api-key=" + key + "&sort=newest&show-fields=all&show-tags=all&show-elements=all";
                 
                 requestify.get(endpoint).then(function (resp) {
                     console.log('inside3');
@@ -91,7 +89,7 @@ router.post('/', function (req, res) {
                         output += "}}";
                     }
                     
-                    fs.writeFile('./timeLine.json', output, function (err) {
+                    fs.writeFile('./timeLine.json', JSON.stringify(result.solrData), function (err) {
                         if (err)
                             console.log(err);
                         else {
@@ -121,27 +119,55 @@ function createTimelineJSON(data, isFinish, type) {
     var newsDate = '';
     if (Object.keys(data).length == 0)
         return;
-    
     for (var i = 0; i < Object.keys(data).length; i++) {
         
-        if (type == 'Solr') {
-            output += "{ \x22startDate\x22:\x22" + getDate() + " \x22,\x22headline\x22:\x22";
-            output += replaceAllDouble(data[i].TITLE, "title") + "\x22,\x22text\x22:\x22<p>" + replaceAllDouble(data[i].CONTENT, "content") + "</p>\x22,";
+        if (type == 'Solr') {            
+            //if (typeof data[i].NEWSDATE == 'undefined')
+            //    console.log('Inside D');
+            console.log(data[i].NEWSDATE);
+            newsDate = data[i].NEWSDATE.substring(0, 10).split("-");
+            newsDate = newsDate[0] + "," + newsDate[1] + "," + newsDate[2];
+            console.log(newsDate);
+            output += "{ \x22startDate\x22:\x22" + newsDate + " \x22,\x22headline\x22:\x22";
+            output += replaceAllDouble(data[i].TITLE, "title", '') + "\x22,\x22text\x22:\x22<p>" + replaceAllDouble(data[i].CONTENT, "content", '') + "</p>\x22,";
+            
+            if (typeof data[i].NEWSCATEGORY != 'undefined') {
+                console.log(data[i].NEWSCATEGORY[0].indexOf(";"))
+                if (data[i].NEWSCATEGORY[0].indexOf(";") > -1) {
+                    console.log(data[i].NEWSCATEGORY[0].split(";")[0]);
+                    output += "\"tag\":\"" + data[i].NEWSCATEGORY[0].split(";")[0] + "\",";
+                }
+                else
+                    output += "\"tag\":\"" + data[i].NEWSCATEGORY[0] + "\",";
+            }
+                
+
+            if (i == Object.keys(data).length - 1 && isFinish) {
+                output += "\x22asset\x22:{\x22media\x22:\x22\x22,\x22credit\x22:\x22" + type + "\x22,\x22caption\x22:\x22\x22}}]}}";
+            }
+            else
+                output += "\x22asset\x22:{\x22media\x22:\x22\x22,\x22credit\x22:\x22" + type + "\x22,\x22caption\x22:\x22\x22}},";
         }
         
         if (type == 'Guardian') {
             newsDate = data[i].webPublicationDate.substring(0, 10).split("-");
             newsDate = newsDate[0] + "," + newsDate[1] + "," + newsDate[2];
-            output += "{ \x22startDate\x22:\x22" + newsDate + ' \x22,\x22headline\x22:\x22<p><a href="'+data[i].webUrl.substring()+'">';
-            output += replaceAllDouble(data[i].webTitle, "title") + "</a></p>\x22,\x22text\x22:\x22<p>" + replaceAllDouble(data[i].id, "content") + "</p>\x22,";
+            var url = data[i].webUrl.substring(7);
+            output += "{ \x22startDate\x22:\x22" + newsDate + " \x22,\x22headline\x22:\x22";//<a href="+url+" >
+            output += replaceAllDouble(data[i].webTitle, "title",'') + "\x22,\x22text\x22:\x22<p>" + replaceAllDouble(data[i].fields.body, "content",'') + "</p>\x22,";
             output += "\"tag\":\"" + data[i].sectionName + "\",";
+            //output += '{ "startDate":"' + newsDate + '","headline":""';//<a href="+url+' >
+            //output += replaceAllDouble(data[i].webTitle, "title", '') + '","text":"<p>"' + replaceAllDouble(data[i].fields.body, "content", '"') + '</p>",';
+            //output += '"tag":"' + data[i].sectionName + '",';
+            
+            if (i == Object.keys(data).length - 1 && isFinish) {
+                output += '"asset":{"media":"'+ replaceAllDouble(data[i].fields.thumbnail,'image','')+'","credit":"' + type + '","caption":""}}]}}';//<a href=" + url + " ></a>                
+            }
+            else {
+                output += '"asset":{"media":"' + replaceAllDouble(data[i].fields.thumbnail,'image','') + '","credit":"' + type + '","caption":""}},';
+            }
         }
-        
-        if (i == Object.keys(data).length - 1 && isFinish) {
-            output += "\x22asset\x22:{\x22media\x22:\x22\x22,\x22credit\x22:\x22"+type+"\x22,\x22caption\x22:\x22\x22}}]}}";
-        }
-        else
-            output += "\x22asset\x22:{\x22media\x22:\x22\x22,\x22credit\x22:\x22"+type+"\x22,\x22caption\x22:\x22\x22}},";
+
     }
 }
 
@@ -220,7 +246,7 @@ function getDate() {
     return dateOut.trim();
 }
 
-function replaceAllDouble(msg, type) {
+function replaceAllDouble(msg, type, repl) {
     if (typeof msg == 'undefined') {
         if (type == "title") {
             msg = "No Title Present";
@@ -232,7 +258,7 @@ function replaceAllDouble(msg, type) {
         
     else {
         var re = new RegExp('\"', 'g');
-        msg = msg.replace(re, '');
+        msg = msg.replace(re, repl);
     }
     return msg;
 }
