@@ -74,6 +74,7 @@ function crawlNYTimes() {
 
 function crawlGuardian() {
 	var GApi = "http://content.guardianapis.com/search?q=";
+	//GApi = GApi + "modi&sort=newest&api-key=neukrcw8u9xm4ks5zejvx3uj";
 	GApi = GApi + $("#search_field").val() + "&sort=newest&api-key=neukrcw8u9xm4ks5zejvx3uj";
 	$.getJSON( GApi, function( data ) {
 			$("#results").empty();
@@ -87,6 +88,7 @@ function crawlGuardian() {
 				html += ' <a href=\"' + this.webUrl + '\">Click here</a></li></br></br></div>';
 				$("#results").append(html);
 				var sentc = this.webTitle + " " + this.sectionName;
+				//uncomment it latter
 				sentences.push(sentc);
 //				sentences[0] = sentences[0].concat(this.webTitle, " ");
 //				sentences[0] = sentences[0].concat(this.sectionName, " ");

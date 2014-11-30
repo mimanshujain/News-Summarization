@@ -69,24 +69,25 @@ router.post('/', function (req, res) {
                     
                     var solrLength = Object.keys(result.solrData.response.docs).length;
                     var guarLength = Object.keys(result.gaurdianData).length;
-                    console.log('solrLength::' + solrLength); console.log('guarLength::' + guarLength);
+                    console.log('SolrLength::' + solrLength); console.log('GuarLength::' + guarLength);
                     if (solrLength > 0 && guarLength > 0) {
                         output += ",\x22date\x22:[";
                         start = 1; console.log('first');
-                        createTimelineJSON(result.solrData.response.docs, false, 'solr');
-                        createTimelineJSON(result.gaurdianData, true, 'guardian');
+                        createTimelineJSON(result.solrData.response.docs, false, 'Solr');
+                        createTimelineJSON(result.gaurdianData, true, 'Guardian');
                     }
                     else if (solrLength > 0 && guarLength == 0) {
                         output += ",\x22date\x22:[";
                         console.log('second');
-                        createTimelineJSON(result.solrData, true, 'solr');
+                        createTimelineJSON(result.solrData, true, 'Solr');
                     }
                     else if (solrLength == 0 && guarLength > 0) {
                         output += ",\x22date\x22:[";
                         console.log('third');
-                        createTimelineJSON(result.gaurdianData, true, 'guardian');
+                        createTimelineJSON(result.gaurdianData, true, 'Guardian');
                     }
-                    else {                        console.log('fourth');
+                    else {
+                        console.log('fourth');
                         output += "}}";
                     }
                     
@@ -99,9 +100,9 @@ router.post('/', function (req, res) {
                     });
                     
                     result.timeLineData = JSON.parse(output);
-                    
-                    if (typeof req.body.query != 'undefined')
-                        res.send(result);
+                    console.log('saved Timeline');
+                    //if (typeof req.body.query != 'undefined')
+                    res.send(result);
 
         //return response.getBody().response.results;
 
@@ -123,24 +124,24 @@ function createTimelineJSON(data, isFinish, type) {
     
     for (var i = 0; i < Object.keys(data).length; i++) {
         
-        if (type == 'solr') {
+        if (type == 'Solr') {
             output += "{ \x22startDate\x22:\x22" + getDate() + " \x22,\x22headline\x22:\x22";
             output += replaceAllDouble(data[i].TITLE, "title") + "\x22,\x22text\x22:\x22<p>" + replaceAllDouble(data[i].CONTENT, "content") + "</p>\x22,";
         }
         
-        if (type == 'guardian') {
+        if (type == 'Guardian') {
             newsDate = data[i].webPublicationDate.substring(0, 10).split("-");
             newsDate = newsDate[0] + "," + newsDate[1] + "," + newsDate[2];
-            output += "{ \x22startDate\x22:\x22" + newsDate + " \x22,\x22headline\x22:\x22";
-            output += replaceAllDouble(data[i].webTitle, "title") + "\x22,\x22text\x22:\x22<p>" + replaceAllDouble(data[i].id, "content") + "</p>\x22,";
+            output += "{ \x22startDate\x22:\x22" + newsDate + ' \x22,\x22headline\x22:\x22<p><a href="'+data[i].webUrl.substring()+'">';
+            output += replaceAllDouble(data[i].webTitle, "title") + "</a></p>\x22,\x22text\x22:\x22<p>" + replaceAllDouble(data[i].id, "content") + "</p>\x22,";
             output += "\"tag\":\"" + data[i].sectionName + "\",";
         }
         
         if (i == Object.keys(data).length - 1 && isFinish) {
-            output += "\x22asset\x22:{\x22media\x22:\x22\x22,\x22credit\x22:\x22\x22,\x22caption\x22:\x22\x22}}]}}";
+            output += "\x22asset\x22:{\x22media\x22:\x22\x22,\x22credit\x22:\x22"+type+"\x22,\x22caption\x22:\x22\x22}}]}}";
         }
         else
-            output += "\x22asset\x22:{\x22media\x22:\x22\x22,\x22credit\x22:\x22\x22,\x22caption\x22:\x22\x22}},";
+            output += "\x22asset\x22:{\x22media\x22:\x22\x22,\x22credit\x22:\x22"+type+"\x22,\x22caption\x22:\x22\x22}},";
     }
 }
 
