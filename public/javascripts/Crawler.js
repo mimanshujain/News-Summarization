@@ -81,7 +81,7 @@ function crawlGuardian() {
             type: 'POST',
             data: JSON.stringify(data),
             contentType: 'application/json',
-            url: 'http://localhost:3000',
+            url: '/',
             
             success: function (nodeData) {
                 var data = nodeData.solrData;
