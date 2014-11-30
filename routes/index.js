@@ -133,7 +133,7 @@ function createTimelineJSON(data, isFinish, type) {
             console.log(newsDate);
             output += "{ \x22startDate\x22:\x22" + newsDate + " \x22,\x22headline\x22:\x22";
             output += replaceAllDouble(data[i].TITLE, "title", '') + "\x22,\x22text\x22:\x22<p>" + replaceAllDouble(data[i].CONTENT, "content", '') + "</p>\x22,";
-            allContent += " " + data[i].TITLE + " " + data[i].CONTENT; 
+            //allContent += " " + data[i].TITLE + " " + data[i].CONTENT; 
             if (typeof data[i].NEWSCATEGORY != 'undefined') {
                 console.log(data[i].NEWSCATEGORY[0].indexOf(";"))
                 if (data[i].NEWSCATEGORY[0].indexOf(";") > -1) {
