@@ -8,6 +8,7 @@
     <link type="text/css" href="/stylesheets/lda.css" rel="stylesheet" />
     <link type="text/css" href="/stylesheets/style.css" rel="stylesheet" />
 	<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/pure-min.css">
+	<link type="text/css" href="/stylesheets/semantic.css" rel="stylesheet" />
 
 	<script type="text/javascript" src="/javascripts/bootstrap.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
@@ -23,48 +24,57 @@
 
     <% include partials/template/head.ejs %>
 </head>
-<body>
-
+<body >
+<div class="ui segment">
     <section>
-        <div id="search_back" class="center_nm">
-            <div id="search_div" class="center">
-                <input id="search_field" type="text" style="height:30px; width:300px; top:6px; position:relative;" class="css-input"></input>
-                <button type="submit" style="height:30px; top:6px; position:relative;" onclick=crawlGuardian() 
-					class="pure-button pure-button-primary">Submit</button>
+        <div id="search_back1" style="width:100%;" align="center" class="ui raised segment">
+            <div id="search_div1" style="width:100%">
+			<div class="ui fluid icon input">
+                <input id="search_field" placeholder="Search the News..." 
+				type="text" style="height:40px; width:600px; top:6px; position:relative;" class="css-input"></input>
+				<i class="search icon"></i>
+			</div>
+                <button type="submit" style="height:40px;width:100px; top:6px; position:relative;" onclick=crawlGuardian() 
+					class="pure-button pure-button-primary" id="btnSubmit">Submit</button>
             </div>
         </div>
     </section>
+	</br>
 	<section>
-		<div id="topicaldivback" class="center_nm rotate180">
-			<div id="topicaldiv" class="center">
-				<div id="topiclist" class="rotate180">
-					<input id="btn_topic[1]" type="button" style="height:30px; top:-9px; position:relative;"></input>
-					<input id="btn_topic[2]" type="button" style="height:30px; top:-9px; position:relative;"></input>
-					<input id="btn_topic[3]" type="button" style="height:30px; top:-9px; position:relative;"></input>
-					<input id="btn_topic[4]" type="button" style="height:30px; top:-9px; position:relative;"></input>
-					<input id="btn_topic[5]" type="button" style="height:30px; top:-9px; position:relative;"></input>
-					<input id="btn_topic[6]" type="button" style="height:30px; top:-9px; position:relative;"></input>
-					<input id="btn_topic[7]" type="button" style="height:30px; top:-9px; position:relative;"></input>
-					<input id="btn_topic[8]" type="button" style="height:30px; top:-9px; position:relative;"></input>
-					<input id="btn_topic[9]" type="button" style="height:30px; top:-9px; position:relative;"></input>
-					<input id="btn_topic[10]" type="button" style="height:30px; top:-9px; position:relative;"></input>
+		<div id="topicaldivback1" align="center" class="ui raised segment">
+			<div id="topicaldiv1">
+				<div id="topiclist1">
+					<input id="btn_topic[1]" type="button" class="ui yellow button"></input>
+					<input id="btn_topic[2]" type="button" class="ui green button"></input>
+					<input id="btn_topic[3]" type="button" class="ui blue button"></input>
+					<input id="btn_topic[4]" type="button" class="ui orange button""></input>
+					<input id="btn_topic[5]" type="button" class="ui purple button"></input>
+					<input id="btn_topic[6]" type="button" class="ui red button"></input>
+					<input id="btn_topic[7]" type="button" class="ui pink button"></input>
+					<input id="btn_topic[8]" type="button" class="ui teal button"></input>
+					<input id="btn_topic[9]" type="button" class="ui orange button"></input>
+					<input id="btn_topic[10]" type="button" class="ui blue button"></input>
 				</div>
+				</br>
 			</div>
 		</div>
 	</section
-    <section>
+    
+	<section>
         <div id="my-timeline"></div>
     </section>
     <input type="hidden" id="hdnMessage" value="0">
-
-
-
     <section>
-        <label id='lblMessage'>Welcome to Kuch bhi..Do whatever you want to do</label>
-        <div class="lower_border">
+	<label class="ui huge label" id='lblMessage'>Welcome to <i>Kuch bhi</i>..Do whatever you want to do</label>
+		<!--<h3 style="font-size: 20px;height:20px;font-family: Goudy Old Style,Garamond,Big Caslon,Times New Roman,serif">
+        Welcome to <i>Kuch bhi</i>
+        ..Do whatever you want to do
+    </h3>-->
+        <div class="class="ui piled segment"" id="divResult">
             <div id="topiccloud"></div>
             <div id="results"></div>
         </div>
     </section>
+	</div>
 </body>
 </html>
