@@ -8,7 +8,7 @@ var querystring = require('querystring');
 var JSONStream = require('JSONStream');
 var fs = require('fs');
 var webshot = require('webshot');
-
+var Lexrank = require('lexrank');
 //Api call parameters
 var requestify = require('requestify');
 var host = 'www.theguardian.com';
@@ -20,7 +20,7 @@ var querystring = require('querystring');
 var client = solr.createClient('98.118.151.224', 8983, 'newscollection', '/solr', false, false);
 var queryVal = '';
 var result = {};
-
+var allContent = '';
 //Initial Set up for Timeline Json
 var output = {};
 
@@ -33,6 +33,7 @@ router.get('/', function (req, res) {
 
 router.post('/', function (req, res) {
     output = "{\x22timeline\x22:{\x22headline\x22:\x22\x22,\x22type\x22:\x22default\x22,\x22text\x22:\x22<p></p>\x22,\x22startDate\x22:\x22\"";
+    allContent = '';
     console.log('Method: ' + req.method);
     if (typeof req.body.query != 'undefined') {
         console.log('Query: ' + req.body.query.toString());
@@ -98,6 +99,8 @@ router.post('/', function (req, res) {
                     });
                     
                     result.timeLineData = JSON.parse(output);
+                    var lex = new Lexrank(allContent);
+                    result.summary = lex.summarize(10);
                     console.log('saved Timeline');
                     //if (typeof req.body.query != 'undefined')
                     res.send(result);
@@ -130,7 +133,7 @@ function createTimelineJSON(data, isFinish, type) {
             console.log(newsDate);
             output += "{ \x22startDate\x22:\x22" + newsDate + " \x22,\x22headline\x22:\x22";
             output += replaceAllDouble(data[i].TITLE, "title", '') + "\x22,\x22text\x22:\x22<p>" + replaceAllDouble(data[i].CONTENT, "content", '') + "</p>\x22,";
-            
+            allContent += " " + data[i].TITLE + " " + data[i].CONTENT; 
             if (typeof data[i].NEWSCATEGORY != 'undefined') {
                 console.log(data[i].NEWSCATEGORY[0].indexOf(";"))
                 if (data[i].NEWSCATEGORY[0].indexOf(";") > -1) {
@@ -156,6 +159,7 @@ function createTimelineJSON(data, isFinish, type) {
             output += "{ \x22startDate\x22:\x22" + newsDate + " \x22,\x22headline\x22:\x22";//<a href="+url+" >
             output += replaceAllDouble(data[i].webTitle, "title",'') + "\x22,\x22text\x22:\x22<p>" + replaceAllDouble(data[i].fields.body, "content",'') + "</p>\x22,";
             output += "\"tag\":\"" + data[i].sectionName + "\",";
+            allContent += " " + data[i].webTitle + " " + data[i].fields.body;
             //output += '{ "startDate":"' + newsDate + '","headline":""';//<a href="+url+' >
             //output += replaceAllDouble(data[i].webTitle, "title", '') + '","text":"<p>"' + replaceAllDouble(data[i].fields.body, "content", '"') + '</p>",';
             //output += '"tag":"' + data[i].sectionName + '",';
