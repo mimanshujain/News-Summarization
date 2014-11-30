@@ -17,11 +17,14 @@
 function topicise() {
 	//console.log("analysing "+sentences.length+" sentences...");
 	var documents = new Array();
+	var docs = new Array();
 	var f = {};
 	var stem = {};
 	var vocab=new Array();
 	var docCount=0;
+	
 	for(var i=0;i<sentences.length;i++) {
+		docs[i] = new Array();
 		if (sentences[i]=="") continue;
 		var words = sentences[i].split(/[\s,\"]+/);
 		if(!words) continue;
@@ -36,6 +39,12 @@ function topicise() {
 			}
 			else {
 				stem[stemWord] = w;
+			}
+			if (docs[i][w]) {
+				docs[i][w]++;
+			}
+			else {
+				docs[i][w] = 1;
 			}
 			if (f[w]) { 
 				f[w]=f[w]+1;			
@@ -69,13 +78,25 @@ function topicise() {
 	//topics
 	var topTerms=20;
 	var topicText = new Array();
-	var cluster = new Array();
+	var cluster = [];//new Array();
+	var clusterR = [];
 	var clusterIndex = new Array();
 	for (var k = 0; k < phi.length; k++) {
 		text+='<canvas id="topic'+k+'" class="topicbox color'+k+'"><ul>';
 		var tuples = new Array();
 		for (var w = 0; w < phi[k].length; w++) {
 			 tuples.push(""+phi[k][w].toPrecision(2)+"_"+vocab[w]);
+			 if (cluster[vocab[w]]) {
+				 if (phi[k][w].toPrecision(2) > cluster[vocab[w]])
+					 //cluster[vocab[w]] = phi[k][w].toPrecision(2);
+				 	//cluster.push({'\''+vocab[w]+'\'' : phi[k][w].toPrecision(2)});
+				 	cluster[vocab[w]] = phi[k][w].toPrecision(2);
+			 } 
+			 else {
+				 cluster[vocab[w]] = phi[k][w].toPrecision(2);
+				 //cluster[vocab[w]] = phi[k][w].toPrecision(2);
+				 //cluster.push({vocab[w]:phi[k][w].toPrecision(2)});
+			 }
 		}
 		tuples.sort().reverse();
 		if(topTerms>vocab.length) topTerms=vocab.length;
@@ -89,28 +110,28 @@ function topicise() {
 		}
 		temp.sort();
 		var maxSimilar = 0, maxIndex = -1;
-		for (var t = 0; t < cluster.length; t++) {
+		for (var t = 0; t < clusterR.length; t++) {
 			var tempSimilar = 0;
-			for (var tt = 0, rr = 0; tt < cluster[t].length && rr < temp.length;) {
-				if (cluster[t][tt] === temp[rr]) {
+			for (var tt = 0, rr = 0; tt < clusterR[t].length && rr < temp.length;) {
+				if (clusterR[t][tt] === temp[rr]) {
 					tempSimilar++; tt++; rr++;
 				}
-				else if (cluster[t][tt] > temp[rr]) { rr++; }
+				else if (clusterR[t][tt] > temp[rr]) { rr++; }
 				else { tt++; }
 			}
 			if (maxSimilar < tempSimilar) {
 				maxSimilar = tempSimilar;
 				maxIndex = t;
 			}
-		}
+		} 
 		var flagCluster = false;
-		if (maxSimilar < 9) {
+		if (maxSimilar < 15) {
 			flagCluster = true;
-			cluster[k] = temp;
+			clusterR[k] = temp;
 			clusterIndex[k] = k;
 		} 
 		if (!flagCluster) {
-			cluster[k] = new Array();
+			clusterR[k] = new Array();
 			clusterIndex[k] = maxIndex;
 		}
 		for (var t = 0; flagCluster && t < topTerms; t++) {
@@ -128,6 +149,22 @@ function topicise() {
 	
 	text='<div class="spacer"> </div>';
 	//highlight sentences	
+// 	var clusDoc = new Array();
+// 	//assigning to particular cluster 
+// 	for (var m = 0; m < docs.length; m++) {
+// 		var maxScore=0, word=-1;
+// 		for (var key in cluster) {
+// 			value = cluster[key];
+// 			var score = docs[m][key] * value;
+// 			if (maxScore < score) {
+// 				maxScore = score;
+// 				word = key;
+// 			}
+// 		}
+// 		clusDoc[m] = word;
+// 		//$('#div'+m).attr("class", "bgcolor" + vocab.indexOf(key));
+// 	}
+	 
 	for (var m = 0; m < theta.length; m++) {
 		//text+='<div class="lines">';
 		//text+='<div style="display:table-cell;width:100px;padding-right:5px">';
@@ -137,12 +174,11 @@ function topicise() {
 				index = k;
 				max = theta[m][k];
 			}
+			$('#div'+m).attr("class", "box bgcolor" + index);
 			//text+=('<div class="box bgcolor'+k+'" style="width:'+parseInt(""+(theta[m][k]*100))+'px" title="'+topicText[k]+'"></div>');
 		}
-		$('#div'+m).attr("class", "box bgcolor"+clusterIndex[index]);
-		//$("#li"+k).css("background-color","RED");
-		//text+='</div>'+sentences[m]+'</div>';
-	}
+		
+	} 
 	$("#output").html(text);
 	
 	 for (var k = 0; k < phi.length; k++) {
@@ -208,7 +244,7 @@ var sentences = [""];
 <body>
 	<div id="search_back" class="center_nm">
 	<div id="search_div" class="center">
-	<input id="search_field" type="text" style="height:30px; width:300px; top:6px; position:relative;"id="query"></input>
+	<textarea id="search_field" type="text" style="height:30px; width:300px; top:6px; position:relative;"id="query"></textarea>
 	<button type="submit" style="height:30px; top:6px; position:relative;" onclick=crawlGuardian()>Search</button>
 	</div>
 	</div>
