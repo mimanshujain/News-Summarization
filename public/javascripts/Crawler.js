@@ -81,7 +81,7 @@ function crawlGuardian() {
             type: 'POST',
             data: JSON.stringify(data),
             contentType: 'application/json',
-            url: '/',
+            url: 'http://localhost:3000',
             
             success: function (nodeData) {
                 var data = nodeData.solrData;
@@ -94,25 +94,40 @@ function crawlGuardian() {
                     createStoryJS({
                         type: 'timeline',
                         width: '100%',
-                        height: '500',
+                        height: '600',
                         source: nodeData.timeLineData,
                         maptype: 'watercolor',
-                        start_at_end: true, 
                         embed_id: 'my-timeline'
                     });//TimeLine.js          
                 }
 
                 $("#results").empty();
                 $.each(nodeData.gaurdianData, function () {
-
-                    var html = '<li> Date: ' + this.webPublicationDate + '</br>';
-                    html += ' abstract: ' + this.sectionName + '</br>';;
-                    html += ' <b>headlines: ' + this.webTitle + '</b>' + '</br>';
-                    html += ' leadparagraph: ' + this.sectionName + '</br>';
-                    html += ' <a href=\"' + this.webUrl + '\">Click here</a></li></br></br>';
+					
+					bodstr = this.fields.body;
+					if (bodstr){
+					bodstr = bodstr.substring(4,600);
+					}
+					else {
+					bodstr = "Read full story....";
+					}
+					
+					
+					gdntmbnl = this.fields.thumbnail;
+					if (gdntmbnl){
+					}
+					else {
+					gdntmbnl = "http://next.theguardian.com/assets/images/gravatar.png";
+					}
+					
+                    var html = '<li><b>Title: ' + this.webTitle + '</b></br>';
+                    html += ' Date:' + this.fields.firstPublicationDate + '</br>';;
+                    html += '<div class="ui raised segment" style="width:100%;"><div style="display:inline-block; vertical-align:top;"><img src=\"' + gdntmbnl+"\"width=\"150\" height=\"150\"></div>";
+                    html += '<div style="width: 600px; margin-left:20px; display:inline-block; vertical-align:top;">' +bodstr + '...';
+                    html += ' <a href=\"' + this.webUrl + '\">Full Story...</a></div></div></li><br/><br/><br/>';
                     $("#results").append(html);
                     sentences[0] = sentences[0].concat(this.webTitle, " ");
-                    sentences[0] = sentences[0].concat(this.sectionName, " ");
+                    sentences[0] = sentences[0].concat(this.standfirst, " ");
 				
                 });
             TopicListing();           
