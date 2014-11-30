@@ -24,8 +24,9 @@
         
         success: function( nodeData ) 
         {
+        alert('mimanshu');
           var data = nodeData.solrData;
-          $('#lblMessage').text('Total '+ Object.keys(data.response.docs).length+' result found.');
+          $('#lblMessage').text('Total '+ Object.keys(nodeData.timeLineData.timeline.date).length +' result found.');
           $('#txtQuery').val('');
           
           var timeJsonData = {};
