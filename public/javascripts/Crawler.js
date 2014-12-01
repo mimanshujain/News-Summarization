@@ -269,7 +269,7 @@ function displayTopics() {
     //AllTopics = topiciseAll();
     AllTopics = result.tempArrayDisp;
     docTopic = result.docTopic;
-    for (k = 0; k < 15; k++) {
+    for (k = 0; k < 15 && k < AllTopics.length; k++) {
         TenTopics[k] = AllTopics[k];
         j = k + 1;
         var btn = "btn_topic[" + j + "]"
