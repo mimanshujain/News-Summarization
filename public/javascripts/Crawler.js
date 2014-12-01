@@ -8,7 +8,7 @@ function calc(numA, numB) {
 function callSolr() {
     //98.118.151.224
     var solrApi = "http://98.118.151.224:8983/solr/newscollection/select";//?q=";
-    sentences[0] = "";
+//    sentences[0] = "";
     $("#results").empty();
     $.ajax({
         'url': solrApi,
@@ -22,8 +22,9 @@ function callSolr() {
                 html += ' Content: ' + this.CONTENT + '</br>';
                 html += ' <a href=\"' + this.CATEGORY + '\">Category</a></li></br></br>';
                 $("#results").append(html);
-                sentences[0] = sentences[0].concat(this.TITLE, " ");
-                sentences[0] = sentences[0].concat(this.CONTENT, " ");
+               // sentences[0] = sentences[0].concat(this.TITLE, " ");
+               // sentences[0] = sentences[0].concat(this.CONTENT, " ");
+                sentences.push(this.TITLE + " " + this.CONTENT);
             });
             topicise();
         },
@@ -53,7 +54,7 @@ function callSolr() {
 function crawlNYTimes() {
     var NYTApi = "http://api.nytimes.com/svc/search/v2/articlesearch.json?q=";
     NYTApi = NYTApi + $("input").val() + "&sort=newest&api-key=0eadf8a8e685079f3f53202a194920f6:10:70223982";
-    sentences[0] = "";
+    //sentences[0] = "";
     $.getJSON(NYTApi).
 		done(function (data) {
         $("#results").empty();
@@ -64,8 +65,9 @@ function crawlNYTimes() {
             html += ' leadparagraph: ' + this.lead_paragraph + '</br>';
             html += ' <a href=\"' + this.web_url + '\">Click here</a></li></br></br>';
             $("#results").append(html);
-            sentences[0] = sentences[0].concat(this.headline.main, " ");
-            sentences[0] = sentences[0].concat(this.lead_paragraph, " ");
+            //sentences[0] = sentences[0].concat(this.headline.main, " ");
+            //sentences[0] = sentences[0].concat(this.lead_paragraph, " ");
+            sentences.push(this.headline.main + " " + this.lead_paragraph);
         });
         topicise();
     });
@@ -126,9 +128,9 @@ function crawlGuardian() {
                     html += '<div style="width: 600px; margin-left:20px; display:inline-block; vertical-align:top;">' +bodstr + '...';
                     html += ' <a href=\"' + this.webUrl + '\">Full Story...</a></div></div></li><br/><br/><br/>';
                     $("#results").append(html);
-                    sentences[0] = sentences[0].concat(this.webTitle, " ");
-                    sentences[0] = sentences[0].concat(this.standfirst, " ");
-				
+                   // sentences[0] = sentences[0].concat(this.webTitle, " ");
+                    //sentences[0] = sentences[0].concat(this.standfirst, " ");
+                    sentences.push(this.webTitle + " " + this.standfirst);
                 });
             TopicListing();           
             $("#btnSubmit").removeClass("ui loading button");
@@ -149,7 +151,7 @@ function crawlGuardian2() {
     var valnew = document.getElementById(idClicked).value;
     var GApi = "http://content.guardianapis.com/search?q=";
     GApi = GApi + $("input").val() + " " + valnew + "&sort=newest&api-key=neukrcw8u9xm4ks5zejvx3uj";
-    sentences[0] = "";
+    //sentences[0] = "";
     $.getJSON(GApi, function (data) {
         $("#results").empty();
         $.each(data.response.results, function () {
@@ -159,8 +161,9 @@ function crawlGuardian2() {
             html += ' leadparagraph: ' + this.sectionName + '</br>';
             html += ' <a href=\"' + this.webUrl + '\">Click here</a></li></br></br>';
             $("#results").append(html);
-            sentences[0] = sentences[0].concat(this.webTitle, " ");
-            sentences[0] = sentences[0].concat(this.sectionName, " ");
+            //sentences[0] = sentences[0].concat(this.webTitle, " ");
+            //sentences[0] = sentences[0].concat(this.sectionName, " ");
+            sentences.push(this.webTitle + " " + this.sectionName);
 				
         });
 			//topicise();
@@ -175,7 +178,7 @@ function TopicListing() {
     
     
     
-    sentences[0] = "";
+    //sentences[0] = "";
     
     
     var NYTApi = "http://api.nytimes.com/svc/search/v2/articlesearch.json?q=";
@@ -183,8 +186,9 @@ function TopicListing() {
     $.getJSON(NYTApi).
 			done(function (data) {
         $.each(data.response.docs, function (i, doc) {
-            sentences[0] = sentences[0].concat(this.headline.main, " ");
-            sentences[0] = sentences[0].concat(this.lead_paragraph, " ");
+           // sentences[0] = sentences[0].concat(this.headline.main, " ");
+           // sentences[0] = sentences[0].concat(this.lead_paragraph, " ");
+        	sentences.push(this.headline.main + " " + this.lead_paragraph);
         });
         
         sentencesmod = sentences;
@@ -198,8 +202,9 @@ function gnext() {
     GApi = GApi + $("input").val() + "&sort=newest&api-key=neukrcw8u9xm4ks5zejvx3uj";
     $.getJSON(GApi, function (data) {
         $.each(data.response.results, function () {
-            sentences[0] = sentences[0].concat(this.webTitle, " ");
-            sentences[0] = sentences[0].concat(this.sectionName, " ");
+           // sentences[0] = sentences[0].concat(this.webTitle, " ");
+           // sentences[0] = sentences[0].concat(this.sectionName, " ");
+        	sentences.push(this.webTitle + " " + this.sectionName);
         });
         sentencesmod = sentences;
         solrnext();
@@ -217,8 +222,9 @@ function solrnext() {
         'data': { 'wt': 'json', 'q': $("input").val() },
         'success': function (data) {
             $.each(data.response.docs, function (i, doc) {
-                sentences[0] = sentences[0].concat(this.TITLE, " ");
-                sentences[0] = sentences[0].concat(this.CONTENT, " ");
+                //sentences[0] = sentences[0].concat(this.TITLE, " ");
+                //sentences[0] = sentences[0].concat(this.CONTENT, " ");
+            	sentences.push(this.TITLE + " " + this.CONTENT);
             });
             sentencesmod = sentences;
             topicise();
