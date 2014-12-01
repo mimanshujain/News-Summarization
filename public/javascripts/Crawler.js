@@ -269,12 +269,12 @@ function displayTopics() {
     //AllTopics = topiciseAll();
     AllTopics = result.tempArrayDisp;
     docTopic = result.docTopic;
-    for (k = 0; k < 15 && k < AllTopics.length; k++) {
+    for (k = 0; k < 10 && k < AllTopics.length; k++) {
         TenTopics[k] = AllTopics[k];
         j = k + 1;
         var btn = "btn_topic[" + j + "]"
         document.getElementById(btn).value = AllTopics[k];
-        if (k == 14) {
+        if (k == 9) {
             $(topicaldivback1).show();
             $(divResult).show();
         }
