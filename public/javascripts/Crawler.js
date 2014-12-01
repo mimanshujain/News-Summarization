@@ -1,6 +1,7 @@
 /**
  * 
  */
+var key = 'neukrcw8u9xm4ks5zejvx3uj';
 function calc(numA, numB) {
     return numA + numB;
 }
@@ -105,29 +106,32 @@ function crawlGuardian() {
 
                 $("#results").empty();
                 $.each(nodeData.gaurdianData, function () {
-					
-					bodstr = this.fields.body;
-					if (bodstr){
-					bodstr = bodstr.substring(4,600);
-					}
-					else {
-					bodstr = "Read full story....";
-					}
-					
-					
-					gdntmbnl = this.fields.thumbnail;
-					if (gdntmbnl){
-					}
-					else {
-					gdntmbnl = "http://next.theguardian.com/assets/images/gravatar.png";
-					}
-					
-                    var html = '<li><b>Title: ' + this.webTitle + '</b></br>';
-                    html += ' Date:' + this.fields.firstPublicationDate + '</br>';;
-                    html += '<div class="ui raised segment" style="width:100%;"><div style="display:inline-block; vertical-align:top;"><img src=\"' + gdntmbnl+"\"width=\"150\" height=\"150\"></div>";
-                    html += '<div style="width: 600px; margin-left:20px; display:inline-block; vertical-align:top;">' +bodstr + '...';
-                    html += ' <a href=\"' + this.webUrl + '\">Full Story...</a></div></div></li><br/><br/><br/>';
-                    $("#results").append(html);
+                
+                bodstr = this.fields.body;
+                if (bodstr) {
+                    bodstr = bodstr.substring(4, 600);
+                }
+                else {
+                    bodstr = "Read full story....";
+                }
+                
+                
+                gdntmbnl = this.fields.thumbnail;
+                if (gdntmbnl) {
+                }
+                else {
+                    gdntmbnl = "http://next.theguardian.com/assets/images/gravatar.png";
+                }
+                var newsDate = String(this.fields.firstPublicationDate).substring(0, 10);
+                if (typeof this.fields.firstPublicationDate == 'undefined') {
+                    newsDate = "2014-11-10";
+                }
+                var html = '<li><b><label class="ui teal ribbon label" style="font-size: 17px;">Title: ' + this.webTitle + '</label></b></br>';
+                html += '<label class="ui horizontal label"><span style="color:black;font-weight:bold">Date:</span> ' + newsDate + '</label</br>';;
+                html += '<div class="ui raised segment" align="left" style="width:100%;"><div style="display:inline-block; vertical-align:top;"><img src=\"' + gdntmbnl + "\"width=\"150\" height=\"150\"></div>";
+                html += '<div style="width: 600px; margin-left:20px; display:inline-block; vertical-align:top;">' + bodstr + '...';
+                html += ' <a href=\"' + this.webUrl + '\"><span style="color:blue;font-weight:bold;font-size: 15px">Full Story...</span></a></div></div></li><br/><br/><br/>';
+                $("#results").append(html);
                    // sentences[0] = sentences[0].concat(this.webTitle, " ");
                     //sentences[0] = sentences[0].concat(this.standfirst, " ");
                     sentences.push(this.webTitle + " " + this.standfirst);
@@ -149,17 +153,37 @@ function crawlGuardian() {
 
 function crawlGuardian2() {
     var valnew = document.getElementById(idClicked).value;
-    var GApi = "http://content.guardianapis.com/search?q=";
-    GApi = GApi + $("input").val() + " " + valnew + "&sort=newest&api-key=neukrcw8u9xm4ks5zejvx3uj";
-    //sentences[0] = "";
+    var GApi = "http://content.guardianapis.com/search";
+    GApi += '?q=' + $("input").val() + " " + valnew + "&api-key=" + key + "&sort=newest&show-fields=all&show-tags=all&show-elements=all";
+    
+    sentences[0] = "";
     $.getJSON(GApi, function (data) {
         $("#results").empty();
         $.each(data.response.results, function () {
-            var html = '<li> Date: ' + this.webPublicationDate + '</br>';
-            html += ' abstract: ' + this.sectionName + '</br>';;
-            html += ' <b>headlines: ' + this.webTitle + '</b>' + '</br>';
-            html += ' leadparagraph: ' + this.sectionName + '</br>';
-            html += ' <a href=\"' + this.webUrl + '\">Click here</a></li></br></br>';
+            bodstr = this.fields.body;
+            if (bodstr) {
+                bodstr = bodstr.substring(4, 600);
+            }
+            else {
+                bodstr = "Read full story....";
+            }
+            
+            
+            gdntmbnl = this.fields.thumbnail;
+            if (gdntmbnl) {
+            }
+            else {
+                gdntmbnl = "http://next.theguardian.com/assets/images/gravatar.png";
+            }
+            var newsDate = String(this.fields.firstPublicationDate).substring(0, 10);
+            if (typeof this.fields.firstPublicationDate == 'undefined') {
+                newsDate = "2014-11-10";
+            }
+            var html = '<li><b><label class="ui teal ribbon label" style="font-size: 17px;">Title: ' + this.webTitle + '</label></b></br>';
+            html += '<label class="ui horizontal label"><span style="color:black;font-weight:bold">Date:</span> ' + newsDate + '</label</br>';;
+            html += '<div class="ui raised segment" align="left" style="width:100%;"><div style="display:inline-block; vertical-align:top;"><img src=\"' + gdntmbnl + "\"width=\"150\" height=\"150\"></div>";
+            html += '<div style="width: 600px; margin-left:20px; display:inline-block; vertical-align:top;">' + bodstr + '...';
+            html += ' <a href=\"' + this.webUrl + '\"><span style="color:blue;font-weight:bold;font-size: 15px">Full Story...</span></a></div></div></li><br/><br/><br/>';
             $("#results").append(html);
             //sentences[0] = sentences[0].concat(this.webTitle, " ");
             //sentences[0] = sentences[0].concat(this.sectionName, " ");
@@ -253,4 +277,17 @@ function displayTopics() {
     }
     		
 			
+}
+
+
+function filterMyResults(id) {
+    idClicked = id;
+    
+    if (idClicked.indexOf("btn_topic") > -1) {
+        $(topicaldivback1).show();
+        crawlGuardian2();
+
+    }
+    else {
+    }
 }

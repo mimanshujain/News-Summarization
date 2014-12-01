@@ -276,17 +276,17 @@ $(document).ready(function () {
 
     });
     
-    $("input").click(function (e) {
-        idClicked = e.target.id;
+    //$("input").click(function (e) {
+    //    idClicked = e.target.id;
         
-        if (idClicked.indexOf("btn_topic") > -1) {
-            $(topicaldivback).show();
-            crawlGuardian2();
+    //    if (idClicked.indexOf("btn_topic") > -1) {
+    //        $(topicaldivback).show();
+    //        crawlGuardian2();
 
-        }
-        else {
-        }
-    });
+    //    }
+    //    else {
+    //    }
+    //});
 
     $(document).keypress(function (e) {
         if (e.which == 13) {
