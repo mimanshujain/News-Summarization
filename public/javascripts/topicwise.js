@@ -15,6 +15,13 @@ function topicise() {
             var w = words[wc].toLowerCase().replace(/[^a-z\'A-Z0-9 ]+/g, '');
             //TODO: Add stemming
             if (w == "" || w.length == 1 || stopwords[w] || w.indexOf("http") == 0) continue;
+            var stemWord=stemmer(w);
+			if(stem[stemWord]) {
+				w = stem[stemWord];
+			}
+			else {
+				stem[stemWord] = w;
+			}
             if (f[w]) {
                 f[w] = f[w] + 1;
             }
