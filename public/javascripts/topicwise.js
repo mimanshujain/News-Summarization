@@ -304,4 +304,4 @@ function btnTopiciseClicked() {
 
 }
 
-var sentences = [""];
+var sentences = [];
