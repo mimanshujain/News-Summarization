@@ -15568,7 +15568,7 @@ a.ui.red.label:hover:before {
 
 .ui.teal.labels .label,
 .ui.teal.label {
-  background-color: #00b5ad !important;
+  /*background-color: #00b5ad !important;*/
   border-color: #00b5ad !important;
   color: #ffffff !important;
 }
