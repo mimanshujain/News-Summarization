@@ -4,6 +4,7 @@ function topicise() {
     //console.log("analysing "+sentences.length+" sentences...");
     var documents = new Array();
     var f = {};
+    var stem = {};
     var vocab = new Array();
     var docCount = 0;
     for (var i = 0; i < sentences.length; i++) {
