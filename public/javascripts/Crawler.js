@@ -232,8 +232,9 @@ function solrnext() {
 
 function displayTopics() {
     
-    
-    AllTopics = topiciseAll();
+    var result = topiciseAll();
+    //AllTopics = topiciseAll();
+    AllTopics = result.tempArrayDisp;
     for (k = 0; k < 10; k++) {
         TenTopics[k] = AllTopics[k];
         j = k + 1;

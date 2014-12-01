@@ -1,9 +1,12 @@
 var activebutton = null;
 var termArrayDisp = new Array(10);
+var docTopic = [];
+var allTop = [];
 function topicise() {
     //console.log("analysing "+sentences.length+" sentences...");
     var documents = new Array();
     var f = {};
+    var docs = new Array();
     var stem = {};
     var vocab = new Array();
     var docCount = 0;
@@ -40,7 +43,7 @@ function topicise() {
     var V = vocab.length;
     var M = documents.length;
     var K = 1;//parseInt($( "#topics" ).val());
-    K = 1;
+    K = 6;
     var alpha = 0.1;  // per-document distributions over topics
     var beta = .01;  // per-topic distributions over words
     
@@ -55,6 +58,9 @@ function topicise() {
     //topics
     var topTerms = 20;
     var topicText = new Array();
+    var cluster = [];
+	var clusterR = [];
+	var clusterIndex = new Array();
     for (var k = 0; k < phi.length; k++) {
         text += '<canvas id="topic' + k + '" class="topicbox color' + k + '"><ul>';
         var tuples = new Array();
@@ -64,18 +70,54 @@ function topicise() {
         tuples.sort().reverse();
         if (topTerms > vocab.length) topTerms = vocab.length;
         topicText[k] = '';
+        var temp = new Array();
+		for (var t = 0; t < topTerms; t++) {
+			var topicTerm=tuples[t].split("_")[1];
+			var prob=parseInt(tuples[t].split("_")[0]*100);
+			if (prob<0.0001) break;
+			temp.push(topicTerm);
+		}
+		temp.sort();
+		var maxSimilar = 0, maxIndex = -1;
+		for (var t = 0; t < clusterR.length; t++) {
+			var tempSimilar = 0;
+			for (var tt = 0, rr = 0; tt < clusterR[t].length && rr < temp.length;) {
+				if (clusterR[t][tt] === temp[rr]) {
+					tempSimilar++; tt++; rr++;
+				}
+				else if (clusterR[t][tt] > temp[rr]) { rr++; }
+				else { tt++; }
+			}
+			if (maxSimilar < tempSimilar) {
+				maxSimilar = tempSimilar;
+				maxIndex = t;
+			}
+		} 
+		var flagCluster = false;
+		if (maxSimilar < 15) {
+			flagCluster = true;
+			clusterR[k] = temp;
+			clusterIndex[k] = k;
+		} 
+		if (!flagCluster) {
+			clusterR[k] = new Array();
+			clusterIndex[k] = maxIndex;
+		}
         var p = 0;
-        for (var t = 0; t < topTerms; t++) {
+        for (var t = 0; flagCluster && t < topTerms; t++) {
             var myRegExp = /\w{2,}/;
             var topicTerm = tuples[t].split("_")[1];
-            if (myRegExp.test(topicTerm)) { termArrayDisp[p] = topicTerm; p++; }
+            var prob = Math.ceil(tuples[t].split("_")[0] * 100);
+            if (prob < 0.0001) continue;
+            if (myRegExp.test(topicTerm)) { 
+            	allTop[p] = tuples[t];
+            	p++;
+            }
             else {
                 t = t + 1;
                 topTerms = topTerms + 1;
                 continue;
             }
-            var prob = Math.ceil(tuples[t].split("_")[0] * 100);
-            if (prob < 0.0001) continue;
             text += ('<li><a href="javascript:void(0);" data-weight="' + (prob) + '" title="' + prob + '%">' + topicTerm + '</a></li>');
             console.log("topic " + k + ": " + topicTerm + " = " + prob + "%");
             topicText[k] += (topicTerm + " ");
@@ -87,12 +129,21 @@ function topicise() {
     text = '<div class="spacer"> </div>';
     //highlight sentences
     for (var m = 0; m < theta.length; m++) {
-        text += '<div class="lines">';
-        text += '<div style="display:table-cell;width:100px;padding-right:5px">';
-        for (var k = 0; k < theta[m].length; k++) {
-            text += ('<div class="box bgcolor' + k + '" style="width:' + parseInt("" + (theta[m][k] * 100)) + 'px" title="' + topicText[k] + '"></div>');
-        }
-        text += '</div>' + sentences[m] + '</div>';
+//        text += '<div class="lines">';
+//        text += '<div style="display:table-cell;width:100px;padding-right:5px">';
+//        for (var k = 0; k < theta[m].length; k++) {
+//            text += ('<div class="box bgcolor' + k + '" style="width:' + parseInt("" + (theta[m][k] * 100)) + 'px" title="' + topicText[k] + '"></div>');
+//        }
+//        text += '</div>' + sentences[m] + '</div>';
+//        
+        var max = 0, index = -1;
+		for (var k = 0; k < theta[m].length; k++) {
+			if (max < theta[m][k]) {
+				index = k;
+				max = theta[m][k];
+			}
+		docTopic[i] = index;	
+		$('#div'+m).attr("class", "box bgcolor" + index);
     }
     $("#output").html(text);
     
@@ -183,7 +234,14 @@ function topiciseString() {
 }
 
 function topiciseAll() {
-    return termArrayDisp;
+	var result;
+	allTop.sort().reverse();
+	for (var i = 0; i < 15 && i < allTop.length(); i++) {
+		termArrayDisp[i] = allTop[i].split("_")[1];
+	}
+	result.tempArrayDisp = termArrayDisp;
+	result.docTopic = docTopic;
+    return result;
 }
 
 
