@@ -98,6 +98,7 @@ function crawlGuardian() {
                         type: 'timeline',
                         width: '100%',
                         height: '600',
+                        start_at_end: true,
                         source: nodeData.timeLineData,
                         maptype: 'watercolor',
                         embed_id: 'my-timeline'
@@ -105,6 +106,7 @@ function crawlGuardian() {
                 }
 
                 $("#results").empty();
+                var iindex = 0;
                 $.each(nodeData.gaurdianData, function () {
                 
                 bodstr = this.fields.body;
@@ -126,7 +128,7 @@ function crawlGuardian() {
                 if (typeof this.fields.firstPublicationDate == 'undefined') {
                     newsDate = "2014-11-10";
                 }
-                var html = '<li><b><label class="ui teal ribbon label" style="font-size: 17px;">Title: ' + this.webTitle + '</label></b></br>';
+                var html = '<li><b><label class="ui teal ribbon label bgcolor"'+docTopic[iindex++] +' style="font-size: 17px;">Title: ' + this.webTitle + '</label></b></br>';
                 html += '<label class="ui horizontal label"><span style="color:black;font-weight:bold">Date:</span> ' + newsDate + '</label</br>';;
                 html += '<div class="ui raised segment" align="left" style="width:100%;"><div style="display:inline-block; vertical-align:top;"><img src=\"' + gdntmbnl + "\"width=\"150\" height=\"150\"></div>";
                 html += '<div style="width: 600px; margin-left:20px; display:inline-block; vertical-align:top;">' + bodstr + '...';
@@ -157,6 +159,7 @@ function crawlGuardian2() {
     GApi += '?q=' + $("input").val() + " " + valnew + "&api-key=" + key + "&sort=newest&show-fields=all&show-tags=all&show-elements=all";
     
     sentences[0] = "";
+    var iindex = 0;
     $.getJSON(GApi, function (data) {
         $("#results").empty();
         $.each(data.response.results, function () {
@@ -179,7 +182,7 @@ function crawlGuardian2() {
             if (typeof this.fields.firstPublicationDate == 'undefined') {
                 newsDate = "2014-11-10";
             }
-            var html = '<li><b><label class="ui teal ribbon label" style="font-size: 17px;">Title: ' + this.webTitle + '</label></b></br>';
+            var html = '<li><b><label class="ui teal ribbon label bgcolor"'+docTopic[iindex++] +' style="font-size: 17px;">Title: ' + this.webTitle + '</label></b></br>';
             html += '<label class="ui horizontal label"><span style="color:black;font-weight:bold">Date:</span> ' + newsDate + '</label</br>';;
             html += '<div class="ui raised segment" align="left" style="width:100%;"><div style="display:inline-block; vertical-align:top;"><img src=\"' + gdntmbnl + "\"width=\"150\" height=\"150\"></div>";
             html += '<div style="width: 600px; margin-left:20px; display:inline-block; vertical-align:top;">' + bodstr + '...';
@@ -197,7 +200,7 @@ function crawlGuardian2() {
 var sentencesmod = "";
 var AllTopics = new Array();
 var TenTopics = new Array();
-
+var docTopic;
 function TopicListing() {
     
     
@@ -265,12 +268,13 @@ function displayTopics() {
     var result = topiciseAll();
     //AllTopics = topiciseAll();
     AllTopics = result.tempArrayDisp;
-    for (k = 0; k < 10; k++) {
+    docTopic = result.docTopic;
+    for (k = 0; k < 15; k++) {
         TenTopics[k] = AllTopics[k];
         j = k + 1;
         var btn = "btn_topic[" + j + "]"
         document.getElementById(btn).value = AllTopics[k];
-        if (k == 9) {
+        if (k == 14) {
             $(topicaldivback1).show();
             $(divResult).show();
         }
