@@ -142,6 +142,7 @@ function topicise() {
 				index = k;
 				max = theta[m][k];
 			}
+		}
 		docTopic[i] = index;	
 		$('#div'+m).attr("class", "box bgcolor" + index);
     }
@@ -300,8 +301,6 @@ function btnTopiciseClicked() {
     sentences = $('#text').val().split("\n");
     topicise();
     $('#btnTopicise').removeAttr('disabled');
-
-
 }
 
 var sentences = [];
