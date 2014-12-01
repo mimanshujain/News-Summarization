@@ -73,8 +73,8 @@ function topicise() {
         var temp = new Array();
 		for (var t = 0; t < topTerms; t++) {
 			var topicTerm=tuples[t].split("_")[1];
-			var prob=parseInt(tuples[t].split("_")[0]*100);
-			if (prob<0.0001) break;
+			var prob=parseInt(tuples[t].split("_")[0]*10);
+			if (prob<0.00001) break;
 			temp.push(topicTerm);
 		}
 		temp.sort();
@@ -107,8 +107,8 @@ function topicise() {
         for (var t = 0; flagCluster && t < topTerms; t++) {
             var myRegExp = /\w{2,}/;
             var topicTerm = tuples[t].split("_")[1];
-            var prob = Math.ceil(tuples[t].split("_")[0] * 100);
-            if (prob < 0.0001) continue;
+            var prob = Math.ceil(tuples[t].split("_")[0] * 10);
+            if (prob < 0.00001) break;
             if (myRegExp.test(topicTerm)) { 
             	allTop[p] = tuples[t];
             	p++;
@@ -143,7 +143,7 @@ function topicise() {
 				max = theta[m][k];
 			}
 		}
-		docTopic[i] = index;	
+		docTopic[m] = clusterIndex[index];	
 		$('#div'+m).attr("class", "box bgcolor" + index);
     }
     $("#output").html(text);
@@ -224,7 +224,7 @@ function topiciseString() {
         topicText[k] = '';
         for (var t = 0; t < topTerms; t++) {
             var topicTerm = tuples[t].split("_")[1];
-            var prob = parseInt(tuples[t].split("_")[0] * 100);
+            var prob = parseInt(tuples[t].split("_")[0] * 10);
             if (prob < 0.0001) continue;
             text += ('<li><a href="javascript:void(0);" data-weight="' + (prob) + '" title="' + prob + '%">' + topicTerm + '</a></li>');
             //console.log("topic "+k+": "+ topicTerm+" = " + prob  + "%");
@@ -235,14 +235,14 @@ function topiciseString() {
 }
 
 function topiciseAll() {
-	var result;
+	var res = {};
 	allTop.sort().reverse();
 	for (var i = 0; i < 15 && i < allTop.length; i++) {
 		termArrayDisp[i] = allTop[i].split("_")[1];
 	}
-	result.tempArrayDisp = termArrayDisp;
-	result.docTopic = docTopic;
-    return result;
+	res.tempArrayDisp = termArrayDisp;
+	res.docTopic = docTopic;
+    return res;
 }
 
 
