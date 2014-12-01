@@ -202,7 +202,7 @@ $(document).ready(function () {
     
     $("#search_field").keyup(function (event) {
         if (event.keyCode == 13) {
-            $(topicaldivback).show();
+            
             crawlGuardian();
 
         }

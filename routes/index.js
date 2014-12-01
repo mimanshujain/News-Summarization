@@ -55,10 +55,10 @@ router.post('/', function (req, res) {
                 //result.gaurdianData = 
                 //crawlGuardian(queryVal);
                 
-                console.log('inside1');
+                console.log(queryVal);
                 var endpoint = "http://content.guardianapis.com/search";
                 http://content.guardianapis.com/search?api-key=test&show-fields=all&show-tags=all&show-elements=all
-                endpoint += '?q=' + query + "&api-key=" + key + "&sort=newest&show-fields=all&show-tags=all&show-elements=all";
+                endpoint += '?q=' + queryVal + "&api-key=" + key + "&sort=newest&show-fields=all&show-tags=all&show-elements=all";
                 
                 requestify.get(endpoint).then(function (resp) {
                     console.log('inside3');
@@ -89,7 +89,7 @@ router.post('/', function (req, res) {
                         output += "}}";
                     }
                     
-                    fs.writeFile('./timeLine.json', JSON.stringify(result.solrData), function (err) {
+                    fs.writeFile('./timeLine.json', output, function (err) {
                         if (err)
                             console.log(err);
                         else {
@@ -161,10 +161,10 @@ function createTimelineJSON(data, isFinish, type) {
             //output += '"tag":"' + data[i].sectionName + '",';
             
             if (i == Object.keys(data).length - 1 && isFinish) {
-                output += '"asset":{"media":"'+ replaceAllDouble(data[i].fields.thumbnail,'image','')+'","credit":"' + type + '","caption":""}}]}}';//<a href=" + url + " ></a>                
+                output += "\"asset\":{\"media\":\""+ replaceAllDouble(data[i].fields.thumbnail,"image","")+"\",\"credit\":\"" + type + "\",\"caption\":\"\"}}]}}";//<a href=" + url + " ></a>                
             }
             else {
-                output += '"asset":{"media":"' + replaceAllDouble(data[i].fields.thumbnail,'image','') + '","credit":"' + type + '","caption":""}},';
+                output += "\"asset\":{\"media\":\"" + replaceAllDouble(data[i].fields.thumbnail,'image','') + "\",\"credit\":\"" + type + "\",\"caption\":\"\"}},";
             }
         }
 
@@ -258,6 +258,8 @@ function replaceAllDouble(msg, type, repl) {
         
     else {
         var re = new RegExp('\"', 'g');
+        msg = msg.replace(re, repl);
+        re = new RegExp("'", "g");
         msg = msg.replace(re, repl);
     }
     return msg;

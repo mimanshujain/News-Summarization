@@ -81,7 +81,7 @@ function crawlGuardian() {
             type: 'POST',
             data: JSON.stringify(data),
             contentType: 'application/json',
-            url: 'http://localhost:3000',
+            url: '/',
             
             success: function (nodeData) {
                 var data = nodeData.solrData;
@@ -94,9 +94,10 @@ function crawlGuardian() {
                     createStoryJS({
                         type: 'timeline',
                         width: '100%',
-                        height: '600',
+                        height: '500',
                         source: nodeData.timeLineData,
                         maptype: 'watercolor',
+                        start_at_end: true, 
                         embed_id: 'my-timeline'
                     });//TimeLine.js          
                 }
