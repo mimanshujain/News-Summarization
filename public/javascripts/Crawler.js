@@ -113,7 +113,7 @@ function crawlGuardian() {
                 
                 bodstr = this.fields.body;
                 if (bodstr) {
-                    bodstr = bodstr.substring(4, 600);
+                    bodstr = bodstr.substring(3, 600);
                 }
                 else {
                     bodstr = "Read full story....";
