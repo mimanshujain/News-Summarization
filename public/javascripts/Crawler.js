@@ -73,7 +73,7 @@ function crawlNYTimes() {
         topicise();
     });
 }
-
+var nodeData = {};
 function crawlGuardian() {
     
     //$('#search_field').click(function ()
@@ -86,7 +86,8 @@ function crawlGuardian() {
             contentType: 'application/json',
             url: '/',
             
-            success: function (nodeData) {
+            success: function (nodeData1) {
+            	nodeData = nodeData1;
                 var data = nodeData.solrData;
                 $('#lblMessage').text('Total ' + Object.keys(nodeData.timeLineData.timeline.date).length + ' result found.');
                 $('#txtQuery').val('');
