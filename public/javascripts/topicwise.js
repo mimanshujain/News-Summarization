@@ -264,6 +264,8 @@ $(document).ready(function () {
             if (count == 0) {
         $(topicaldivback1).hide();
         $(divResult).hide();
+        $('#divSummary').hide();
+        $('#divSummary').addClass('ui loading form segment');
         count++;
     }
     

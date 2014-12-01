@@ -89,14 +89,7 @@ router.post('/', function (req, res) {
                         console.log('fourth');
                         output += "}}";
                     }
-                    
-                    fs.writeFile('./timeLine.json', output, function (err) {
-                        if (err)
-                            console.log(err);
-                        else {
-                            console.log('timeLine.json saved!');
-                        }
-                    });
+
                     try 
                     {
                     	result.timeLineData = JSON.parse(output);

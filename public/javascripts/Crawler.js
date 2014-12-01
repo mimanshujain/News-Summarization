@@ -79,7 +79,8 @@ function crawlGuardian() {
     //$('#search_field').click(function ()
         var data = {};
         data.query = $('#search_field').val(); 
-        $("#btnSubmit").addClass("ui loading button");
+    $("#btnSubmit").addClass("ui loading button");
+    $('#divSummary').show();
         $.ajax({
             type: 'POST',
             data: JSON.stringify(data),
@@ -140,7 +141,11 @@ function crawlGuardian() {
                     //sentences[0] = sentences[0].concat(this.standfirst, " ");
                     sentences.push(this.webTitle + " " + this.standfirst);
                 });
-            $("#btnSubmit").removeClass("ui loading button");
+                $("#pSummary").append("<p>" + nodeData.summary + "</p>");
+                $('#divSummary').removeClass('ui loading form segment');
+                $("#btnSubmit").removeClass("ui loading button");
+                $('#divSummary').addClass('ui raised segment');
+
             }
     });//Ajax Call
 
