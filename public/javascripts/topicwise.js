@@ -1,5 +1,5 @@
 var activebutton = null;
-var termArrayDisp = new Array(10);
+var termArrayDisp = [];
 var docTopic = [];
 var allTop = [];
 function topicise() {
@@ -236,7 +236,7 @@ function topiciseString() {
 function topiciseAll() {
 	var result;
 	allTop.sort().reverse();
-	for (var i = 0; i < 15 && i < allTop.length(); i++) {
+	for (var i = 0; i < 15 && i < allTop.length; i++) {
 		termArrayDisp[i] = allTop[i].split("_")[1];
 	}
 	result.tempArrayDisp = termArrayDisp;
