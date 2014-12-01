@@ -107,6 +107,7 @@ function crawlGuardian() {
 
                 $("#results").empty();
                 var iindex = 0;
+                TopicListing();
                 $.each(nodeData.gaurdianData, function () {
                 
                 bodstr = this.fields.body;
@@ -138,7 +139,6 @@ function crawlGuardian() {
                     //sentences[0] = sentences[0].concat(this.standfirst, " ");
                     sentences.push(this.webTitle + " " + this.standfirst);
                 });
-            TopicListing();           
             $("#btnSubmit").removeClass("ui loading button");
             }
     });//Ajax Call
@@ -158,7 +158,7 @@ function crawlGuardian2() {
     var GApi = "http://content.guardianapis.com/search";
     GApi += '?q=' + $("input").val() + " " + valnew + "&api-key=" + key + "&sort=newest&show-fields=all&show-tags=all&show-elements=all";
     
-    sentences[0] = "";
+   // sentences[0] = "";
     var iindex = 0;
     $.getJSON(GApi, function (data) {
         $("#results").empty();
@@ -182,7 +182,7 @@ function crawlGuardian2() {
             if (typeof this.fields.firstPublicationDate == 'undefined') {
                 newsDate = "2014-11-10";
             }
-            var html = '<li><b><label class="ui teal ribbon label bgcolor"'+docTopic[iindex++] +' style="font-size: 17px;">Title: ' + this.webTitle + '</label></b></br>';
+            var html = '<li><b><label class="ui teal ribbon label bgcolor'+docTopic[iindex++] +'" style="font-size: 17px;">Title: ' + this.webTitle + '</label></b></br>';
             html += '<label class="ui horizontal label"><span style="color:black;font-weight:bold">Date:</span> ' + newsDate + '</label</br>';;
             html += '<div class="ui raised segment" align="left" style="width:100%;"><div style="display:inline-block; vertical-align:top;"><img src=\"' + gdntmbnl + "\"width=\"150\" height=\"150\"></div>";
             html += '<div style="width: 600px; margin-left:20px; display:inline-block; vertical-align:top;">' + bodstr + '...';
@@ -201,66 +201,42 @@ var sentencesmod = "";
 var AllTopics = new Array();
 var TenTopics = new Array();
 var docTopic;
-function TopicListing() {
-    
-    
-    
+function TopicListing() {    
     //sentences[0] = "";
     
-    
-    var NYTApi = "http://api.nytimes.com/svc/search/v2/articlesearch.json?q=";
-    NYTApi = NYTApi + $("input").val() + "&sort=newest&api-key=0eadf8a8e685079f3f53202a194920f6:10:70223982";
-    $.getJSON(NYTApi).
-			done(function (data) {
-        $.each(data.response.docs, function (i, doc) {
-           // sentences[0] = sentences[0].concat(this.headline.main, " ");
-           // sentences[0] = sentences[0].concat(this.lead_paragraph, " ");
-        	sentences.push(this.headline.main + " " + this.lead_paragraph);
-        });
-        
-        sentencesmod = sentences;
-        gnext();
-    });
+//    
+//    var NYTApi = "http://api.nytimes.com/svc/search/v2/articlesearch.json?q=";
+//    NYTApi = NYTApi + $("input").val() + "&sort=newest&api-key=0eadf8a8e685079f3f53202a194920f6:10:70223982";
+//    $.getJSON(NYTApi).
+//			done(function (data) {
+//        $.each(data.response.docs, function (i, doc) {
+//           // sentences[0] = sentences[0].concat(this.headline.main, " ");
+//           // sentences[0] = sentences[0].concat(this.lead_paragraph, " ");
+//        	sentences.push(this.headline.main + " " + this.lead_paragraph);
+//        });
+//        
+//        sentencesmod = sentences;
+//        gnext();
+//    });
+    gnext();
 }
 
+
+
+
 function gnext() {
-    
-    var GApi = "http://content.guardianapis.com/search?q=";
-    GApi = GApi + $("input").val() + "&sort=newest&api-key=neukrcw8u9xm4ks5zejvx3uj";
-    $.getJSON(GApi, function (data) {
-        $.each(data.response.results, function () {
-           // sentences[0] = sentences[0].concat(this.webTitle, " ");
-           // sentences[0] = sentences[0].concat(this.sectionName, " ");
-        	sentences.push(this.webTitle + " " + this.sectionName);
-        });
-        sentencesmod = sentences;
-        solrnext();
+	$.each(nodeData.gaurdianData, function () {
+        sentences.push(this.webTitle+" "+this.fields.standfirst);
     });
-		
-
-
+    solrnext();
 }
 
 function solrnext() {
-    
-    var solrApi = "http://98.118.151.224:8983/solr/newscollection/select";//?q=";
-    $.ajax({
-        'url': solrApi,
-        'data': { 'wt': 'json', 'q': $("input").val() },
-        'success': function (data) {
-            $.each(data.response.docs, function (i, doc) {
-                //sentences[0] = sentences[0].concat(this.TITLE, " ");
-                //sentences[0] = sentences[0].concat(this.CONTENT, " ");
-            	sentences.push(this.TITLE + " " + this.CONTENT);
-            });
-            sentencesmod = sentences;
-            topicise();
-            displayTopics();
-        },
-        'dataType': 'jsonp',
-        'jsonp': 'json.wrf'
-    });
-
+	$.each(nodeData.solrData, function () {
+		sentences.push(this.TITLE+" "+this.CONTENT);
+	});
+	topicise();
+	displayTopics();
 }
 
 function displayTopics() {
