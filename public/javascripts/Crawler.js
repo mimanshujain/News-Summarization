@@ -130,7 +130,7 @@ function crawlGuardian() {
                 if (typeof this.fields.firstPublicationDate == 'undefined') {
                     newsDate = "2014-11-10";
                 }
-                var html = '<li><b><label class="ui teal ribbon label bgcolor"'+docTopic[iindex++] +' style="font-size: 17px;">Title: ' + this.webTitle + '</label></b></br>';
+                var html = '<li><b><label class="ui teal ribbon label bgcolor'+docTopic[iindex++] +'" style="font-size: 17px;">Title: ' + this.webTitle + '</label></b></br>';
                 html += '<label class="ui horizontal label"><span style="color:black;font-weight:bold">Date:</span> ' + newsDate + '</label</br>';;
                 html += '<div class="ui raised segment" align="left" style="width:100%;"><div style="display:inline-block; vertical-align:top;"><img src=\"' + gdntmbnl + "\"width=\"150\" height=\"150\"></div>";
                 html += '<div style="width: 600px; margin-left:20px; display:inline-block; vertical-align:top;">' + bodstr + '...';
