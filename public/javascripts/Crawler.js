@@ -138,6 +138,7 @@ function crawlGuardian() {
                 html += '<div class="ui raised segment" align="left" style="width:100%;"><div style="display:inline-block; vertical-align:top;"><img src=\"' + gdntmbnl + "\"width=\"150\" height=\"150\"></div>";
                 html += '<div style="width: 600px; margin-left:20px; display:inline-block; vertical-align:top;">' + bodstr + '...';
                 html += ' <a href=\"' + this.webUrl + '\"><span style="color:blue;font-weight:bold;font-size: 15px">Full Story...</span></a></div></div></li><br/><br/><br/>';
+                sentences.length = 0;
                 $("#results").append(html);
                    // sentences[0] = sentences[0].concat(this.webTitle, " ");
                     //sentences[0] = sentences[0].concat(this.standfirst, " ");
