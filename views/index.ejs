@@ -26,6 +26,7 @@
     <% include partials/template/head.ejs %>
 </head>
 <body >
+<form action="">
 <div class="ui segment">
     <section>
         <div id="search_back1" style="width:100%;" align="center" class="ui raised segment">
@@ -62,6 +63,29 @@
 		</div>
 	</section
 	</br>
+	<input type="checkbox" value="1" onchange="ckfn(this)">News Story<br/>
+	<input type="checkbox" value="2" onchange="ckfn(this)">Time Line View<br/>
+	<input type="checkbox" value="3" onchange="ckfn(this)">Topical View<br/>
+	<script type="text/javascript">
+		function ckfn(val) {
+			var x;
+			if (val.value === "1") {
+				x = document.getElementById("divSummary");
+			}
+			else if (val.value === "2") {
+				x = document.getElementById("my-timeline");
+			}
+			else if (val.value === "3") {
+				x = document.getElementById("divResult");
+			}
+			if (val.checked) {
+				x.style.display = 'block';
+			}
+			else {
+				x.style.display = 'none';
+			}
+		}
+	</script> 
     <section>
 		<div id="divSummary" style="width: 100%; height: 250px; overflow-y: scroll;" >
 		<div>
@@ -91,5 +115,6 @@
         </div>
     </section>
 	</div>
+	</form>
 </body>
 </html>
