@@ -119,6 +119,7 @@ function createTimelineJSON(data, isFinish, type) {
     var title = '';
     var content = '';
     var newsDate = '';
+    allContent = '';
     if (Object.keys(data).length == 0)
         return;
     for (var i = 0; i < Object.keys(data).length; i++) {

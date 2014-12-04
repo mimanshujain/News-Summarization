@@ -108,6 +108,8 @@ function crawlGuardian() {
                 }
 
                 $("#results").empty();
+                $("#pSummary").empty();
+                $("#pSummary").append("<p>" + nodeData.summary + "</p>");
                 var iindex = 0;
                 TopicListing();
                 $.each(nodeData.gaurdianData, function () {
@@ -141,7 +143,6 @@ function crawlGuardian() {
                     //sentences[0] = sentences[0].concat(this.standfirst, " ");
                     sentences.push(this.webTitle + " " + this.standfirst);
                 });
-                $("#pSummary").append("<p>" + nodeData.summary + "</p>");
                 $('#divSummary').removeClass('ui loading form segment');
                 $("#btnSubmit").removeClass("ui loading button");
                 $('#divSummary').addClass('ui raised segment');
