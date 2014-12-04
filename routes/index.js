@@ -27,16 +27,16 @@ var output = {};
 /* GET home page. */
 router.get('/', function (req, res) {
     if (req.method == 'GET')
-        console.log('GET');
+        //console.log('GET');
     res.render('index', { title: 'News Summarization' });
 });
 
 router.post('/', function (req, res) {
     output = "{\x22timeline\x22:{\x22headline\x22:\x22\x22,\x22type\x22:\x22default\x22,\x22text\x22:\x22<p></p>\x22,\x22startDate\x22:\x22\"";
     allContent = '';
-    console.log('Method: ' + req.method);
+    //console.log('Method: ' + req.method);
     if (typeof req.body.query != 'undefined') {
-        console.log('Query: ' + req.body.query.toString());
+        //console.log('Query: ' + req.body.query.toString());
         queryVal = req.body.query.toString();
         //var resultSet = {};
         
@@ -51,42 +51,42 @@ router.post('/', function (req, res) {
             if (err) {
                 console.log(err);
             } else {
-                console.log('Processing Result Set');
+                //console.log('Processing Result Set');
                 result.solrData = obj;
                 //result.gaurdianData = 
                 //crawlGuardian(queryVal);
                 
-                console.log(queryVal);
+                //console.log(queryVal);
                 var endpoint = "http://content.guardianapis.com/search";
                 http://content.guardianapis.com/search?api-key=test&show-fields=all&show-tags=all&show-elements=all
                 endpoint += '?q=' + queryVal + "&api-key=" + key + "&sort=newest&show-fields=all&show-tags=all&show-elements=all";
                 
                 requestify.get(endpoint).then(function (resp) {
-                    console.log('inside3');
+                    //console.log('inside3');
                     //console(resp.getBody().response.results);
                     result.gaurdianData = resp.getBody().response.results;
                     
                     var solrLength = Object.keys(result.solrData.response.docs).length;
                     var guarLength = Object.keys(result.gaurdianData).length;
-                    console.log('SolrLength::' + solrLength); console.log('GuarLength::' + guarLength);
+                    //console.log('SolrLength::' + solrLength); console.log('GuarLength::' + guarLength);
                     if (solrLength > 0 && guarLength > 0) {
                         output += ",\x22date\x22:[";
-                        start = 1; console.log('first');
+                        start = 1; //console.log('first');
                         createTimelineJSON(result.solrData.response.docs, false, 'Solr');
                         createTimelineJSON(result.gaurdianData, true, 'Guardian');
                     }
                     else if (solrLength > 0 && guarLength == 0) {
                         output += ",\x22date\x22:[";
-                        console.log('second');
+                        //console.log('second');
                         createTimelineJSON(result.solrData, true, 'Solr');
                     }
                     else if (solrLength == 0 && guarLength > 0) {
                         output += ",\x22date\x22:[";
-                        console.log('third');
+                        //console.log('third');
                         createTimelineJSON(result.gaurdianData, true, 'Guardian');
                     }
                     else {
-                        console.log('fourth');
+                        //console.log('fourth');
                         output += "}}";
                     }
 
@@ -100,7 +100,7 @@ router.post('/', function (req, res) {
                     //upto 6 top sentences......
                     var lex = new Lexrank(allContent);
                     result.summary = lex.summarize(6);
-                    console.log('saved Timeline');
+                    //console.log('saved Timeline');
                     //if (typeof req.body.query != 'undefined')
                     res.send(result);
 
@@ -114,7 +114,7 @@ router.post('/', function (req, res) {
 
 //o create TimeLine Json Object
 function createTimelineJSON(data, isFinish, type) {
-    console.log(type);
+    //console.log(type);
     //var data = {};
     var title = '';
     var content = '';
@@ -126,17 +126,17 @@ function createTimelineJSON(data, isFinish, type) {
         if (type == 'Solr') {            
             //if (typeof data[i].NEWSDATE == 'undefined')
             //    console.log('Inside D');
-            console.log(data[i].NEWSDATE);
+            //console.log(data[i].NEWSDATE);
             newsDate = data[i].NEWSDATE.substring(0, 10).split("-");
             newsDate = newsDate[0] + "," + newsDate[1] + "," + newsDate[2];
-            console.log(newsDate);
+            //console.log(newsDate);
             output += "{ \x22startDate\x22:\x22" + newsDate + " \x22,\x22headline\x22:\x22";
             output += replaceAllDouble(data[i].TITLE, "title", '') + "\x22,\x22text\x22:\x22<p>" + replaceAllDouble(data[i].CONTENT, "content", '') + "</p>\x22,";
             //allContent += " " + data[i].TITLE + " " + data[i].CONTENT; 
             if (typeof data[i].NEWSCATEGORY != 'undefined') {
-                console.log(data[i].NEWSCATEGORY[0].indexOf(";"))
+                //console.log(data[i].NEWSCATEGORY[0].indexOf(";"))
                 if (data[i].NEWSCATEGORY[0].indexOf(";") > -1) {
-                    console.log(data[i].NEWSCATEGORY[0].split(";")[0]);
+                    //console.log(data[i].NEWSCATEGORY[0].split(";")[0]);
                     output += "\"tag\":\"" + data[i].NEWSCATEGORY[0].split(";")[0] + "\",";
                 }
                 else
