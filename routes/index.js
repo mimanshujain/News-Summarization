@@ -99,7 +99,7 @@ router.post('/', function (req, res) {
                     //extracting summary from guardian data 
                     //upto 6 top sentences......
                     var lex = new Lexrank(allContent);
-                    result.summary = lex.summarize(6);
+                    result.summary = lex.summarize(4);
                     //console.log('saved Timeline');
                     //if (typeof req.body.query != 'undefined')
                     res.send(result);
