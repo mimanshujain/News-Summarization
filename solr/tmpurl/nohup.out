@@ -1,0 +1,976 @@
+File exists urls
+File: /home/ubuntu/applications/tmpurl/urls
+URL: http://www.theguardian.com/science/animal-magic/2014/oct/29/new-frog-species-new-york
+org.apache.solr.client.solrj.SolrServerException: Server refused connection at: http://localhost:8983/solr/newscollection
+	at org.apache.solr.client.solrj.impl.HttpSolrServer.executeMethod(HttpSolrServer.java:559)
+	at org.apache.solr.client.solrj.impl.HttpSolrServer.request(HttpSolrServer.java:210)
+	at org.apache.solr.client.solrj.impl.HttpSolrServer.request(HttpSolrServer.java:206)
+	at org.apache.solr.client.solrj.request.AbstractUpdateRequest.process(AbstractUpdateRequest.java:124)
+	at org.apache.solr.client.solrj.SolrServer.add(SolrServer.java:116)
+	at org.apache.solr.client.solrj.SolrServer.add(SolrServer.java:102)
+	at org.kb.indexer.NewsIndexer.index(NewsIndexer.java:54)
+	at org.kb.IndexRunner.index(IndexRunner.java:121)
+	at org.kb.IndexRunner.main(IndexRunner.java:71)
+Caused by: java.net.ConnectException: Connection refused
+	at java.net.PlainSocketImpl.socketConnect(Native Method)
+	at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:339)
+	at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:200)
+	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:182)
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392)
+	at java.net.Socket.connect(Socket.java:579)
+	at org.apache.http.conn.scheme.PlainSocketFactory.connectSocket(PlainSocketFactory.java:117)
+	at org.apache.http.impl.conn.DefaultClientConnectionOperator.openConnection(DefaultClientConnectionOperator.java:178)
+	at org.apache.http.impl.conn.ManagedClientConnectionImpl.open(ManagedClientConnectionImpl.java:304)
+	at org.apache.http.impl.client.DefaultRequestDirector.tryConnect(DefaultRequestDirector.java:610)
+	at org.apache.http.impl.client.DefaultRequestDirector.execute(DefaultRequestDirector.java:445)
+	at org.apache.http.impl.client.AbstractHttpClient.doExecute(AbstractHttpClient.java:863)
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:82)
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:106)
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:57)
+	at org.apache.solr.client.solrj.impl.HttpSolrServer.executeMethod(HttpSolrServer.java:448)
+	... 8 more
+org.apache.solr.client.solrj.SolrServerException: Server refused connection at: http://localhost:8983/solr/newscollection
+	at org.apache.solr.client.solrj.impl.HttpSolrServer.executeMethod(HttpSolrServer.java:559)
+	at org.apache.solr.client.solrj.impl.HttpSolrServer.request(HttpSolrServer.java:210)
+	at org.apache.solr.client.solrj.impl.HttpSolrServer.request(HttpSolrServer.java:206)
+	at org.apache.solr.client.solrj.request.AbstractUpdateRequest.process(AbstractUpdateRequest.java:124)
+	at org.apache.solr.client.solrj.SolrServer.commit(SolrServer.java:168)
+	at org.apache.solr.client.solrj.SolrServer.commit(SolrServer.java:146)
+	at org.kb.indexer.NewsIndexer.commit(NewsIndexer.java:63)
+	at org.kb.IndexRunner.index(IndexRunner.java:122)
+	at org.kb.IndexRunner.main(IndexRunner.java:71)
+Caused by: java.net.ConnectException: Connection refused
+	at java.net.PlainSocketImpl.socketConnect(Native Method)
+	at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:339)
+	at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:200)
+	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:182)
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392)
+	at java.net.Socket.connect(Socket.java:579)
+	at org.apache.http.conn.scheme.PlainSocketFactory.connectSocket(PlainSocketFactory.java:117)
+	at org.apache.http.impl.conn.DefaultClientConnectionOperator.openConnection(DefaultClientConnectionOperator.java:178)
+	at org.apache.http.impl.conn.ManagedClientConnectionImpl.open(ManagedClientConnectionImpl.java:304)
+	at org.apache.http.impl.client.DefaultRequestDirector.tryConnect(DefaultRequestDirector.java:610)
+	at org.apache.http.impl.client.DefaultRequestDirector.execute(DefaultRequestDirector.java:445)
+	at org.apache.http.impl.client.AbstractHttpClient.doExecute(AbstractHttpClient.java:863)
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:82)
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:106)
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:57)
+	at org.apache.solr.client.solrj.impl.HttpSolrServer.executeMethod(HttpSolrServer.java:448)
+	... 8 more
+indexed http://www.theguardian.com/science/animal-magic/2014/oct/29/new-frog-species-new-york
+URL: http://www.theguardian.com/media/2014/dec/02/new-york-times-veterans-exit-packages
+org.apache.solr.client.solrj.SolrServerException: Server refused connection at: http://localhost:8983/solr/newscollection
+	at org.apache.solr.client.solrj.impl.HttpSolrServer.executeMethod(HttpSolrServer.java:559)
+	at org.apache.solr.client.solrj.impl.HttpSolrServer.request(HttpSolrServer.java:210)
+	at org.apache.solr.client.solrj.impl.HttpSolrServer.request(HttpSolrServer.java:206)
+	at org.apache.solr.client.solrj.request.AbstractUpdateRequest.process(AbstractUpdateRequest.java:124)
+	at org.apache.solr.client.solrj.SolrServer.add(SolrServer.java:116)
+	at org.apache.solr.client.solrj.SolrServer.add(SolrServer.java:102)
+	at org.kb.indexer.NewsIndexer.index(NewsIndexer.java:54)
+	at org.kb.IndexRunner.index(IndexRunner.java:121)
+	at org.kb.IndexRunner.main(IndexRunner.java:71)
+Caused by: java.net.ConnectException: Connection refused
+	at java.net.PlainSocketImpl.socketConnect(Native Method)
+	at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:339)
+	at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:200)
+	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:182)
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392)
+	at java.net.Socket.connect(Socket.java:579)
+	at org.apache.http.conn.scheme.PlainSocketFactory.connectSocket(PlainSocketFactory.java:117)
+	at org.apache.http.impl.conn.DefaultClientConnectionOperator.openConnection(DefaultClientConnectionOperator.java:178)
+	at org.apache.http.impl.conn.ManagedClientConnectionImpl.open(ManagedClientConnectionImpl.java:304)
+	at org.apache.http.impl.client.DefaultRequestDirector.tryConnect(DefaultRequestDirector.java:610)
+	at org.apache.http.impl.client.DefaultRequestDirector.execute(DefaultRequestDirector.java:445)
+	at org.apache.http.impl.client.AbstractHttpClient.doExecute(AbstractHttpClient.java:863)
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:82)
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:106)
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:57)
+	at org.apache.solr.client.solrj.impl.HttpSolrServer.executeMethod(HttpSolrServer.java:448)
+	... 8 more
+org.apache.solr.client.solrj.SolrServerException: Server refused connection at: http://localhost:8983/solr/newscollection
+	at org.apache.solr.client.solrj.impl.HttpSolrServer.executeMethod(HttpSolrServer.java:559)
+	at org.apache.solr.client.solrj.impl.HttpSolrServer.request(HttpSolrServer.java:210)
+	at org.apache.solr.client.solrj.impl.HttpSolrServer.request(HttpSolrServer.java:206)
+	at org.apache.solr.client.solrj.request.AbstractUpdateRequest.process(AbstractUpdateRequest.java:124)
+	at org.apache.solr.client.solrj.SolrServer.commit(SolrServer.java:168)
+	at org.apache.solr.client.solrj.SolrServer.commit(SolrServer.java:146)
+	at org.kb.indexer.NewsIndexer.commit(NewsIndexer.java:63)
+	at org.kb.IndexRunner.index(IndexRunner.java:122)
+	at org.kb.IndexRunner.main(IndexRunner.java:71)
+Caused by: java.net.ConnectException: Connection refused
+	at java.net.PlainSocketImpl.socketConnect(Native Method)
+	at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:339)
+	at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:200)
+	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:182)
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392)
+	at java.net.Socket.connect(Socket.java:579)
+	at org.apache.http.conn.scheme.PlainSocketFactory.connectSocket(PlainSocketFactory.java:117)
+	at org.apache.http.impl.conn.DefaultClientConnectionOperator.openConnection(DefaultClientConnectionOperator.java:178)
+	at org.apache.http.impl.conn.ManagedClientConnectionImpl.open(ManagedClientConnectionImpl.java:304)
+	at org.apache.http.impl.client.DefaultRequestDirector.tryConnect(DefaultRequestDirector.java:610)
+	at org.apache.http.impl.client.DefaultRequestDirector.execute(DefaultRequestDirector.java:445)
+	at org.apache.http.impl.client.AbstractHttpClient.doExecute(AbstractHttpClient.java:863)
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:82)
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:106)
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:57)
+	at org.apache.solr.client.solrj.impl.HttpSolrServer.executeMethod(HttpSolrServer.java:448)
+	... 8 more
+indexed http://www.theguardian.com/media/2014/dec/02/new-york-times-veterans-exit-packages
+URL: http://www.theguardian.com/media/2014/dec/01/new-york-times-deadline-buyouts
+org.apache.solr.client.solrj.SolrServerException: Server refused connection at: http://localhost:8983/solr/newscollection
+	at org.apache.solr.client.solrj.impl.HttpSolrServer.executeMethod(HttpSolrServer.java:559)
+	at org.apache.solr.client.solrj.impl.HttpSolrServer.request(HttpSolrServer.java:210)
+	at org.apache.solr.client.solrj.impl.HttpSolrServer.request(HttpSolrServer.java:206)
+	at org.apache.solr.client.solrj.request.AbstractUpdateRequest.process(AbstractUpdateRequest.java:124)
+	at org.apache.solr.client.solrj.SolrServer.add(SolrServer.java:116)
+	at org.apache.solr.client.solrj.SolrServer.add(SolrServer.java:102)
+	at org.kb.indexer.NewsIndexer.index(NewsIndexer.java:54)
+	at org.kb.IndexRunner.index(IndexRunner.java:121)
+	at org.kb.IndexRunner.main(IndexRunner.java:71)
+Caused by: java.net.ConnectException: Connection refused
+	at java.net.PlainSocketImpl.socketConnect(Native Method)
+	at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:339)
+	at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:200)
+	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:182)
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392)
+	at java.net.Socket.connect(Socket.java:579)
+	at org.apache.http.conn.scheme.PlainSocketFactory.connectSocket(PlainSocketFactory.java:117)
+	at org.apache.http.impl.conn.DefaultClientConnectionOperator.openConnection(DefaultClientConnectionOperator.java:178)
+	at org.apache.http.impl.conn.ManagedClientConnectionImpl.open(ManagedClientConnectionImpl.java:304)
+	at org.apache.http.impl.client.DefaultRequestDirector.tryConnect(DefaultRequestDirector.java:610)
+	at org.apache.http.impl.client.DefaultRequestDirector.execute(DefaultRequestDirector.java:445)
+	at org.apache.http.impl.client.AbstractHttpClient.doExecute(AbstractHttpClient.java:863)
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:82)
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:106)
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:57)
+	at org.apache.solr.client.solrj.impl.HttpSolrServer.executeMethod(HttpSolrServer.java:448)
+	... 8 more
+org.apache.solr.client.solrj.SolrServerException: Server refused connection at: http://localhost:8983/solr/newscollection
+	at org.apache.solr.client.solrj.impl.HttpSolrServer.executeMethod(HttpSolrServer.java:559)
+	at org.apache.solr.client.solrj.impl.HttpSolrServer.request(HttpSolrServer.java:210)
+	at org.apache.solr.client.solrj.impl.HttpSolrServer.request(HttpSolrServer.java:206)
+	at org.apache.solr.client.solrj.request.AbstractUpdateRequest.process(AbstractUpdateRequest.java:124)
+	at org.apache.solr.client.solrj.SolrServer.commit(SolrServer.java:168)
+	at org.apache.solr.client.solrj.SolrServer.commit(SolrServer.java:146)
+	at org.kb.indexer.NewsIndexer.commit(NewsIndexer.java:63)
+	at org.kb.IndexRunner.index(IndexRunner.java:122)
+	at org.kb.IndexRunner.main(IndexRunner.java:71)
+Caused by: java.net.ConnectException: Connection refused
+	at java.net.PlainSocketImpl.socketConnect(Native Method)
+	at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:339)
+	at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:200)
+	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:182)
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392)
+	at java.net.Socket.connect(Socket.java:579)
+	at org.apache.http.conn.scheme.PlainSocketFactory.connectSocket(PlainSocketFactory.java:117)
+	at org.apache.http.impl.conn.DefaultClientConnectionOperator.openConnection(DefaultClientConnectionOperator.java:178)
+	at org.apache.http.impl.conn.ManagedClientConnectionImpl.open(ManagedClientConnectionImpl.java:304)
+	at org.apache.http.impl.client.DefaultRequestDirector.tryConnect(DefaultRequestDirector.java:610)
+	at org.apache.http.impl.client.DefaultRequestDirector.execute(DefaultRequestDirector.java:445)
+	at org.apache.http.impl.client.AbstractHttpClient.doExecute(AbstractHttpClient.java:863)
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:82)
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:106)
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:57)
+	at org.apache.solr.client.solrj.impl.HttpSolrServer.executeMethod(HttpSolrServer.java:448)
+	... 8 more
+indexed http://www.theguardian.com/media/2014/dec/01/new-york-times-deadline-buyouts
+URL: http://www.theguardian.com/football/blog/2014/dec/02/why-thierry-henry-understood-new-york-and-the-mls
+org.apache.solr.client.solrj.SolrServerException: Server refused connection at: http://localhost:8983/solr/newscollection
+	at org.apache.solr.client.solrj.impl.HttpSolrServer.executeMethod(HttpSolrServer.java:559)
+	at org.apache.solr.client.solrj.impl.HttpSolrServer.request(HttpSolrServer.java:210)
+	at org.apache.solr.client.solrj.impl.HttpSolrServer.request(HttpSolrServer.java:206)
+	at org.apache.solr.client.solrj.request.AbstractUpdateRequest.process(AbstractUpdateRequest.java:124)
+	at org.apache.solr.client.solrj.SolrServer.add(SolrServer.java:116)
+	at org.apache.solr.client.solrj.SolrServer.add(SolrServer.java:102)
+	at org.kb.indexer.NewsIndexer.index(NewsIndexer.java:54)
+	at org.kb.IndexRunner.index(IndexRunner.java:121)
+	at org.kb.IndexRunner.main(IndexRunner.java:71)
+Caused by: java.net.ConnectException: Connection refused
+	at java.net.PlainSocketImpl.socketConnect(Native Method)
+	at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:339)
+	at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:200)
+	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:182)
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392)
+	at java.net.Socket.connect(Socket.java:579)
+	at org.apache.http.conn.scheme.PlainSocketFactory.connectSocket(PlainSocketFactory.java:117)
+	at org.apache.http.impl.conn.DefaultClientConnectionOperator.openConnection(DefaultClientConnectionOperator.java:178)
+	at org.apache.http.impl.conn.ManagedClientConnectionImpl.open(ManagedClientConnectionImpl.java:304)
+	at org.apache.http.impl.client.DefaultRequestDirector.tryConnect(DefaultRequestDirector.java:610)
+	at org.apache.http.impl.client.DefaultRequestDirector.execute(DefaultRequestDirector.java:445)
+	at org.apache.http.impl.client.AbstractHttpClient.doExecute(AbstractHttpClient.java:863)
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:82)
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:106)
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:57)
+	at org.apache.solr.client.solrj.impl.HttpSolrServer.executeMethod(HttpSolrServer.java:448)
+	... 8 more
+org.apache.solr.client.solrj.SolrServerException: Server refused connection at: http://localhost:8983/solr/newscollection
+	at org.apache.solr.client.solrj.impl.HttpSolrServer.executeMethod(HttpSolrServer.java:559)
+	at org.apache.solr.client.solrj.impl.HttpSolrServer.request(HttpSolrServer.java:210)
+	at org.apache.solr.client.solrj.impl.HttpSolrServer.request(HttpSolrServer.java:206)
+	at org.apache.solr.client.solrj.request.AbstractUpdateRequest.process(AbstractUpdateRequest.java:124)
+	at org.apache.solr.client.solrj.SolrServer.commit(SolrServer.java:168)
+	at org.apache.solr.client.solrj.SolrServer.commit(SolrServer.java:146)
+	at org.kb.indexer.NewsIndexer.commit(NewsIndexer.java:63)
+	at org.kb.IndexRunner.index(IndexRunner.java:122)
+	at org.kb.IndexRunner.main(IndexRunner.java:71)
+Caused by: java.net.ConnectException: Connection refused
+	at java.net.PlainSocketImpl.socketConnect(Native Method)
+	at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:339)
+	at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:200)
+	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:182)
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392)
+	at java.net.Socket.connect(Socket.java:579)
+	at org.apache.http.conn.scheme.PlainSocketFactory.connectSocket(PlainSocketFactory.java:117)
+	at org.apache.http.impl.conn.DefaultClientConnectionOperator.openConnection(DefaultClientConnectionOperator.java:178)
+	at org.apache.http.impl.conn.ManagedClientConnectionImpl.open(ManagedClientConnectionImpl.java:304)
+	at org.apache.http.impl.client.DefaultRequestDirector.tryConnect(DefaultRequestDirector.java:610)
+	at org.apache.http.impl.client.DefaultRequestDirector.execute(DefaultRequestDirector.java:445)
+	at org.apache.http.impl.client.AbstractHttpClient.doExecute(AbstractHttpClient.java:863)
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:82)
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:106)
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:57)
+	at org.apache.solr.client.solrj.impl.HttpSolrServer.executeMethod(HttpSolrServer.java:448)
+	... 8 more
+indexed http://www.theguardian.com/football/blog/2014/dec/02/why-thierry-henry-understood-new-york-and-the-mls
+URL: http://www.theguardian.com/us-news/2014/nov/19/new-york-snowstorm-photos-experiences
+org.apache.solr.client.solrj.SolrServerException: Server refused connection at: http://localhost:8983/solr/newscollection
+	at org.apache.solr.client.solrj.impl.HttpSolrServer.executeMethod(HttpSolrServer.java:559)
+	at org.apache.solr.client.solrj.impl.HttpSolrServer.request(HttpSolrServer.java:210)
+	at org.apache.solr.client.solrj.impl.HttpSolrServer.request(HttpSolrServer.java:206)
+	at org.apache.solr.client.solrj.request.AbstractUpdateRequest.process(AbstractUpdateRequest.java:124)
+	at org.apache.solr.client.solrj.SolrServer.add(SolrServer.java:116)
+	at org.apache.solr.client.solrj.SolrServer.add(SolrServer.java:102)
+	at org.kb.indexer.NewsIndexer.index(NewsIndexer.java:54)
+	at org.kb.IndexRunner.index(IndexRunner.java:121)
+	at org.kb.IndexRunner.main(IndexRunner.java:71)
+Caused by: java.net.ConnectException: Connection refused
+	at java.net.PlainSocketImpl.socketConnect(Native Method)
+	at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:339)
+	at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:200)
+	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:182)
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392)
+	at java.net.Socket.connect(Socket.java:579)
+	at org.apache.http.conn.scheme.PlainSocketFactory.connectSocket(PlainSocketFactory.java:117)
+	at org.apache.http.impl.conn.DefaultClientConnectionOperator.openConnection(DefaultClientConnectionOperator.java:178)
+	at org.apache.http.impl.conn.ManagedClientConnectionImpl.open(ManagedClientConnectionImpl.java:304)
+	at org.apache.http.impl.client.DefaultRequestDirector.tryConnect(DefaultRequestDirector.java:610)
+	at org.apache.http.impl.client.DefaultRequestDirector.execute(DefaultRequestDirector.java:445)
+	at org.apache.http.impl.client.AbstractHttpClient.doExecute(AbstractHttpClient.java:863)
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:82)
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:106)
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:57)
+	at org.apache.solr.client.solrj.impl.HttpSolrServer.executeMethod(HttpSolrServer.java:448)
+	... 8 more
+org.apache.solr.client.solrj.SolrServerException: Server refused connection at: http://localhost:8983/solr/newscollection
+	at org.apache.solr.client.solrj.impl.HttpSolrServer.executeMethod(HttpSolrServer.java:559)
+	at org.apache.solr.client.solrj.impl.HttpSolrServer.request(HttpSolrServer.java:210)
+	at org.apache.solr.client.solrj.impl.HttpSolrServer.request(HttpSolrServer.java:206)
+	at org.apache.solr.client.solrj.request.AbstractUpdateRequest.process(AbstractUpdateRequest.java:124)
+	at org.apache.solr.client.solrj.SolrServer.commit(SolrServer.java:168)
+	at org.apache.solr.client.solrj.SolrServer.commit(SolrServer.java:146)
+	at org.kb.indexer.NewsIndexer.commit(NewsIndexer.java:63)
+	at org.kb.IndexRunner.index(IndexRunner.java:122)
+	at org.kb.IndexRunner.main(IndexRunner.java:71)
+Caused by: java.net.ConnectException: Connection refused
+	at java.net.PlainSocketImpl.socketConnect(Native Method)
+	at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:339)
+	at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:200)
+	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:182)
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392)
+	at java.net.Socket.connect(Socket.java:579)
+	at org.apache.http.conn.scheme.PlainSocketFactory.connectSocket(PlainSocketFactory.java:117)
+	at org.apache.http.impl.conn.DefaultClientConnectionOperator.openConnection(DefaultClientConnectionOperator.java:178)
+	at org.apache.http.impl.conn.ManagedClientConnectionImpl.open(ManagedClientConnectionImpl.java:304)
+	at org.apache.http.impl.client.DefaultRequestDirector.tryConnect(DefaultRequestDirector.java:610)
+	at org.apache.http.impl.client.DefaultRequestDirector.execute(DefaultRequestDirector.java:445)
+	at org.apache.http.impl.client.AbstractHttpClient.doExecute(AbstractHttpClient.java:863)
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:82)
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:106)
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:57)
+	at org.apache.solr.client.solrj.impl.HttpSolrServer.executeMethod(HttpSolrServer.java:448)
+	... 8 more
+indexed http://www.theguardian.com/us-news/2014/nov/19/new-york-snowstorm-photos-experiences
+URL: http://www.theguardian.com/us-news/2014/nov/21/new-york-buffalo-snow-flooding
+org.apache.solr.client.solrj.SolrServerException: Server refused connection at: http://localhost:8983/solr/newscollection
+	at org.apache.solr.client.solrj.impl.HttpSolrServer.executeMethod(HttpSolrServer.java:559)
+	at org.apache.solr.client.solrj.impl.HttpSolrServer.request(HttpSolrServer.java:210)
+	at org.apache.solr.client.solrj.impl.HttpSolrServer.request(HttpSolrServer.java:206)
+	at org.apache.solr.client.solrj.request.AbstractUpdateRequest.process(AbstractUpdateRequest.java:124)
+	at org.apache.solr.client.solrj.SolrServer.add(SolrServer.java:116)
+	at org.apache.solr.client.solrj.SolrServer.add(SolrServer.java:102)
+	at org.kb.indexer.NewsIndexer.index(NewsIndexer.java:54)
+	at org.kb.IndexRunner.index(IndexRunner.java:121)
+	at org.kb.IndexRunner.main(IndexRunner.java:71)
+Caused by: java.net.ConnectException: Connection refused
+	at java.net.PlainSocketImpl.socketConnect(Native Method)
+	at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:339)
+	at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:200)
+	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:182)
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392)
+	at java.net.Socket.connect(Socket.java:579)
+	at org.apache.http.conn.scheme.PlainSocketFactory.connectSocket(PlainSocketFactory.java:117)
+	at org.apache.http.impl.conn.DefaultClientConnectionOperator.openConnection(DefaultClientConnectionOperator.java:178)
+	at org.apache.http.impl.conn.ManagedClientConnectionImpl.open(ManagedClientConnectionImpl.java:304)
+	at org.apache.http.impl.client.DefaultRequestDirector.tryConnect(DefaultRequestDirector.java:610)
+	at org.apache.http.impl.client.DefaultRequestDirector.execute(DefaultRequestDirector.java:445)
+	at org.apache.http.impl.client.AbstractHttpClient.doExecute(AbstractHttpClient.java:863)
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:82)
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:106)
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:57)
+	at org.apache.solr.client.solrj.impl.HttpSolrServer.executeMethod(HttpSolrServer.java:448)
+	... 8 more
+org.apache.solr.client.solrj.SolrServerException: Server refused connection at: http://localhost:8983/solr/newscollection
+	at org.apache.solr.client.solrj.impl.HttpSolrServer.executeMethod(HttpSolrServer.java:559)
+	at org.apache.solr.client.solrj.impl.HttpSolrServer.request(HttpSolrServer.java:210)
+	at org.apache.solr.client.solrj.impl.HttpSolrServer.request(HttpSolrServer.java:206)
+	at org.apache.solr.client.solrj.request.AbstractUpdateRequest.process(AbstractUpdateRequest.java:124)
+	at org.apache.solr.client.solrj.SolrServer.commit(SolrServer.java:168)
+	at org.apache.solr.client.solrj.SolrServer.commit(SolrServer.java:146)
+	at org.kb.indexer.NewsIndexer.commit(NewsIndexer.java:63)
+	at org.kb.IndexRunner.index(IndexRunner.java:122)
+	at org.kb.IndexRunner.main(IndexRunner.java:71)
+Caused by: java.net.ConnectException: Connection refused
+	at java.net.PlainSocketImpl.socketConnect(Native Method)
+	at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:339)
+	at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:200)
+	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:182)
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392)
+	at java.net.Socket.connect(Socket.java:579)
+	at org.apache.http.conn.scheme.PlainSocketFactory.connectSocket(PlainSocketFactory.java:117)
+	at org.apache.http.impl.conn.DefaultClientConnectionOperator.openConnection(DefaultClientConnectionOperator.java:178)
+	at org.apache.http.impl.conn.ManagedClientConnectionImpl.open(ManagedClientConnectionImpl.java:304)
+	at org.apache.http.impl.client.DefaultRequestDirector.tryConnect(DefaultRequestDirector.java:610)
+	at org.apache.http.impl.client.DefaultRequestDirector.execute(DefaultRequestDirector.java:445)
+	at org.apache.http.impl.client.AbstractHttpClient.doExecute(AbstractHttpClient.java:863)
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:82)
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:106)
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:57)
+	at org.apache.solr.client.solrj.impl.HttpSolrServer.executeMethod(HttpSolrServer.java:448)
+	... 8 more
+indexed http://www.theguardian.com/us-news/2014/nov/21/new-york-buffalo-snow-flooding
+URL: http://www.theguardian.com/stage/2014/nov/07/show-boat-review-new-york-philharmonic
+org.apache.solr.client.solrj.SolrServerException: Server refused connection at: http://localhost:8983/solr/newscollection
+	at org.apache.solr.client.solrj.impl.HttpSolrServer.executeMethod(HttpSolrServer.java:559)
+	at org.apache.solr.client.solrj.impl.HttpSolrServer.request(HttpSolrServer.java:210)
+	at org.apache.solr.client.solrj.impl.HttpSolrServer.request(HttpSolrServer.java:206)
+	at org.apache.solr.client.solrj.request.AbstractUpdateRequest.process(AbstractUpdateRequest.java:124)
+	at org.apache.solr.client.solrj.SolrServer.add(SolrServer.java:116)
+	at org.apache.solr.client.solrj.SolrServer.add(SolrServer.java:102)
+	at org.kb.indexer.NewsIndexer.index(NewsIndexer.java:54)
+	at org.kb.IndexRunner.index(IndexRunner.java:121)
+	at org.kb.IndexRunner.main(IndexRunner.java:71)
+Caused by: java.net.ConnectException: Connection refused
+	at java.net.PlainSocketImpl.socketConnect(Native Method)
+	at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:339)
+	at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:200)
+	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:182)
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392)
+	at java.net.Socket.connect(Socket.java:579)
+	at org.apache.http.conn.scheme.PlainSocketFactory.connectSocket(PlainSocketFactory.java:117)
+	at org.apache.http.impl.conn.DefaultClientConnectionOperator.openConnection(DefaultClientConnectionOperator.java:178)
+	at org.apache.http.impl.conn.ManagedClientConnectionImpl.open(ManagedClientConnectionImpl.java:304)
+	at org.apache.http.impl.client.DefaultRequestDirector.tryConnect(DefaultRequestDirector.java:610)
+	at org.apache.http.impl.client.DefaultRequestDirector.execute(DefaultRequestDirector.java:445)
+	at org.apache.http.impl.client.AbstractHttpClient.doExecute(AbstractHttpClient.java:863)
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:82)
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:106)
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:57)
+	at org.apache.solr.client.solrj.impl.HttpSolrServer.executeMethod(HttpSolrServer.java:448)
+	... 8 more
+org.apache.solr.client.solrj.SolrServerException: Server refused connection at: http://localhost:8983/solr/newscollection
+	at org.apache.solr.client.solrj.impl.HttpSolrServer.executeMethod(HttpSolrServer.java:559)
+	at org.apache.solr.client.solrj.impl.HttpSolrServer.request(HttpSolrServer.java:210)
+	at org.apache.solr.client.solrj.impl.HttpSolrServer.request(HttpSolrServer.java:206)
+	at org.apache.solr.client.solrj.request.AbstractUpdateRequest.process(AbstractUpdateRequest.java:124)
+	at org.apache.solr.client.solrj.SolrServer.commit(SolrServer.java:168)
+	at org.apache.solr.client.solrj.SolrServer.commit(SolrServer.java:146)
+	at org.kb.indexer.NewsIndexer.commit(NewsIndexer.java:63)
+	at org.kb.IndexRunner.index(IndexRunner.java:122)
+	at org.kb.IndexRunner.main(IndexRunner.java:71)
+Caused by: java.net.ConnectException: Connection refused
+	at java.net.PlainSocketImpl.socketConnect(Native Method)
+	at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:339)
+	at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:200)
+	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:182)
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392)
+	at java.net.Socket.connect(Socket.java:579)
+	at org.apache.http.conn.scheme.PlainSocketFactory.connectSocket(PlainSocketFactory.java:117)
+	at org.apache.http.impl.conn.DefaultClientConnectionOperator.openConnection(DefaultClientConnectionOperator.java:178)
+	at org.apache.http.impl.conn.ManagedClientConnectionImpl.open(ManagedClientConnectionImpl.java:304)
+	at org.apache.http.impl.client.DefaultRequestDirector.tryConnect(DefaultRequestDirector.java:610)
+	at org.apache.http.impl.client.DefaultRequestDirector.execute(DefaultRequestDirector.java:445)
+	at org.apache.http.impl.client.AbstractHttpClient.doExecute(AbstractHttpClient.java:863)
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:82)
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:106)
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:57)
+	at org.apache.solr.client.solrj.impl.HttpSolrServer.executeMethod(HttpSolrServer.java:448)
+	... 8 more
+indexed http://www.theguardian.com/stage/2014/nov/07/show-boat-review-new-york-philharmonic
+URL: http://www.theguardian.com/media/greenslade/2014/nov/12/new-york-post-newspapers
+org.apache.solr.client.solrj.SolrServerException: Server refused connection at: http://localhost:8983/solr/newscollection
+	at org.apache.solr.client.solrj.impl.HttpSolrServer.executeMethod(HttpSolrServer.java:559)
+	at org.apache.solr.client.solrj.impl.HttpSolrServer.request(HttpSolrServer.java:210)
+	at org.apache.solr.client.solrj.impl.HttpSolrServer.request(HttpSolrServer.java:206)
+	at org.apache.solr.client.solrj.request.AbstractUpdateRequest.process(AbstractUpdateRequest.java:124)
+	at org.apache.solr.client.solrj.SolrServer.add(SolrServer.java:116)
+	at org.apache.solr.client.solrj.SolrServer.add(SolrServer.java:102)
+	at org.kb.indexer.NewsIndexer.index(NewsIndexer.java:54)
+	at org.kb.IndexRunner.index(IndexRunner.java:121)
+	at org.kb.IndexRunner.main(IndexRunner.java:71)
+Caused by: java.net.ConnectException: Connection refused
+	at java.net.PlainSocketImpl.socketConnect(Native Method)
+	at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:339)
+	at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:200)
+	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:182)
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392)
+	at java.net.Socket.connect(Socket.java:579)
+	at org.apache.http.conn.scheme.PlainSocketFactory.connectSocket(PlainSocketFactory.java:117)
+	at org.apache.http.impl.conn.DefaultClientConnectionOperator.openConnection(DefaultClientConnectionOperator.java:178)
+	at org.apache.http.impl.conn.ManagedClientConnectionImpl.open(ManagedClientConnectionImpl.java:304)
+	at org.apache.http.impl.client.DefaultRequestDirector.tryConnect(DefaultRequestDirector.java:610)
+	at org.apache.http.impl.client.DefaultRequestDirector.execute(DefaultRequestDirector.java:445)
+	at org.apache.http.impl.client.AbstractHttpClient.doExecute(AbstractHttpClient.java:863)
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:82)
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:106)
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:57)
+	at org.apache.solr.client.solrj.impl.HttpSolrServer.executeMethod(HttpSolrServer.java:448)
+	... 8 more
+org.apache.solr.client.solrj.SolrServerException: Server refused connection at: http://localhost:8983/solr/newscollection
+	at org.apache.solr.client.solrj.impl.HttpSolrServer.executeMethod(HttpSolrServer.java:559)
+	at org.apache.solr.client.solrj.impl.HttpSolrServer.request(HttpSolrServer.java:210)
+	at org.apache.solr.client.solrj.impl.HttpSolrServer.request(HttpSolrServer.java:206)
+	at org.apache.solr.client.solrj.request.AbstractUpdateRequest.process(AbstractUpdateRequest.java:124)
+	at org.apache.solr.client.solrj.SolrServer.commit(SolrServer.java:168)
+	at org.apache.solr.client.solrj.SolrServer.commit(SolrServer.java:146)
+	at org.kb.indexer.NewsIndexer.commit(NewsIndexer.java:63)
+	at org.kb.IndexRunner.index(IndexRunner.java:122)
+	at org.kb.IndexRunner.main(IndexRunner.java:71)
+Caused by: java.net.ConnectException: Connection refused
+	at java.net.PlainSocketImpl.socketConnect(Native Method)
+	at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:339)
+	at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:200)
+	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:182)
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392)
+	at java.net.Socket.connect(Socket.java:579)
+	at org.apache.http.conn.scheme.PlainSocketFactory.connectSocket(PlainSocketFactory.java:117)
+	at org.apache.http.impl.conn.DefaultClientConnectionOperator.openConnection(DefaultClientConnectionOperator.java:178)
+	at org.apache.http.impl.conn.ManagedClientConnectionImpl.open(ManagedClientConnectionImpl.java:304)
+	at org.apache.http.impl.client.DefaultRequestDirector.tryConnect(DefaultRequestDirector.java:610)
+	at org.apache.http.impl.client.DefaultRequestDirector.execute(DefaultRequestDirector.java:445)
+	at org.apache.http.impl.client.AbstractHttpClient.doExecute(AbstractHttpClient.java:863)
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:82)
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:106)
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:57)
+	at org.apache.solr.client.solrj.impl.HttpSolrServer.executeMethod(HttpSolrServer.java:448)
+	... 8 more
+indexed http://www.theguardian.com/media/greenslade/2014/nov/12/new-york-post-newspapers
+URL: http://www.theguardian.com/world/picture/2014/jul/04/new-york
+org.apache.solr.client.solrj.SolrServerException: Server refused connection at: http://localhost:8983/solr/newscollection
+	at org.apache.solr.client.solrj.impl.HttpSolrServer.executeMethod(HttpSolrServer.java:559)
+	at org.apache.solr.client.solrj.impl.HttpSolrServer.request(HttpSolrServer.java:210)
+	at org.apache.solr.client.solrj.impl.HttpSolrServer.request(HttpSolrServer.java:206)
+	at org.apache.solr.client.solrj.request.AbstractUpdateRequest.process(AbstractUpdateRequest.java:124)
+	at org.apache.solr.client.solrj.SolrServer.add(SolrServer.java:116)
+	at org.apache.solr.client.solrj.SolrServer.add(SolrServer.java:102)
+	at org.kb.indexer.NewsIndexer.index(NewsIndexer.java:54)
+	at org.kb.IndexRunner.index(IndexRunner.java:121)
+	at org.kb.IndexRunner.main(IndexRunner.java:71)
+Caused by: java.net.ConnectException: Connection refused
+	at java.net.PlainSocketImpl.socketConnect(Native Method)
+	at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:339)
+	at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:200)
+	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:182)
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392)
+	at java.net.Socket.connect(Socket.java:579)
+	at org.apache.http.conn.scheme.PlainSocketFactory.connectSocket(PlainSocketFactory.java:117)
+	at org.apache.http.impl.conn.DefaultClientConnectionOperator.openConnection(DefaultClientConnectionOperator.java:178)
+	at org.apache.http.impl.conn.ManagedClientConnectionImpl.open(ManagedClientConnectionImpl.java:304)
+	at org.apache.http.impl.client.DefaultRequestDirector.tryConnect(DefaultRequestDirector.java:610)
+	at org.apache.http.impl.client.DefaultRequestDirector.execute(DefaultRequestDirector.java:445)
+	at org.apache.http.impl.client.AbstractHttpClient.doExecute(AbstractHttpClient.java:863)
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:82)
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:106)
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:57)
+	at org.apache.solr.client.solrj.impl.HttpSolrServer.executeMethod(HttpSolrServer.java:448)
+	... 8 more
+org.apache.solr.client.solrj.SolrServerException: Server refused connection at: http://localhost:8983/solr/newscollection
+	at org.apache.solr.client.solrj.impl.HttpSolrServer.executeMethod(HttpSolrServer.java:559)
+	at org.apache.solr.client.solrj.impl.HttpSolrServer.request(HttpSolrServer.java:210)
+	at org.apache.solr.client.solrj.impl.HttpSolrServer.request(HttpSolrServer.java:206)
+	at org.apache.solr.client.solrj.request.AbstractUpdateRequest.process(AbstractUpdateRequest.java:124)
+	at org.apache.solr.client.solrj.SolrServer.commit(SolrServer.java:168)
+	at org.apache.solr.client.solrj.SolrServer.commit(SolrServer.java:146)
+	at org.kb.indexer.NewsIndexer.commit(NewsIndexer.java:63)
+	at org.kb.IndexRunner.index(IndexRunner.java:122)
+	at org.kb.IndexRunner.main(IndexRunner.java:71)
+Caused by: java.net.ConnectException: Connection refused
+	at java.net.PlainSocketImpl.socketConnect(Native Method)
+	at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:339)
+	at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:200)
+	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:182)
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392)
+	at java.net.Socket.connect(Socket.java:579)
+	at org.apache.http.conn.scheme.PlainSocketFactory.connectSocket(PlainSocketFactory.java:117)
+	at org.apache.http.impl.conn.DefaultClientConnectionOperator.openConnection(DefaultClientConnectionOperator.java:178)
+	at org.apache.http.impl.conn.ManagedClientConnectionImpl.open(ManagedClientConnectionImpl.java:304)
+	at org.apache.http.impl.client.DefaultRequestDirector.tryConnect(DefaultRequestDirector.java:610)
+	at org.apache.http.impl.client.DefaultRequestDirector.execute(DefaultRequestDirector.java:445)
+	at org.apache.http.impl.client.AbstractHttpClient.doExecute(AbstractHttpClient.java:863)
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:82)
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:106)
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:57)
+	at org.apache.solr.client.solrj.impl.HttpSolrServer.executeMethod(HttpSolrServer.java:448)
+	... 8 more
+indexed http://www.theguardian.com/world/picture/2014/jul/04/new-york
+URL: http://www.theguardian.com/world/2014/nov/10/craig-spencer-new-york-ebola-cured
+org.apache.solr.client.solrj.SolrServerException: Server refused connection at: http://localhost:8983/solr/newscollection
+	at org.apache.solr.client.solrj.impl.HttpSolrServer.executeMethod(HttpSolrServer.java:559)
+	at org.apache.solr.client.solrj.impl.HttpSolrServer.request(HttpSolrServer.java:210)
+	at org.apache.solr.client.solrj.impl.HttpSolrServer.request(HttpSolrServer.java:206)
+	at org.apache.solr.client.solrj.request.AbstractUpdateRequest.process(AbstractUpdateRequest.java:124)
+	at org.apache.solr.client.solrj.SolrServer.add(SolrServer.java:116)
+	at org.apache.solr.client.solrj.SolrServer.add(SolrServer.java:102)
+	at org.kb.indexer.NewsIndexer.index(NewsIndexer.java:54)
+	at org.kb.IndexRunner.index(IndexRunner.java:121)
+	at org.kb.IndexRunner.main(IndexRunner.java:71)
+Caused by: java.net.ConnectException: Connection refused
+	at java.net.PlainSocketImpl.socketConnect(Native Method)
+	at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:339)
+	at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:200)
+	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:182)
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392)
+	at java.net.Socket.connect(Socket.java:579)
+	at org.apache.http.conn.scheme.PlainSocketFactory.connectSocket(PlainSocketFactory.java:117)
+	at org.apache.http.impl.conn.DefaultClientConnectionOperator.openConnection(DefaultClientConnectionOperator.java:178)
+	at org.apache.http.impl.conn.ManagedClientConnectionImpl.open(ManagedClientConnectionImpl.java:304)
+	at org.apache.http.impl.client.DefaultRequestDirector.tryConnect(DefaultRequestDirector.java:610)
+	at org.apache.http.impl.client.DefaultRequestDirector.execute(DefaultRequestDirector.java:445)
+	at org.apache.http.impl.client.AbstractHttpClient.doExecute(AbstractHttpClient.java:863)
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:82)
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:106)
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:57)
+	at org.apache.solr.client.solrj.impl.HttpSolrServer.executeMethod(HttpSolrServer.java:448)
+	... 8 more
+org.apache.solr.client.solrj.SolrServerException: Server refused connection at: http://localhost:8983/solr/newscollection
+	at org.apache.solr.client.solrj.impl.HttpSolrServer.executeMethod(HttpSolrServer.java:559)
+	at org.apache.solr.client.solrj.impl.HttpSolrServer.request(HttpSolrServer.java:210)
+	at org.apache.solr.client.solrj.impl.HttpSolrServer.request(HttpSolrServer.java:206)
+	at org.apache.solr.client.solrj.request.AbstractUpdateRequest.process(AbstractUpdateRequest.java:124)
+	at org.apache.solr.client.solrj.SolrServer.commit(SolrServer.java:168)
+	at org.apache.solr.client.solrj.SolrServer.commit(SolrServer.java:146)
+	at org.kb.indexer.NewsIndexer.commit(NewsIndexer.java:63)
+	at org.kb.IndexRunner.index(IndexRunner.java:122)
+	at org.kb.IndexRunner.main(IndexRunner.java:71)
+Caused by: java.net.ConnectException: Connection refused
+	at java.net.PlainSocketImpl.socketConnect(Native Method)
+	at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:339)
+	at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:200)
+	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:182)
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392)
+	at java.net.Socket.connect(Socket.java:579)
+	at org.apache.http.conn.scheme.PlainSocketFactory.connectSocket(PlainSocketFactory.java:117)
+	at org.apache.http.impl.conn.DefaultClientConnectionOperator.openConnection(DefaultClientConnectionOperator.java:178)
+	at org.apache.http.impl.conn.ManagedClientConnectionImpl.open(ManagedClientConnectionImpl.java:304)
+	at org.apache.http.impl.client.DefaultRequestDirector.tryConnect(DefaultRequestDirector.java:610)
+	at org.apache.http.impl.client.DefaultRequestDirector.execute(DefaultRequestDirector.java:445)
+	at org.apache.http.impl.client.AbstractHttpClient.doExecute(AbstractHttpClient.java:863)
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:82)
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:106)
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:57)
+	at org.apache.solr.client.solrj.impl.HttpSolrServer.executeMethod(HttpSolrServer.java:448)
+	... 8 more
+indexed http://www.theguardian.com/world/2014/nov/10/craig-spencer-new-york-ebola-cured
+File exists urls
+File: /home/ubuntu/applications/tmpurl/urls
+URL: http://www.theguardian.com/world/picture/2014/jul/26/india-ramadan
+Exception in thread "main" org.apache.solr.client.solrj.impl.HttpSolrServer$RemoteSolrException: Document contains multiple values for uniqueKey field: id=[200, 54c09aa5b831a342]
+	at org.apache.solr.client.solrj.impl.HttpSolrServer.executeMethod(HttpSolrServer.java:552)
+	at org.apache.solr.client.solrj.impl.HttpSolrServer.request(HttpSolrServer.java:210)
+	at org.apache.solr.client.solrj.impl.HttpSolrServer.request(HttpSolrServer.java:206)
+	at org.apache.solr.client.solrj.request.AbstractUpdateRequest.process(AbstractUpdateRequest.java:124)
+	at org.apache.solr.client.solrj.SolrServer.add(SolrServer.java:116)
+	at org.apache.solr.client.solrj.SolrServer.add(SolrServer.java:102)
+	at org.kb.indexer.NewsIndexer.index(NewsIndexer.java:54)
+	at org.kb.IndexRunner.index(IndexRunner.java:121)
+	at org.kb.IndexRunner.main(IndexRunner.java:71)
+File exists urls
+File: /home/ubuntu/applications/tmpurl/urls
+URL: http://www.theguardian.com/environment/2014/sep/09/narendra-modi-india-prime-minister-climate-change-sceptic
+Exception in thread "main" org.apache.solr.client.solrj.impl.HttpSolrServer$RemoteSolrException: Document contains multiple values for uniqueKey field: id=[200, 435a82971afe0930]
+	at org.apache.solr.client.solrj.impl.HttpSolrServer.executeMethod(HttpSolrServer.java:552)
+	at org.apache.solr.client.solrj.impl.HttpSolrServer.request(HttpSolrServer.java:210)
+	at org.apache.solr.client.solrj.impl.HttpSolrServer.request(HttpSolrServer.java:206)
+	at org.apache.solr.client.solrj.request.AbstractUpdateRequest.process(AbstractUpdateRequest.java:124)
+	at org.apache.solr.client.solrj.SolrServer.add(SolrServer.java:116)
+	at org.apache.solr.client.solrj.SolrServer.add(SolrServer.java:102)
+	at org.kb.indexer.NewsIndexer.index(NewsIndexer.java:54)
+	at org.kb.IndexRunner.index(IndexRunner.java:121)
+	at org.kb.IndexRunner.main(IndexRunner.java:71)
+File exists urls
+File: /home/ubuntu/applications/tmpurl/urls
+URL: http://www.theguardian.com/environment/2014/sep/09/narendra-modi-india-prime-minister-climate-change-sceptic
+Exception in thread "main" org.apache.solr.client.solrj.impl.HttpSolrServer$RemoteSolrException: Document contains multiple values for uniqueKey field: id=[200, 435a82971afe0930]
+	at org.apache.solr.client.solrj.impl.HttpSolrServer.executeMethod(HttpSolrServer.java:552)
+	at org.apache.solr.client.solrj.impl.HttpSolrServer.request(HttpSolrServer.java:210)
+	at org.apache.solr.client.solrj.impl.HttpSolrServer.request(HttpSolrServer.java:206)
+	at org.apache.solr.client.solrj.request.AbstractUpdateRequest.process(AbstractUpdateRequest.java:124)
+	at org.apache.solr.client.solrj.SolrServer.add(SolrServer.java:116)
+	at org.apache.solr.client.solrj.SolrServer.add(SolrServer.java:102)
+	at org.kb.indexer.NewsIndexer.index(NewsIndexer.java:54)
+	at org.kb.IndexRunner.index(IndexRunner.java:121)
+	at org.kb.IndexRunner.main(IndexRunner.java:71)
+File exists urls
+File: /home/ubuntu/applications/tmpurl/urls
+File exists urls
+File: /home/ubuntu/applications/tmpurl/urls
+File exists urls
+File: /home/ubuntu/applications/tmpurl/urls
+URL: http://www.theguardian.com/environment/2014/sep/09/narendra-modi-india-prime-minister-climate-change-sceptic
+Exception in thread "main" org.apache.solr.client.solrj.impl.HttpSolrServer$RemoteSolrException: Document contains multiple values for uniqueKey field: id=[200, 435a82971afe0930]
+	at org.apache.solr.client.solrj.impl.HttpSolrServer.executeMethod(HttpSolrServer.java:552)
+	at org.apache.solr.client.solrj.impl.HttpSolrServer.request(HttpSolrServer.java:210)
+	at org.apache.solr.client.solrj.impl.HttpSolrServer.request(HttpSolrServer.java:206)
+	at org.apache.solr.client.solrj.request.AbstractUpdateRequest.process(AbstractUpdateRequest.java:124)
+	at org.apache.solr.client.solrj.SolrServer.add(SolrServer.java:116)
+	at org.apache.solr.client.solrj.SolrServer.add(SolrServer.java:102)
+	at org.kb.indexer.NewsIndexer.index(NewsIndexer.java:54)
+	at org.kb.IndexRunner.index(IndexRunner.java:121)
+	at org.kb.IndexRunner.main(IndexRunner.java:71)
+File exists urls
+File: /home/ubuntu/applications/tmpurl/urls
+URL: http://www.theguardian.com/environment/2014/sep/09/narendra-modi-india-prime-minister-climate-change-sceptic
+SOLR URL: http://localhost:8983/solr/newscollection
+indexed http://www.theguardian.com/environment/2014/sep/09/narendra-modi-india-prime-minister-climate-change-sceptic
+URL: http://www.theguardian.com/world/2014/nov/17/narendra-modi-express-rolls-into-sydney-bringing-excited-supporters
+SOLR URL: http://localhost:8983/solr/newscollection
+indexed http://www.theguardian.com/world/2014/nov/17/narendra-modi-express-rolls-into-sydney-bringing-excited-supporters
+URL: http://www.theguardian.com/world/2014/nov/17/narendra-modi-thousands-speak-sydney
+SOLR URL: http://localhost:8983/solr/newscollection
+indexed http://www.theguardian.com/world/2014/nov/17/narendra-modi-thousands-speak-sydney
+URL: http://www.theguardian.com/world/video/2014/may/15/narendra-modi-india-election-video
+SOLR URL: http://localhost:8983/solr/newscollection
+indexed http://www.theguardian.com/world/video/2014/may/15/narendra-modi-india-election-video
+URL: http://www.theguardian.com/world/2014/sep/25/indian-pm-narendra-modi-us-visit
+SOLR URL: http://localhost:8983/solr/newscollection
+indexed http://www.theguardian.com/world/2014/sep/25/indian-pm-narendra-modi-us-visit
+URL: http://www.theguardian.com/environment/2014/sep/30/-sp-narendra-modi-india-solar-renewables-energy
+SOLR URL: http://localhost:8983/solr/newscollection
+indexed http://www.theguardian.com/environment/2014/sep/30/-sp-narendra-modi-india-solar-renewables-energy
+URL: http://www.theguardian.com/australia-news/2014/nov/18/tony-abbott-and-narendra-modi-share-high-hopes-for-bright-trading-future
+SOLR URL: http://localhost:8983/solr/newscollection
+indexed http://www.theguardian.com/australia-news/2014/nov/18/tony-abbott-and-narendra-modi-share-high-hopes-for-bright-trading-future
+URL: http://www.theguardian.com/world/2014/aug/15/india-shamed-sexual-violence-narendra-modi-prime-minister-independence-day
+SOLR URL: http://localhost:8983/solr/newscollection
+indexed http://www.theguardian.com/world/2014/aug/15/india-shamed-sexual-violence-narendra-modi-prime-minister-independence-day
+URL: http://www.theguardian.com/environment/2014/sep/01/coalgate-india-supreme-court-narendra-modi
+SOLR URL: http://localhost:8983/solr/newscollection
+indexed http://www.theguardian.com/environment/2014/sep/01/coalgate-india-supreme-court-narendra-modi
+URL: http://www.theguardian.com/world/2014/nov/14/narendra-modi-from-international-pariah-to-the-g20s-political-rock-star
+SOLR URL: http://localhost:8983/solr/newscollection
+indexed http://www.theguardian.com/world/2014/nov/14/narendra-modi-from-international-pariah-to-the-g20s-political-rock-star
+File exists urls
+File: /home/ubuntu/applications/tmpurl/urls
+URL: http://www.theguardian.com/music/2014/sep/04/avi-buffalo-at-best-cuckhold-review-poluted-imagination
+SOLR URL: http://localhost:8983/solr/newscollection
+indexed http://www.theguardian.com/music/2014/sep/04/avi-buffalo-at-best-cuckhold-review-poluted-imagination
+URL: http://www.theguardian.com/university-sussex-partner-zone/2014/sep/11/seven-ways-for-students-to-spend-less-at-university
+SOLR URL: http://localhost:8983/solr/newscollection
+indexed http://www.theguardian.com/university-sussex-partner-zone/2014/sep/11/seven-ways-for-students-to-spend-less-at-university
+URL: http://www.theguardian.com/education/2014/nov/06/how-to-set-up-a-society-at-university
+SOLR URL: http://localhost:8983/solr/newscollection
+indexed http://www.theguardian.com/education/2014/nov/06/how-to-set-up-a-society-at-university
+URL: http://www.theguardian.com/film/2014/sep/11/at-berkeley-review-documentary-university-of-california
+SOLR URL: http://localhost:8983/solr/newscollection
+indexed http://www.theguardian.com/film/2014/sep/11/at-berkeley-review-documentary-university-of-california
+URL: http://www.theguardian.com/university-sussex-partner-zone/gallery/2014/aug/20/a-summer-at-the-university-of-sussex-in-photos
+SOLR URL: http://localhost:8983/solr/newscollection
+indexed http://www.theguardian.com/university-sussex-partner-zone/gallery/2014/aug/20/a-summer-at-the-university-of-sussex-in-photos
+URL: http://www.theguardian.com/edge-hill-university-partner-zone/why-train-at-edge-hill-university
+SOLR URL: http://localhost:8983/solr/newscollection
+indexed http://www.theguardian.com/edge-hill-university-partner-zone/why-train-at-edge-hill-university
+URL: http://www.theguardian.com/university-sussex-partner-zone/2014/sep/12/freshers-week-at-sussex-what-not-to-miss
+SOLR URL: http://localhost:8983/solr/newscollection
+indexed http://www.theguardian.com/university-sussex-partner-zone/2014/sep/12/freshers-week-at-sussex-what-not-to-miss
+URL: http://www.theguardian.com/edge-hill-university-partner-zone/2014/aug/20/supporting-schools-at-grass-roots-level
+SOLR URL: http://localhost:8983/solr/newscollection
+indexed http://www.theguardian.com/edge-hill-university-partner-zone/2014/aug/20/supporting-schools-at-grass-roots-level
+URL: http://www.theguardian.com/world/video/2014/aug/22/adelaide-university-protesters-confront-police-at-tony-abbott-visit-video
+SOLR URL: http://localhost:8983/solr/newscollection
+indexed http://www.theguardian.com/world/video/2014/aug/22/adelaide-university-protesters-confront-police-at-tony-abbott-visit-video
+URL: http://www.theguardian.com/education/2014/aug/04/sport-at-university-do-athletes-make-better-students
+SOLR URL: http://localhost:8983/solr/newscollection
+indexed http://www.theguardian.com/education/2014/aug/04/sport-at-university-do-athletes-make-better-students
+File exists urls
+File: /home/ubuntu/applications/tmpurl/urls
+URL: http://www.theguardian.com/environment/2014/sep/09/narendra-modi-india-prime-minister-climate-change-sceptic
+SOLR URL: http://localhost:8983/solr/newscollection
+indexed http://www.theguardian.com/environment/2014/sep/09/narendra-modi-india-prime-minister-climate-change-sceptic
+URL: http://www.theguardian.com/world/2014/nov/17/narendra-modi-express-rolls-into-sydney-bringing-excited-supporters
+SOLR URL: http://localhost:8983/solr/newscollection
+indexed http://www.theguardian.com/world/2014/nov/17/narendra-modi-express-rolls-into-sydney-bringing-excited-supporters
+URL: http://www.theguardian.com/world/2014/nov/17/narendra-modi-thousands-speak-sydney
+SOLR URL: http://localhost:8983/solr/newscollection
+indexed http://www.theguardian.com/world/2014/nov/17/narendra-modi-thousands-speak-sydney
+URL: http://www.theguardian.com/world/video/2014/may/15/narendra-modi-india-election-video
+SOLR URL: http://localhost:8983/solr/newscollection
+indexed http://www.theguardian.com/world/video/2014/may/15/narendra-modi-india-election-video
+URL: http://www.theguardian.com/world/2014/sep/25/indian-pm-narendra-modi-us-visit
+SOLR URL: http://localhost:8983/solr/newscollection
+indexed http://www.theguardian.com/world/2014/sep/25/indian-pm-narendra-modi-us-visit
+URL: http://www.theguardian.com/environment/2014/sep/30/-sp-narendra-modi-india-solar-renewables-energy
+SOLR URL: http://localhost:8983/solr/newscollection
+indexed http://www.theguardian.com/environment/2014/sep/30/-sp-narendra-modi-india-solar-renewables-energy
+URL: http://www.theguardian.com/australia-news/2014/nov/18/tony-abbott-and-narendra-modi-share-high-hopes-for-bright-trading-future
+SOLR URL: http://localhost:8983/solr/newscollection
+indexed http://www.theguardian.com/australia-news/2014/nov/18/tony-abbott-and-narendra-modi-share-high-hopes-for-bright-trading-future
+URL: http://www.theguardian.com/world/2014/aug/15/india-shamed-sexual-violence-narendra-modi-prime-minister-independence-day
+SOLR URL: http://localhost:8983/solr/newscollection
+indexed http://www.theguardian.com/world/2014/aug/15/india-shamed-sexual-violence-narendra-modi-prime-minister-independence-day
+URL: http://www.theguardian.com/environment/2014/sep/01/coalgate-india-supreme-court-narendra-modi
+SOLR URL: http://localhost:8983/solr/newscollection
+indexed http://www.theguardian.com/environment/2014/sep/01/coalgate-india-supreme-court-narendra-modi
+URL: http://www.theguardian.com/world/2014/nov/14/narendra-modi-from-international-pariah-to-the-g20s-political-rock-star
+SOLR URL: http://localhost:8983/solr/newscollection
+indexed http://www.theguardian.com/world/2014/nov/14/narendra-modi-from-international-pariah-to-the-g20s-political-rock-star
+File exists urls
+File: /home/ubuntu/applications/tmpurl/urls
+URL: http://www.theguardian.com/business/video/2012/apr/06/barak-obama-economic-recovery-video
+SOLR URL: http://localhost:8983/solr/newscollection
+indexed http://www.theguardian.com/business/video/2012/apr/06/barak-obama-economic-recovery-video
+URL: http://www.theguardian.com/lifeandstyle/wordofmouth/2009/apr/01/cambridge-villages-barak-obama-recipes
+SOLR URL: http://localhost:8983/solr/newscollection
+indexed http://www.theguardian.com/lifeandstyle/wordofmouth/2009/apr/01/cambridge-villages-barak-obama-recipes
+URL: http://www.theguardian.com/world/2009/apr/27/barak-obama-swine-flu-fears
+SOLR URL: http://localhost:8983/solr/newscollection
+indexed http://www.theguardian.com/world/2009/apr/27/barak-obama-swine-flu-fears
+URL: http://www.theguardian.com/world/2014/aug/29/obama-russia-troops-ukraine
+SOLR URL: http://localhost:8983/solr/newscollection
+indexed http://www.theguardian.com/world/2014/aug/29/obama-russia-troops-ukraine
+URL: http://www.theguardian.com/world/2012/nov/26/ehud-barak-quits-politics-israel
+SOLR URL: http://localhost:8983/solr/newscollection
+indexed http://www.theguardian.com/world/2012/nov/26/ehud-barak-quits-politics-israel
+URL: http://www.theguardian.com/commentisfree/2014/aug/05/obama-africa-leaders-summit-development-us-president
+SOLR URL: http://localhost:8983/solr/newscollection
+indexed http://www.theguardian.com/commentisfree/2014/aug/05/obama-africa-leaders-summit-development-us-president
+URL: http://www.theguardian.com/world/2012/dec/26/ehud-barak-approves-ariel-university
+SOLR URL: http://localhost:8983/solr/newscollection
+indexed http://www.theguardian.com/world/2012/dec/26/ehud-barak-approves-ariel-university
+URL: http://www.theguardian.com/commentisfree/2012/nov/26/binyamin-netanyahu-fig-leaf-ehud-barak
+SOLR URL: http://localhost:8983/solr/newscollection
+indexed http://www.theguardian.com/commentisfree/2012/nov/26/binyamin-netanyahu-fig-leaf-ehud-barak
+URL: http://www.theguardian.com/world/2012/nov/26/ehud-barak-retires-israel-politics
+SOLR URL: http://localhost:8983/solr/newscollection
+indexed http://www.theguardian.com/world/2012/nov/26/ehud-barak-retires-israel-politics
+URL: http://www.theguardian.com/world/2014/dec/06/us-photojournalist-hostage-yemen-killed-failed-rescue-attempt
+SOLR URL: http://localhost:8983/solr/newscollection
+indexed http://www.theguardian.com/world/2014/dec/06/us-photojournalist-hostage-yemen-killed-failed-rescue-attempt
+File exists urls
+File: /home/ubuntu/applications/tmpurl/urls
+URL: http://www.theguardian.com/business/video/2012/apr/06/barak-obama-economic-recovery-video
+SOLR URL: http://localhost:8983/solr/newscollection
+indexed http://www.theguardian.com/business/video/2012/apr/06/barak-obama-economic-recovery-video
+URL: http://www.theguardian.com/lifeandstyle/wordofmouth/2009/apr/01/cambridge-villages-barak-obama-recipes
+SOLR URL: http://localhost:8983/solr/newscollection
+indexed http://www.theguardian.com/lifeandstyle/wordofmouth/2009/apr/01/cambridge-villages-barak-obama-recipes
+URL: http://www.theguardian.com/world/2009/apr/27/barak-obama-swine-flu-fears
+SOLR URL: http://localhost:8983/solr/newscollection
+indexed http://www.theguardian.com/world/2009/apr/27/barak-obama-swine-flu-fears
+URL: http://www.theguardian.com/world/2014/aug/29/obama-russia-troops-ukraine
+SOLR URL: http://localhost:8983/solr/newscollection
+indexed http://www.theguardian.com/world/2014/aug/29/obama-russia-troops-ukraine
+URL: http://www.theguardian.com/world/2012/nov/26/ehud-barak-quits-politics-israel
+SOLR URL: http://localhost:8983/solr/newscollection
+indexed http://www.theguardian.com/world/2012/nov/26/ehud-barak-quits-politics-israel
+URL: http://www.theguardian.com/commentisfree/2014/aug/05/obama-africa-leaders-summit-development-us-president
+SOLR URL: http://localhost:8983/solr/newscollection
+indexed http://www.theguardian.com/commentisfree/2014/aug/05/obama-africa-leaders-summit-development-us-president
+URL: http://www.theguardian.com/world/2012/dec/26/ehud-barak-approves-ariel-university
+SOLR URL: http://localhost:8983/solr/newscollection
+indexed http://www.theguardian.com/world/2012/dec/26/ehud-barak-approves-ariel-university
+URL: http://www.theguardian.com/commentisfree/2012/nov/26/binyamin-netanyahu-fig-leaf-ehud-barak
+SOLR URL: http://localhost:8983/solr/newscollection
+indexed http://www.theguardian.com/commentisfree/2012/nov/26/binyamin-netanyahu-fig-leaf-ehud-barak
+URL: http://www.theguardian.com/world/2012/nov/26/ehud-barak-retires-israel-politics
+SOLR URL: http://localhost:8983/solr/newscollection
+indexed http://www.theguardian.com/world/2012/nov/26/ehud-barak-retires-israel-politics
+URL: http://www.theguardian.com/world/2014/dec/06/us-photojournalist-hostage-yemen-killed-failed-rescue-attempt
+SOLR URL: http://localhost:8983/solr/newscollection
+indexed http://www.theguardian.com/world/2014/dec/06/us-photojournalist-hostage-yemen-killed-failed-rescue-attempt
+File exists urls
+File: /home/ubuntu/applications/tmpurl/urls
+URL: http://www.theguardian.com/environment/2014/sep/09/narendra-modi-india-prime-minister-climate-change-sceptic
+SOLR URL: http://localhost:8983/solr/newscollection
+indexed http://www.theguardian.com/environment/2014/sep/09/narendra-modi-india-prime-minister-climate-change-sceptic
+URL: http://www.theguardian.com/world/2014/nov/17/narendra-modi-express-rolls-into-sydney-bringing-excited-supporters
+SOLR URL: http://localhost:8983/solr/newscollection
+indexed http://www.theguardian.com/world/2014/nov/17/narendra-modi-express-rolls-into-sydney-bringing-excited-supporters
+URL: http://www.theguardian.com/world/2014/nov/17/narendra-modi-thousands-speak-sydney
+SOLR URL: http://localhost:8983/solr/newscollection
+indexed http://www.theguardian.com/world/2014/nov/17/narendra-modi-thousands-speak-sydney
+URL: http://www.theguardian.com/world/video/2014/may/15/narendra-modi-india-election-video
+SOLR URL: http://localhost:8983/solr/newscollection
+indexed http://www.theguardian.com/world/video/2014/may/15/narendra-modi-india-election-video
+URL: http://www.theguardian.com/world/2014/sep/25/indian-pm-narendra-modi-us-visit
+SOLR URL: http://localhost:8983/solr/newscollection
+indexed http://www.theguardian.com/world/2014/sep/25/indian-pm-narendra-modi-us-visit
+URL: http://www.theguardian.com/environment/2014/sep/30/-sp-narendra-modi-india-solar-renewables-energy
+SOLR URL: http://localhost:8983/solr/newscollection
+indexed http://www.theguardian.com/environment/2014/sep/30/-sp-narendra-modi-india-solar-renewables-energy
+URL: http://www.theguardian.com/australia-news/2014/nov/18/tony-abbott-and-narendra-modi-share-high-hopes-for-bright-trading-future
+SOLR URL: http://localhost:8983/solr/newscollection
+indexed http://www.theguardian.com/australia-news/2014/nov/18/tony-abbott-and-narendra-modi-share-high-hopes-for-bright-trading-future
+URL: http://www.theguardian.com/world/2014/aug/15/india-shamed-sexual-violence-narendra-modi-prime-minister-independence-day
+SOLR URL: http://localhost:8983/solr/newscollection
+indexed http://www.theguardian.com/world/2014/aug/15/india-shamed-sexual-violence-narendra-modi-prime-minister-independence-day
+URL: http://www.theguardian.com/environment/2014/sep/01/coalgate-india-supreme-court-narendra-modi
+SOLR URL: http://localhost:8983/solr/newscollection
+indexed http://www.theguardian.com/environment/2014/sep/01/coalgate-india-supreme-court-narendra-modi
+URL: http://www.theguardian.com/world/2014/nov/14/narendra-modi-from-international-pariah-to-the-g20s-political-rock-star
+SOLR URL: http://localhost:8983/solr/newscollection
+indexed http://www.theguardian.com/world/2014/nov/14/narendra-modi-from-international-pariah-to-the-g20s-political-rock-star
+File exists urls
+File: /home/ubuntu/applications/tmpurl/urls
+URL: http://www.theguardian.com/technology/2014/dec/02/north-korea-hack-sony-pictures-brad-pitt-fury
+SOLR URL: http://localhost:8983/solr/newscollection
+indexed http://www.theguardian.com/technology/2014/dec/02/north-korea-hack-sony-pictures-brad-pitt-fury
+URL: http://www.theguardian.com/film/2014/aug/28/angelina-jolie-and-brad-pitt-marry-in-france
+SOLR URL: http://localhost:8983/solr/newscollection
+indexed http://www.theguardian.com/film/2014/aug/28/angelina-jolie-and-brad-pitt-marry-in-france
+URL: http://www.theguardian.com/commentisfree/2014/nov/05/angelina-jolie-five-tips-survive-politics-train-brad-pitt
+SOLR URL: http://localhost:8983/solr/newscollection
+indexed http://www.theguardian.com/commentisfree/2014/nov/05/angelina-jolie-five-tips-survive-politics-train-brad-pitt
+URL: http://www.theguardian.com/film/filmblog/2014/oct/28/uk-box-office-fury-brad-pitt-serena-jennifer-lawrence
+SOLR URL: http://localhost:8983/solr/newscollection
+indexed http://www.theguardian.com/film/filmblog/2014/oct/28/uk-box-office-fury-brad-pitt-serena-jennifer-lawrence
+URL: http://www.theguardian.com/film/filmblog/2014/jan/10/brad-pitt-five-best-moments
+SOLR URL: http://localhost:8983/solr/newscollection
+indexed http://www.theguardian.com/film/filmblog/2014/jan/10/brad-pitt-five-best-moments
+URL: http://www.theguardian.com/film/2014/oct/23/fury-review-brad-pitt-second-world-war-drama
+SOLR URL: http://localhost:8983/solr/newscollection
+indexed http://www.theguardian.com/film/2014/oct/23/fury-review-brad-pitt-second-world-war-drama
+URL: http://www.theguardian.com/film/2014/oct/10/fury-first-look-review-brad-pitt-london-film-festival
+SOLR URL: http://localhost:8983/solr/newscollection
+indexed http://www.theguardian.com/film/2014/oct/10/fury-first-look-review-brad-pitt-london-film-festival
+URL: http://www.theguardian.com/lifeandstyle/lostinshowbiz/2014/oct/02/vitalii-sediuk-comic-genius-grabbing-famous-women-kim-kardashian-brad-pitt
+SOLR URL: http://localhost:8983/solr/newscollection
+indexed http://www.theguardian.com/lifeandstyle/lostinshowbiz/2014/oct/02/vitalii-sediuk-comic-genius-grabbing-famous-women-kim-kardashian-brad-pitt
+URL: http://www.theguardian.com/culture/2013/dec/18/brad-pitt-50-birthday
+SOLR URL: http://localhost:8983/solr/newscollection
+indexed http://www.theguardian.com/culture/2013/dec/18/brad-pitt-50-birthday
+URL: http://www.theguardian.com/film/2014/jul/10/brad-pitt-visited-wimpy-he-must-have-excellent-taste
+SOLR URL: http://localhost:8983/solr/newscollection
+indexed http://www.theguardian.com/film/2014/jul/10/brad-pitt-visited-wimpy-he-must-have-excellent-taste
+URL: stmas
+Exception in thread "main" java.lang.IllegalArgumentException: Malformed URL: stmas
+	at org.jsoup.helper.HttpConnection.url(HttpConnection.java:64)
+	at org.jsoup.helper.HttpConnection.connect(HttpConnection.java:30)
+	at org.jsoup.Jsoup.connect(Jsoup.java:73)
+	at org.kb.IndexRunner.main(IndexRunner.java:70)
+Caused by: java.net.MalformedURLException: no protocol: stmas
+	at java.net.URL.<init>(URL.java:585)
+	at java.net.URL.<init>(URL.java:482)
+	at java.net.URL.<init>(URL.java:431)
+	at org.jsoup.helper.HttpConnection.url(HttpConnection.java:62)
+	... 3 more
+File exists urls
+File: /home/ubuntu/applications/tmpurl/urls
+URL: http://www.theguardian.com/environment/2014/sep/09/narendra-modi-india-prime-minister-climate-change-sceptic
+SOLR URL: http://localhost:8983/solr/newscollection
+indexed http://www.theguardian.com/environment/2014/sep/09/narendra-modi-india-prime-minister-climate-change-sceptic
+URL: http://www.theguardian.com/world/2014/nov/17/narendra-modi-express-rolls-into-sydney-bringing-excited-supporters
+SOLR URL: http://localhost:8983/solr/newscollection
+indexed http://www.theguardian.com/world/2014/nov/17/narendra-modi-express-rolls-into-sydney-bringing-excited-supporters
+URL: http://www.theguardian.com/world/2014/nov/17/narendra-modi-thousands-speak-sydney
+SOLR URL: http://localhost:8983/solr/newscollection
+indexed http://www.theguardian.com/world/2014/nov/17/narendra-modi-thousands-speak-sydney
+URL: http://www.theguardian.com/world/video/2014/may/15/narendra-modi-india-election-video
+SOLR URL: http://localhost:8983/solr/newscollection
+indexed http://www.theguardian.com/world/video/2014/may/15/narendra-modi-india-election-video
+URL: http://www.theguardian.com/world/2014/sep/25/indian-pm-narendra-modi-us-visit
+SOLR URL: http://localhost:8983/solr/newscollection
+indexed http://www.theguardian.com/world/2014/sep/25/indian-pm-narendra-modi-us-visit
+URL: http://www.theguardian.com/environment/2014/sep/30/-sp-narendra-modi-india-solar-renewables-energy
+SOLR URL: http://localhost:8983/solr/newscollection
+indexed http://www.theguardian.com/environment/2014/sep/30/-sp-narendra-modi-india-solar-renewables-energy
+URL: http://www.theguardian.com/australia-news/2014/nov/18/tony-abbott-and-narendra-modi-share-high-hopes-for-bright-trading-future
+SOLR URL: http://localhost:8983/solr/newscollection
+indexed http://www.theguardian.com/australia-news/2014/nov/18/tony-abbott-and-narendra-modi-share-high-hopes-for-bright-trading-future
+URL: http://www.theguardian.com/world/2014/aug/15/india-shamed-sexual-violence-narendra-modi-prime-minister-independence-day
+SOLR URL: http://localhost:8983/solr/newscollection
+indexed http://www.theguardian.com/world/2014/aug/15/india-shamed-sexual-violence-narendra-modi-prime-minister-independence-day
+URL: http://www.theguardian.com/environment/2014/sep/01/coalgate-india-supreme-court-narendra-modi
+SOLR URL: http://localhost:8983/solr/newscollection
+indexed http://www.theguardian.com/environment/2014/sep/01/coalgate-india-supreme-court-narendra-modi
+URL: http://www.theguardian.com/world/2014/nov/14/narendra-modi-from-international-pariah-to-the-g20s-political-rock-star
+SOLR URL: http://localhost:8983/solr/newscollection
+indexed http://www.theguardian.com/world/2014/nov/14/narendra-modi-from-international-pariah-to-the-g20s-political-rock-star
+File exists urls
+File: /home/ubuntu/applications/tmpurl/urls
+File exists urls
+File: /home/ubuntu/applications/tmpurl/urls
+URL: http://www.theguardian.com/business/video/2012/apr/06/barak-obama-economic-recovery-video
+SOLR URL: http://localhost:8983/solr/newscollection
+indexed http://www.theguardian.com/business/video/2012/apr/06/barak-obama-economic-recovery-video
+URL: http://www.theguardian.com/lifeandstyle/wordofmouth/2009/apr/01/cambridge-villages-barak-obama-recipes
+SOLR URL: http://localhost:8983/solr/newscollection
+indexed http://www.theguardian.com/lifeandstyle/wordofmouth/2009/apr/01/cambridge-villages-barak-obama-recipes
+URL: http://www.theguardian.com/world/2009/apr/27/barak-obama-swine-flu-fears
+SOLR URL: http://localhost:8983/solr/newscollection
+indexed http://www.theguardian.com/world/2009/apr/27/barak-obama-swine-flu-fears
+URL: http://www.theguardian.com/world/2014/aug/29/obama-russia-troops-ukraine
+SOLR URL: http://localhost:8983/solr/newscollection
+indexed http://www.theguardian.com/world/2014/aug/29/obama-russia-troops-ukraine
+URL: http://www.theguardian.com/world/2012/nov/26/ehud-barak-quits-politics-israel
+SOLR URL: http://localhost:8983/solr/newscollection
+indexed http://www.theguardian.com/world/2012/nov/26/ehud-barak-quits-politics-israel
+URL: http://www.theguardian.com/commentisfree/2014/aug/05/obama-africa-leaders-summit-development-us-president
+SOLR URL: http://localhost:8983/solr/newscollection
+indexed http://www.theguardian.com/commentisfree/2014/aug/05/obama-africa-leaders-summit-development-us-president
+URL: http://www.theguardian.com/world/2012/dec/26/ehud-barak-approves-ariel-university
+SOLR URL: http://localhost:8983/solr/newscollection
+indexed http://www.theguardian.com/world/2012/dec/26/ehud-barak-approves-ariel-university
+URL: http://www.theguardian.com/commentisfree/2012/nov/26/binyamin-netanyahu-fig-leaf-ehud-barak
+SOLR URL: http://localhost:8983/solr/newscollection
+indexed http://www.theguardian.com/commentisfree/2012/nov/26/binyamin-netanyahu-fig-leaf-ehud-barak
+URL: http://www.theguardian.com/world/2012/nov/26/ehud-barak-retires-israel-politics
+SOLR URL: http://localhost:8983/solr/newscollection
+indexed http://www.theguardian.com/world/2012/nov/26/ehud-barak-retires-israel-politics
+URL: http://www.theguardian.com/world/2014/dec/06/us-photojournalist-hostage-yemen-killed-failed-rescue-attempt
+SOLR URL: http://localhost:8983/solr/newscollection
+indexed http://www.theguardian.com/world/2014/dec/06/us-photojournalist-hostage-yemen-killed-failed-rescue-attempt
+File exists urls
+File: /home/ubuntu/applications/tmpurl/urls
+URL: http://www.theguardian.com/business/video/2012/apr/06/barak-obama-economic-recovery-video
+SOLR URL: http://localhost:8983/solr/newscollection
+indexed http://www.theguardian.com/business/video/2012/apr/06/barak-obama-economic-recovery-video
+URL: http://www.theguardian.com/lifeandstyle/wordofmouth/2009/apr/01/cambridge-villages-barak-obama-recipes
+SOLR URL: http://localhost:8983/solr/newscollection
+indexed http://www.theguardian.com/lifeandstyle/wordofmouth/2009/apr/01/cambridge-villages-barak-obama-recipes
+URL: http://www.theguardian.com/world/2009/apr/27/barak-obama-swine-flu-fears
+SOLR URL: http://localhost:8983/solr/newscollection
+indexed http://www.theguardian.com/world/2009/apr/27/barak-obama-swine-flu-fears
+URL: http://www.theguardian.com/world/2014/aug/29/obama-russia-troops-ukraine
+SOLR URL: http://localhost:8983/solr/newscollection
+indexed http://www.theguardian.com/world/2014/aug/29/obama-russia-troops-ukraine
+URL: http://www.theguardian.com/world/2012/nov/26/ehud-barak-quits-politics-israel
+SOLR URL: http://localhost:8983/solr/newscollection
+indexed http://www.theguardian.com/world/2012/nov/26/ehud-barak-quits-politics-israel
+URL: http://www.theguardian.com/commentisfree/2014/aug/05/obama-africa-leaders-summit-development-us-president
+SOLR URL: http://localhost:8983/solr/newscollection
+indexed http://www.theguardian.com/commentisfree/2014/aug/05/obama-africa-leaders-summit-development-us-president
+URL: http://www.theguardian.com/world/2012/dec/26/ehud-barak-approves-ariel-university
+SOLR URL: http://localhost:8983/solr/newscollection
+indexed http://www.theguardian.com/world/2012/dec/26/ehud-barak-approves-ariel-university
+URL: http://www.theguardian.com/commentisfree/2012/nov/26/binyamin-netanyahu-fig-leaf-ehud-barak
+SOLR URL: http://localhost:8983/solr/newscollection
+indexed http://www.theguardian.com/commentisfree/2012/nov/26/binyamin-netanyahu-fig-leaf-ehud-barak
+URL: http://www.theguardian.com/world/2012/nov/26/ehud-barak-retires-israel-politics
+SOLR URL: http://localhost:8983/solr/newscollection
+indexed http://www.theguardian.com/world/2012/nov/26/ehud-barak-retires-israel-politics
+URL: http://www.theguardian.com/world/2014/dec/06/us-photojournalist-hostage-yemen-killed-failed-rescue-attempt
+SOLR URL: http://localhost:8983/solr/newscollection
+indexed http://www.theguardian.com/world/2014/dec/06/us-photojournalist-hostage-yemen-killed-failed-rescue-attempt
+File exists urls
+File: /home/ubuntu/applications/tmpurl/urls
+File exists urls
+File: /home/ubuntu/applications/tmpurl/urls

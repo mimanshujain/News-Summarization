@@ -120,15 +120,16 @@
      required, it is highly recommended. A <uniqueKey> is present in almost all Solr 
      installations. See the <uniqueKey> declaration below where <uniqueKey> is set to "id".
    -->   
-   <field name="id" type="string" indexed="true" stored="true" required="true" multiValued="false" />
+   <field name="id" type="string" indexed="true" stored="true" required="true" /> 
+ <!--  <field name="id" type="uuid" indexed="true" stored="true" required="true"/> -->
    <field name="FILEID" type="string" indexed="true" stored="true" required="true" multiValued="false" /> 
    <field name="CATEGORY" type="string" indexed="true" stored="true" multiValued="false" />
-   <field name="PLACE" type="unfiltered_text" indexed="true" stored="true" multiValued="false" />
-   <field name="NEWSDATE" type="string" indexed="true" stored="true" multiValued="false" />
+   <field name="PLACE" type="unfiltered_text" indexed="true" stored="true" multiValued="true" />
+   <field name="NEWSDATE" type="date" indexed="true" stored="true" multiValued="false" />
    <field name="AUTHOR" type="unfiltered_text" indexed="true" stored="true" multiValued="true" />
    <field name="AUTHORORG" type="unfiltered_text" indexed="true" stored="true" multiValued="false" />  
-   <field name="TITLE" type="text_en" indexed="true" stored="true" multiValued="false" />
-   <field name="CONTENT" type="text_en" indexed="true" stored="true" multiValued="false" />
+   <field name="TITLE" type="text_general" indexed="true" stored="true" multiValued="false" />
+   <field name="CONTENT" type="text_general" indexed="true" stored="true" multiValued="false" />
    <field name="TAGS" type="string" indexed="true" stored="true" multiValued="true" />
    <field name="NEWSCATEGORY" type="string" indexed="true" stored="true" multiValued="true" />
 
@@ -165,7 +166,7 @@
 
    <!-- non-tokenized version of author to make it easier to sort or group
         results by author.  copied from "AUTHOR" via copyField -->
-   <field name="author_exact" type="string" indexed="true" stored="false"/>
+   <field name="author_exact" type="string" indexed="true" stored="false" multiValued="true" />
 
 
    <!--
@@ -365,6 +366,7 @@
 
          Note: For faster range queries, consider the tdate type
       -->
+    <fieldType name="uuid" class="solr.UUIDField" indexed="true" />
     <fieldType name="date" class="solr.TrieDateField" precisionStep="0" positionIncrementGap="0"/>
 
     <!-- A Trie based date field for faster date range queries and date faceting. -->
