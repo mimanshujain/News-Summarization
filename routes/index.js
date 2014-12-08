@@ -17,7 +17,7 @@ var querystring = require('querystring');
 
 // Create a client 
 //Signature :: function createClient(host, port, core, path, agent, secure, bigint)
-var client = solr.createClient('98.118.151.224', 8983, 'newscollection', '/solr', false, false);
+var client = solr.createClient('ec2-54-148-149-139.us-west-2.compute.amazonaws.com', 8983, 'newscollection', '/solr', false, false);
 var queryVal = '';
 var result = {};
 var allContent = '';
@@ -66,6 +66,8 @@ router.post('/', function (req, res) {
                     //console(resp.getBody().response.results);
                     result.gaurdianData = resp.getBody().response.results;
                     
+                    writeURL(result.gaurdianData);
+
                     var solrLength = Object.keys(result.solrData.response.docs).length;
                     var guarLength = Object.keys(result.gaurdianData).length;
                     //console.log('SolrLength::' + solrLength); console.log('GuarLength::' + guarLength);
@@ -275,6 +277,21 @@ function replaceAllDouble(msg, type, repl) {
 
 module.exports = router;
 
+function writeURL(res) {
+console.log(res);
+var urls = "";
+for(var i = 0; i < res.length; i++) {
+urls += res[i]['webUrl'] + "\n";
+}
+fs.writeFile("/home/ubuntu/applications/tmpurl/urls", urls, function (err) {
+if (err) {
+console.log(err);
+}
+else {
+console.log("File saved!");
+}
+});
+}
 
 //fs.writeFile('./timeLine.json', output, function (err) {
 //    if (err)
