@@ -7,7 +7,5 @@ News Search Engine and Story Representation (Nodejs, javascript, jQuery, Java, A
 •	LexRank algorithm to build a coherent news story through extraction.<br/>
 
 Website url: http://bit.ly/newsproj
-
-Demo URL: https://www.dropbox.com/s/thd6sisd824d9j4/video_kuchbhi.mp4?dl=0
 ==========================================================================================
 
